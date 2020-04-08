@@ -32,7 +32,7 @@ namespace xiangmu.Controllers
 
             return View();
         }
-        public ActionResult sss()
+        public ActionResult ad()
         {
             return View();
         }
