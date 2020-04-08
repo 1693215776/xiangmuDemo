@@ -26,5 +26,11 @@ namespace xiangmu.Controllers
 
             return View();
         }
+        public ActionResult AAAAA()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
