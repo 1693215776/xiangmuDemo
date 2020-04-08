@@ -40,5 +40,11 @@ namespace xiangmu.Controllers
         {
             return View();
         }
+
+        public ActionResult swlsq()
+        {
+            return View();
+        }
+
     }
 }
