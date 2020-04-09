@@ -46,5 +46,10 @@ namespace xiangmu.Controllers
             return View();
         }
 
+        public ActionResult sj()
+        {
+            return View();
+        }
+
     }
 }
