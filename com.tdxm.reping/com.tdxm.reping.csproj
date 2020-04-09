@@ -53,9 +53,12 @@
     <None Include="obj\Release\com.tdxm.reping.csproj.CoreCompileInputs.cache" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
     <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\com.tdxm.reping.dll" />
+    <Content Include="bin\Debug\com.tdxm.reping.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
