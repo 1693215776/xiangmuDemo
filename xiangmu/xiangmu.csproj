@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\CanGuanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\mubanyeController.cs" />
@@ -227,6 +228,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\cob_5_ElaAdmin\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\Basic\" />
     <Folder Include="Views\CanGuan\" />
   </ItemGroup>
   <ItemGroup>
