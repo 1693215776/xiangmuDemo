@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CanGuanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\mubanyeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -141,8 +142,60 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\1.png" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\cs-skin-elastic.css" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\lib\chosen\chosen-sprite%402x.png" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\lib\chosen\chosen-sprite.png" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\lib\chosen\chosen.css" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\lib\chosen\chosen.min.css" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\lib\datatable\buttons.bootstrap.min.css" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\lib\datatable\buttons.dataTables.min.css" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\lib\datatable\dataTables.bootstrap.min.css" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\lib\vector-map\jqvmap.min.css" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\style.css" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\fonts\icomoon\icomoon.svg" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\fonts\icomoon\index.html" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\dashboard.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\init\chartjs-init.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\init\datatables-init.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\init\flot-chart-init.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\init\fullcalendar-init.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\init\gmap-init.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\init\peitychart-init.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\init\vector-init.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\init\weather-init.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\chosen\chosen.jquery.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\chosen\chosen.jquery.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\chosen\chosen.proto.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\chosen\chosen.proto.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\buttons.bootstrap.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\buttons.colVis.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\buttons.flash.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\buttons.html5.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\buttons.print.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\dataTables.bootstrap.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\dataTables.buttons.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\datatables.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\jquery-1.12.4.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\jquery.dataTables.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\jszip.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\pdfmake.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\data-table\vfs_fonts.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\gmap\gmapApi.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\gmap\gmaps.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\lib\gmap\gmaps.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\main.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\vmap.sampledata.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\js\widgets.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\scss\style.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\css\style.css.map" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\fonts\icomoon\icomoon.eot" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\fonts\icomoon\icomoon.woff" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\scss\style.css.map" />
+    <Content Include="Models\cob_5_ElaAdmin\assets\scss\style.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -168,10 +221,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\mubanye\ym.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Models\cob_5_ElaAdmin\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\CanGuan\" />
   </ItemGroup>

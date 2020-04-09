@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>仓储管理系统</title>
+</head>
+
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">     
+    <link rel="stylesheet" href="~/Models/cob_5_ElaAdmin/assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="~/Models/cob_5_ElaAdmin/assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>基本设置</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">员工管理</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">角色管理</a></li>
+                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">部门管理</a></li>
+
+                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">菜单管理</a></li>
+                            <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">权限分配</a></li>
+                            <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">标识符管理</a></li>  
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>基本资料</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="tables-basic.html">库位管理</a></li>
+                            <li><i class="fa fa-table"></i><a href="tables-data.html">供应商管理</a></li>
+                            <li><i class="fa fa-fire"></i><a href="ui-modals.html">客户管理</a></li>
+                            <li><i class="fa fa-book"></i><a href="ui-switches.html">计量单位</a></li>
+                            <li><i class="fa fa-th"></i><a href="ui-grids.html">产品类别</a></li>
+                            <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">产品管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>仓库作业</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">入库管理</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">出库管理</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">报损管理</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">移库管理</a></li>
+                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">盘点管理</a></li>
+                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">退货管理</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>   
+    <div id="right-panel" class="right-panel">     
+        <header id="header" class="header">
+            <div class="top-left">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="./">
+                        <img src="~/images/1.png" style="width:75px;height:40px; margin-left:10px;" />
+                    </a>                 
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                </div>
+            </div>
+        </header>     
+    </div>       
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+    <script src="~/Models/cob_5_ElaAdmin/assets/js/main.js"></script> 
+    <script src="~/Models/cob_5_ElaAdmin/assets/js/init/chartjs-init.js"></script> 
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+</body>
+</html>
+
+
