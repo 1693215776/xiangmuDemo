@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "ChuKuInsert";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+<form @Url.Action("ChuKuInsert")>
+    <div class="container" style="width:1200px;margin-left:290px">
+        <div class="row">
+            <div class="col-md-4">
+                <label>出库单编号</label>
+                <input name="Name" type="text" class="form-control" readonly/>
+            </div>
+            <div class="col-md-4">
+                <label>出库单类型</label>
+                <input name="Brand" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label>发货日期</label>
+                <input name="Money" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label>客户编号</label>
+                <input name="Color" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label>客户名称</label>
+                <input name="Name" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label>客户地址</label>
+                <input name="Brand" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label>客户联系方式</label>
+                <input name="Money" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label>联系人</label>
+                <input name="Color" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label>制单人</label>
+                <input name="Money" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label>备注</label>
+                <input name="Color" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 text-right">
+                <button type="submit" class="btn btn-success">添加</button>
+                <a class="btn btn-primary" href="@Url.Action("CarQuery")">返回列表</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+
