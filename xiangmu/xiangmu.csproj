@@ -237,6 +237,8 @@
     <Content Include="Views\Basic\meterageQuery.cshtml" />
     <Content Include="Views\Basic\productQuery.cshtml" />
     <Content Include="Views\Basic\Productmanagement.cshtml" />
+    <Content Include="Views\Basic\StaffAdd.cshtml" />
+    <Content Include="Views\Basic\supplierAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

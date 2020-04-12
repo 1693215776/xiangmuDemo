@@ -59,5 +59,16 @@ namespace xiangmu.Controllers
             return View();
         }
 
+        public ActionResult StaffAdd()
+        {
+            return View();
+        }
+
+        public ActionResult supplierAdd()
+        {
+            return View();
+        }
+
+        
     }
 }
