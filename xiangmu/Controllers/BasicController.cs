@@ -30,8 +30,34 @@ namespace xiangmu.Controllers
         {
             return View();
         }
-
-
+        /// <summary>
+        /// 客户管理
+        /// </summary>
+        public ActionResult clientQuery()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 计量单位
+        /// </summary>
+        public ActionResult meterageQuery()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 产品类别
+        /// </summary>
+        public ActionResult productQuery()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 产品管理
+        /// </summary>
+        public ActionResult Productmanagement()
+        {
+            return View();
+        }
 
     }
 }

@@ -233,6 +233,10 @@
     <Content Include="Views\mubanye\ym.cshtml" />
     <Content Include="Views\Basic\supplierQuery.cshtml" />
     <Content Include="Views\Basic\StaffQuery.cshtml" />
+    <Content Include="Views\Basic\clientQuery.cshtml" />
+    <Content Include="Views\Basic\meterageQuery.cshtml" />
+    <Content Include="Views\Basic\productQuery.cshtml" />
+    <Content Include="Views\Basic\Productmanagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
