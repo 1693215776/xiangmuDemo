@@ -13,6 +13,12 @@ namespace xiangmu.Controllers
         {
             return View();
         }
+
+        public ActionResult zhuye()
+        {
+            return View();
+        }
+
         public ActionResult RuKu()
         {
 

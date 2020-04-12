@@ -33,7 +33,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>基本设置</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <i class="menu-icon fa fa-cogs"></i>基本设置</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">员工管理</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">角色管理</a></li>
@@ -58,12 +58,12 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>仓库作业</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">入库管理</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">出库管理</a></li>
-                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">报损管理</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">移库管理</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">盘点管理</a></li>
-                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">退货管理</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="@Url.Action("RuKu")">入库管理</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="@Url.Action("ChuKu")">出库管理</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="@Url.Action("BaoSun")">报损管理</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="@Url.Action("YiKu")">移库管理</a></li>
+                            <li><i class="fa fa-bars"></i><a href="@Url.Action("PanDian")">盘点管理</a></li>
+                            <li><i class="fa fa-id-card-o"></i><a href="@Url.Action("TuiHuo")">退货管理</a></li>
                         </ul>
                     </li>
                 </ul>
