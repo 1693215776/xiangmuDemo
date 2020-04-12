@@ -17,7 +17,5 @@ namespace xiangmu.Controllers
         {
             return View();
         }
-
-
     }
 }

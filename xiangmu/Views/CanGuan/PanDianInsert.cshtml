@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "PanDianInsert";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+
+    <head>
+        <link href="~/yangshi/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    </head>
+<form class="needs-validation" novalidate style="margin-left:290px;">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom01">盘点单号</label>
+            <input type="text" class="form-control" id="validationCustom01" value="可不填,自动生成" readonly>
+
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom02">关联单号</label>
+            <input type="text" class="form-control" id="validationCustom02" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom02">制单时间</label>
+            <input type="date" class="form-control" id="validationCustom02">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom02">制单人</label>
+            <input type="text" class="form-control" id="validationCustom02">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom02">备注</label>
+            <input type="text" class="form-control" id="validationCustom02">
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-md-8 text-right">
+        <button type="button" class="btn btn-primary" style="margin-top:15px;">添加</button>
+        <button type="button" class="btn btn-secondary" href="@Url.Action("CarQuery")" style="margin-right:80px;margin-top:15px;">返回列表</button>
+    </div>
+</div>

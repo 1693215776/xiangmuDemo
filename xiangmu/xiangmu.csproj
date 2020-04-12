@@ -197,6 +197,14 @@
     <Content Include="Models\cob_5_ElaAdmin\assets\fonts\icomoon\icomoon.woff" />
     <Content Include="Models\cob_5_ElaAdmin\assets\scss\style.css.map" />
     <Content Include="Models\cob_5_ElaAdmin\assets\scss\style.scss" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap.css" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap.min.css" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\js\bootstrap.js" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\js\bootstrap.min.js" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\js\npm.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -223,13 +231,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\mubanye\ym.cshtml" />
-    <Content Include="Views\Basic\StaffQuery.cshtml" />
-    <Content Include="Views\Basic\supplierQuery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\cob_5_ElaAdmin\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\Basic\" />
     <Folder Include="Views\CanGuan\" />
   </ItemGroup>
   <ItemGroup>

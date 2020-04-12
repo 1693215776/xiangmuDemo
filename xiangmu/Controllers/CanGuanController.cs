@@ -13,6 +13,12 @@ namespace xiangmu.Controllers
         {
             return View();
         }
+
+        public ActionResult zhuye()
+        {
+            return View();
+        }
+
         public ActionResult RuKu()
         {
 
@@ -47,7 +53,15 @@ namespace xiangmu.Controllers
         {
             return View();
         }
+        public ActionResult YiKuInsert()
+        {
+            return View();
+        }
         public ActionResult PanDian()
+        {
+            return View();
+        }
+        public ActionResult PanDianInsert()
         {
             return View();
         }
@@ -55,7 +69,7 @@ namespace xiangmu.Controllers
         {
             return View();
         }
-        public ActionResult a()
+        public ActionResult TuiHuoInsert()
         {
             return View();
         }
