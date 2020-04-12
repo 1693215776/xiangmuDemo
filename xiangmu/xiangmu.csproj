@@ -237,6 +237,7 @@
     <Folder Include="Models\cob_5_ElaAdmin\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Basic\" />
+    <Folder Include="Views\CanGuan2\" />
     <Folder Include="Views\CanGuan\" />
   </ItemGroup>
   <ItemGroup>
