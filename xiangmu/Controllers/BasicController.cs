@@ -14,9 +14,24 @@ namespace xiangmu.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 库位管理
+        /// </summary>
+        /// <returns></returns>
         public ActionResult StaffQuery()
         {
             return View();
         }
+        /// <summary>
+        /// 供应商管理
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult supplierQuery()
+        {
+            return View();
+        }
+
+
+
     }
 }
