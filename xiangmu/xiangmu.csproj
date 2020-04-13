@@ -243,12 +243,24 @@
     <Content Include="Views\Basic\productAdd.cshtml" />
     <Content Include="Views\Basic\ProductmanagementAdd.cshtml" />
     <Content Include="Views\Basic\meterageAdd.cshtml" />
+    <Content Include="Views\CanGuan\BaoSun.cshtml" />
+    <Content Include="Views\CanGuan\BaoSunInsert.cshtml" />
+    <Content Include="Views\CanGuan\ChuKu.cshtml" />
+    <Content Include="Views\CanGuan\ChuKuInsert.cshtml" />
+    <Content Include="Views\CanGuan\PanDian.cshtml" />
+    <Content Include="Views\CanGuan\PanDianInsert.cshtml" />
+    <Content Include="Views\CanGuan\RuKu.cshtml" />
+    <Content Include="Views\CanGuan\RuKuInsert.cshtml" />
+    <Content Include="Views\CanGuan\TuiHuo.cshtml" />
+    <Content Include="Views\CanGuan\TuiHuoInsert.cshtml" />
+    <Content Include="Views\CanGuan\YiKu.cshtml" />
+    <Content Include="Views\CanGuan\YiKuInsert.cshtml" />
+    <Content Include="Views\CanGuan\zhuye.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\cob_5_ElaAdmin\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\CanGuan\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
