@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "StaffQuery";
     Layout = "~/Views/mubanye/ym.cshtml";
 }
@@ -27,7 +26,7 @@
     <link href="/Theme/css/themes/default.css" rel="stylesheet" type="text/css" />
     <link href="/Theme/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
 </head>
-<body class="fixed-top">
+<body class="fixed-top" style="width:1200px;margin-left:290px">
     <div id="header" class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
@@ -102,7 +101,7 @@
                             <div class="widget-title">
                                 <h4><i class="icon-globe"></i>库位管理</h4>
                                 <div class="actions">
-                                    <a class="btn btn-primary" href="javascript:void(0)" onclick="Location.Add()"><i class="icon-pencil"></i>&nbsp;新增</a>
+                                    <a class="btn btn-primary" href="@Url.Action("StaffAdd")" onclick="Location.Add()"><i class="icon-pencil"></i>&nbsp;新增</a>
                                     <a class="btn btn-info" href="javascript:void(0)" onclick="Location.ToExcel()"><i class="icon-download"></i>&nbsp;导出</a>
                                 </div>
                             </div>
@@ -160,14 +159,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div id="footer">
-
-
-        技术支持:15800466429&nbsp;&nbsp;QQ:821865130&nbsp;&nbsp;QQ群:142050808&nbsp;&nbsp;88718955&nbsp;&nbsp;版权声明: 不得用于任何商业用途,违法必究
-        <div class="span pull-right">
-            <span class="go-top"><i class="icon-arrow-up"></i></span>
         </div>
     </div>
 

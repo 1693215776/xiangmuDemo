@@ -231,13 +231,23 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\mubanye\ym.cshtml" />
+    <Content Include="Views\Basic\supplierQuery.cshtml" />
+    <Content Include="Views\Basic\StaffQuery.cshtml" />
+    <Content Include="Views\Basic\clientQuery.cshtml" />
+    <Content Include="Views\Basic\meterageQuery.cshtml" />
+    <Content Include="Views\Basic\productQuery.cshtml" />
+    <Content Include="Views\Basic\Productmanagement.cshtml" />
+    <Content Include="Views\Basic\StaffAdd.cshtml" />
+    <Content Include="Views\Basic\supplierAdd.cshtml" />
+    <Content Include="Views\Basic\clientAdd.cshtml" />
+    <Content Include="Views\Basic\productAdd.cshtml" />
+    <Content Include="Views\Basic\ProductmanagementAdd.cshtml" />
+    <Content Include="Views\Basic\meterageAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\cob_5_ElaAdmin\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\Basic\" />
-    <Folder Include="Views\CanGuan2\" />
     <Folder Include="Views\CanGuan\" />
   </ItemGroup>
   <ItemGroup>
