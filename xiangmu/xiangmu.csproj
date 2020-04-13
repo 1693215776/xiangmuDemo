@@ -242,6 +242,7 @@
     <Content Include="Views\Basic\clientAdd.cshtml" />
     <Content Include="Views\Basic\productAdd.cshtml" />
     <Content Include="Views\Basic\ProductmanagementAdd.cshtml" />
+    <Content Include="Views\Basic\meterageAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

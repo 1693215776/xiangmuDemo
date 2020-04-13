@@ -78,6 +78,10 @@ namespace xiangmu.Controllers
         {
             return View();
         }
+        public ActionResult meterageAdd()
+        {
+            return View();
+        }
 
         public ActionResult ProductmanagementAdd()
         {
