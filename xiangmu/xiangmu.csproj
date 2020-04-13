@@ -239,6 +239,9 @@
     <Content Include="Views\Basic\Productmanagement.cshtml" />
     <Content Include="Views\Basic\StaffAdd.cshtml" />
     <Content Include="Views\Basic\supplierAdd.cshtml" />
+    <Content Include="Views\Basic\clientAdd.cshtml" />
+    <Content Include="Views\Basic\productAdd.cshtml" />
+    <Content Include="Views\Basic\ProductmanagementAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

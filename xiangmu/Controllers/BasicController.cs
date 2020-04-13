@@ -69,6 +69,19 @@ namespace xiangmu.Controllers
             return View();
         }
 
-        
+        public ActionResult clientAdd()
+        {
+            return View();
+        }
+
+        public ActionResult productAdd()
+        {
+            return View();
+        }
+
+        public ActionResult ProductmanagementAdd()
+        {
+            return View();
+        }
     }
 }
