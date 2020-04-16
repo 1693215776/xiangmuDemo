@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +65,12 @@
   <ItemGroup>
     <Content Include="bin\Debug\com.tdxm.reping.dll" />
     <Content Include="bin\Debug\com.tdxm.reping.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\com.tdxm.model\com.tdxm.model.csproj">
+      <Project>{a317dbbb-ba62-4bc0-986e-1ec0289bb083}</Project>
+      <Name>com.tdxm.model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
