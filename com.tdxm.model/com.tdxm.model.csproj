@@ -182,22 +182,32 @@
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
+    <None Include="bin\Debug\com.tdxm.model.dll.config" />
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
+    <None Include="obj\Debug\com.tdxm.model.csproj.CopyComplete" />
     <None Include="obj\Debug\com.tdxm.model.csproj.CoreCompileInputs.cache" />
     <None Include="obj\Debug\com.tdxm.model.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Model1.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Model1.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Model1.ssdl" />
     <None Include="obj\Release\com.tdxm.model.csproj.CoreCompileInputs.cache" />
     <None Include="obj\Release\com.tdxm.model.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
-    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\com.tdxm.model.dll" />
     <Content Include="bin\Debug\com.tdxm.model.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\zh-Hans\EntityFramework.resources.dll" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -208,6 +218,12 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="obj\Debug\com.tdxm.model.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\com.tdxm.model.dll" />
+    <Content Include="obj\Debug\com.tdxm.model.pdb" />
+    <Content Include="obj\Debug\TempPE\Model1.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Model1.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Model1.Designer.cs.dll" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

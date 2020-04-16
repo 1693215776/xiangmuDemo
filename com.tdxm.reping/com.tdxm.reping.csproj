@@ -54,8 +54,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\com.tdxm.model.dll.config" />
+    <None Include="obj\Debug\com.tdxm.reping.csproj.CopyComplete" />
     <None Include="obj\Debug\com.tdxm.reping.csproj.CoreCompileInputs.cache" />
     <None Include="obj\Debug\com.tdxm.reping.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Release\com.tdxm.reping.csproj.CoreCompileInputs.cache" />
   </ItemGroup>
   <ItemGroup>
@@ -63,8 +66,18 @@
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\com.tdxm.model.dll" />
+    <Content Include="bin\Debug\com.tdxm.model.pdb" />
     <Content Include="bin\Debug\com.tdxm.reping.dll" />
     <Content Include="bin\Debug\com.tdxm.reping.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\zh-Hans\EntityFramework.resources.dll" />
+    <Content Include="obj\Debug\com.tdxm.reping.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\com.tdxm.reping.dll" />
+    <Content Include="obj\Debug\com.tdxm.reping.pdb" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.tdxm.model\com.tdxm.model.csproj">
