@@ -4,10 +4,8 @@
     Layout = "~/Views/mubanye/ym.cshtml";
 }
 
-    <head>
-        <link href="~/images/iconfont/iconfont.css" rel="stylesheet" />
-    </head>
-    <body class="fixed-top" style="width:1200px;margin-left:290px">
+
+    <body class="fixed-top" style="width:1600px;margin-left:290px">
         <div id="header" class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
@@ -80,7 +78,7 @@
                                             <button class="btn" value="3">审核失败</button>
                                         </div>
                                         <div class="actions  pull-right">
-                                            <a class="btn btn-primary" href="@Url.Action("PanDianinsert")"><i class="icon-pencil"></i>&nbsp;新增</a>
+                                            <a class="btn btn-primary" href="/Check/Product/Add"><i class="icon-pencil"></i>&nbsp;新增</a>
                                             <a class="btn btn-danger" href="javascript:void(0)" onclick="CheckManager.DeleteBatch()"><i class="icon-trash"></i>&nbsp;删除</a>
                                             <a class="btn btn-info" href="javascript:void(0)" onclick="CheckManager.ToExcel()"><i class="icon-download"></i>&nbsp;导出</a>
                                         </div>
@@ -116,24 +114,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
-                                            <tr>
-                                                <th>1</th>
-                                                <th>1</th>
-                                                <th>1</th>
-                                                <th>1</th>
-                                                <th>1</th>
-                                                <th>1</th>
-                                                <th>1</th>
-                                                <th>1</th>
-                                                
-                                                <th>
-                                                    <a class="icon-edit" href="/Move/Product/Edit?orderNum=000001" id="bianji" title="编辑"><span class="iconfont">&#xe612;</span></a>&nbsp;&nbsp;&nbsp;
-                                                    <a class="icon-remove" href="javascript:void(0)" title="删除"><span class="iconfont">&#xe686;</span></a>&nbsp;&nbsp;&nbsp;
-                                                    <a class="icon-remove" href="javascript:void(0)" title="查看"><span class="iconfont">&#xe601;</span></a>&nbsp;&nbsp;&nbsp;
-                                                    <a class="icon-remove" href="javascript:void(0)" title="审核"><span class="iconfont">&#xe676;</span></a>
-                                                </th>
-                                            </tr>
                                         </tbody>
                                     </table>
                                     <div class="row-fluid" id="mypager">
