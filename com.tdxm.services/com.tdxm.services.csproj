@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\com.tdxm.model.dll.config" />
+    <None Include="obj\Debug\build.force" />
     <None Include="obj\Debug\com.tdxm.services.csproj.CopyComplete" />
     <None Include="obj\Debug\com.tdxm.services.csproj.CoreCompileInputs.cache" />
     <None Include="obj\Debug\com.tdxm.services.csprojAssemblyReference.cache" />
