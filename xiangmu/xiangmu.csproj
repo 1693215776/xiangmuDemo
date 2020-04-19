@@ -409,6 +409,16 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\com.tdxm.model\com.tdxm.model.csproj">
+      <Project>{a317dbbb-ba62-4bc0-986e-1ec0289bb083}</Project>
+      <Name>com.tdxm.model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.tdxm.services\com.tdxm.services.csproj">
+      <Project>{e02e40a7-6181-4841-b986-fb0759754466}</Project>
+      <Name>com.tdxm.services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
