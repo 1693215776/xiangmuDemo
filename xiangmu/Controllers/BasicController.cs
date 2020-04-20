@@ -89,5 +89,12 @@ namespace xiangmu.Controllers
         {
             return View();
         }
+
+        public ActionResult StaffDelete()
+        {
+            return View();
+        }
+
+
     }
 }
