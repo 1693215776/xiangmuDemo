@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using com.tdxm.model;
 namespace com.tdxm.reping
 {
-  public class CanGuanRepsitory:cangguan<>
+  public class CanGuanRepsitory:cangguan<stockmanagement>
     {
        
     }
