@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using com.tdxm.model;
-namespace com.tdxm.reping
+using com.tdxm.reping;
+
+namespace com.tdxm.services
 {
-  public class CanGuanRepsitory:cangguan<>
+   public class StaffService:BaseService<staff>
     {
-       
     }
 }

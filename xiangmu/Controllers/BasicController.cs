@@ -23,6 +23,7 @@ namespace xiangmu.Controllers
         public ActionResult StaffQuery()
         {
             return View();
+
         }
         /// <summary>
         /// 供应商管理
@@ -30,6 +31,7 @@ namespace xiangmu.Controllers
         /// <returns></returns>
         public ActionResult supplierQuery()
         {
+
             return View();
         }
         /// <summary>
