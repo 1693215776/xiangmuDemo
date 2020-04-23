@@ -16,7 +16,7 @@ namespace xiangmu
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Basic", action = "StaffQuery", id = UrlParameter.Optional }
+                defaults: new { controller = "Basic", action = "KuweiQuery", id = UrlParameter.Optional }
             );
         }
     }

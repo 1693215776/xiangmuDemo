@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="audit">
           <Key>
             <PropertyRef Name="auditid" />
@@ -99,7 +99,7 @@
           <Key>
             <PropertyRef Name="kuweiid" />
           </Key>
-          <Property Name="kuweiid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kuweiid" Type="int" Nullable="false" />
           <Property Name="kuweiname" Type="nvarchar" MaxLength="50" />
           <Property Name="warehouseid" Type="int" />
           <Property Name="kuWeiTypeid" Type="int" />
@@ -928,23 +928,199 @@
             <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="warehousing_systemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="audit" EntityType="Model.audit" />
+          <EntitySet Name="bsodd" EntityType="Model.bsodd" />
+          <EntitySet Name="check" EntityType="Model.check" />
+          <EntitySet Name="checktype" EntityType="Model.checktype" />
+          <EntitySet Name="ckodd" EntityType="Model.ckodd" />
+          <EntitySet Name="cktype" EntityType="Model.cktype" />
+          <EntitySet Name="clerk" EntityType="Model.clerk" />
+          <EntitySet Name="client" EntityType="Model.client" />
+          <EntitySet Name="damage" EntityType="Model.damage" />
+          <EntitySet Name="damagetype" EntityType="Model.damagetype" />
+          <EntitySet Name="department" EntityType="Model.department" />
+          <EntitySet Name="kuwei" EntityType="Model.kuwei" />
+          <EntitySet Name="kuweitype" EntityType="Model.kuweitype" />
+          <EntitySet Name="kuweiwarehouse" EntityType="Model.kuweiwarehouse" />
+          <EntitySet Name="menu" EntityType="Model.menu" />
+          <EntitySet Name="move" EntityType="Model.move" />
+          <EntitySet Name="movetype" EntityType="Model.movetype" />
+          <EntitySet Name="pdodd" EntityType="Model.pdodd" />
+          <EntitySet Name="product" EntityType="Model.product" />
+          <EntitySet Name="productmanagement" EntityType="Model.productmanagement" />
+          <EntitySet Name="register" EntityType="Model.register" />
+          <EntitySet Name="rkodd" EntityType="Model.rkodd" />
+          <EntitySet Name="role" EntityType="Model.role" />
+          <EntitySet Name="salesreturn" EntityType="Model.salesreturn" />
+          <EntitySet Name="salestype" EntityType="Model.salestype" />
+          <EntitySet Name="staff" EntityType="Model.staff" />
+          <EntitySet Name="stockmanagement" EntityType="Model.stockmanagement" />
+          <EntitySet Name="Storagetype" EntityType="Model.Storagetype" />
+          <EntitySet Name="supplier" EntityType="Model.supplier" />
+          <EntitySet Name="supplierleixinBiao" EntityType="Model.supplierleixinBiao" />
+          <EntitySet Name="thodd" EntityType="Model.thodd" />
+          <EntitySet Name="unit" EntityType="Model.unit" />
+          <EntitySet Name="usermode" EntityType="Model.usermode" />
+          <EntitySet Name="Warehousemanagement" EntityType="Model.Warehousemanagement" />
+          <EntitySet Name="ykodd" EntityType="Model.ykodd" />
+          <AssociationSet Name="FK_check_audit" Association="Model.FK_check_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_damage_audit" Association="Model.FK_damage_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="damage" EntitySet="damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_move_audit" Association="Model.FK_move_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="move" EntitySet="move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_salesreturn_audit" Association="Model.FK_salesreturn_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="salesreturn" EntitySet="salesreturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_audit" Association="Model.FK_stockmanagement_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehousemanagement_audit" Association="Model.FK_Warehousemanagement_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_damage_bsodd" Association="Model.FK_damage_bsodd">
+            <End Role="bsodd" EntitySet="bsodd" />
+            <End Role="damage" EntitySet="damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_checktype" Association="Model.FK_check_checktype">
+            <End Role="checktype" EntitySet="checktype" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_pdodd" Association="Model.FK_check_pdodd">
+            <End Role="pdodd" EntitySet="pdodd" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehousemanagement_ckodd" Association="Model.FK_Warehousemanagement_ckodd">
+            <End Role="ckodd" EntitySet="ckodd" />
+            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehousemanagement_cktype" Association="Model.FK_Warehousemanagement_cktype">
+            <End Role="cktype" EntitySet="cktype" />
+            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_staff_staff" Association="Model.FK_staff_staff">
+            <End Role="clerk" EntitySet="clerk" />
+            <End Role="staff" EntitySet="staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productmanagement_client" Association="Model.FK_productmanagement_client">
+            <End Role="client" EntitySet="client" />
+            <End Role="productmanagement" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehousemanagement_client" Association="Model.FK_Warehousemanagement_client">
+            <End Role="client" EntitySet="client" />
+            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_damage_damagetype" Association="Model.FK_damage_damagetype">
+            <End Role="damagetype" EntitySet="damagetype" />
+            <End Role="damage" EntitySet="damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_staff_department" Association="Model.FK_staff_department">
+            <End Role="department" EntitySet="department" />
+            <End Role="staff" EntitySet="staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kuwei_kuwei" Association="Model.FK_kuwei_kuwei">
+            <End Role="kuweiwarehouse" EntitySet="kuweiwarehouse" />
+            <End Role="kuwei" EntitySet="kuwei" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kuwei_kuweitype" Association="Model.FK_kuwei_kuweitype">
+            <End Role="kuweitype" EntitySet="kuweitype" />
+            <End Role="kuwei" EntitySet="kuwei" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productmanagement_kuweiwarehouse" Association="Model.FK_productmanagement_kuweiwarehouse">
+            <End Role="kuweiwarehouse" EntitySet="kuweiwarehouse" />
+            <End Role="productmanagement" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_move_movetype" Association="Model.FK_move_movetype">
+            <End Role="movetype" EntitySet="movetype" />
+            <End Role="move" EntitySet="move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_move_ykodd" Association="Model.FK_move_ykodd">
+            <End Role="ykodd" EntitySet="ykodd" />
+            <End Role="move" EntitySet="move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_management_product" Association="Model.FK_product_management_product">
+            <End Role="product" EntitySet="product" />
+            <End Role="productmanagement" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_management_product_management" Association="Model.FK_product_management_product_management">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="productmanagement" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productmanagement_productmanagement" Association="Model.FK_productmanagement_productmanagement">
+            <End Role="productmanagement" EntitySet="productmanagement" />
+            <End Role="productmanagement1" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productmanagement_productmanagement1" Association="Model.FK_productmanagement_productmanagement1">
+            <End Role="productmanagement" EntitySet="productmanagement" />
+            <End Role="productmanagement1" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_register_role" Association="Model.FK_register_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="register" EntitySet="register" />
+          </AssociationSet>
+          <AssociationSet Name="FK_register_usermode" Association="Model.FK_register_usermode">
+            <End Role="usermode" EntitySet="usermode" />
+            <End Role="register" EntitySet="register" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_rkodd" Association="Model.FK_stockmanagement_rkodd">
+            <End Role="rkodd" EntitySet="rkodd" />
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_staff_role" Association="Model.FK_staff_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="staff" EntitySet="staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_salesreturn_salestype" Association="Model.FK_salesreturn_salestype">
+            <End Role="salestype" EntitySet="salestype" />
+            <End Role="salesreturn" EntitySet="salesreturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_salesreturn_thodd" Association="Model.FK_salesreturn_thodd">
+            <End Role="thodd" EntitySet="thodd" />
+            <End Role="salesreturn" EntitySet="salesreturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_stockmanagement" Association="Model.FK_stockmanagement_stockmanagement">
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+            <End Role="stockmanagement1" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_Storagetype" Association="Model.FK_stockmanagement_Storagetype">
+            <End Role="Storagetype" EntitySet="Storagetype" />
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_supplier" Association="Model.FK_stockmanagement_supplier">
+            <End Role="supplier" EntitySet="supplier" />
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_supplier_supplierleixinBiao" Association="Model.FK_supplier_supplierleixinBiao">
+            <End Role="supplierleixinBiao" EntitySet="supplierleixinBiao" />
+            <End Role="supplier" EntitySet="supplier" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="audit">
           <Key>
             <PropertyRef Name="auditid" />
           </Key>
           <Property Name="auditid" Type="Int32" Nullable="false" />
           <Property Name="auditname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="check" Relationship="Self.FK_check_audit" FromRole="audit" ToRole="check" />
-          <NavigationProperty Name="damage" Relationship="Self.FK_damage_audit" FromRole="audit" ToRole="damage" />
-          <NavigationProperty Name="move" Relationship="Self.FK_move_audit" FromRole="audit" ToRole="move" />
-          <NavigationProperty Name="salesreturn" Relationship="Self.FK_salesreturn_audit" FromRole="audit" ToRole="salesreturn" />
-          <NavigationProperty Name="stockmanagement" Relationship="Self.FK_stockmanagement_audit" FromRole="audit" ToRole="stockmanagement" />
-          <NavigationProperty Name="Warehousemanagement" Relationship="Self.FK_Warehousemanagement_audit" FromRole="audit" ToRole="Warehousemanagement" />
+          <NavigationProperty Name="check" Relationship="Model.FK_check_audit" FromRole="audit" ToRole="check" />
+          <NavigationProperty Name="damage" Relationship="Model.FK_damage_audit" FromRole="audit" ToRole="damage" />
+          <NavigationProperty Name="move" Relationship="Model.FK_move_audit" FromRole="audit" ToRole="move" />
+          <NavigationProperty Name="salesreturn" Relationship="Model.FK_salesreturn_audit" FromRole="audit" ToRole="salesreturn" />
+          <NavigationProperty Name="stockmanagement" Relationship="Model.FK_stockmanagement_audit" FromRole="audit" ToRole="stockmanagement" />
+          <NavigationProperty Name="Warehousemanagement" Relationship="Model.FK_Warehousemanagement_audit" FromRole="audit" ToRole="Warehousemanagement" />
         </EntityType>
         <EntityType Name="bsodd">
           <Key>
@@ -952,7 +1128,7 @@
           </Key>
           <Property Name="correlationid" Type="Int32" Nullable="false" />
           <Property Name="correlationname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="damage" Relationship="Self.FK_damage_bsodd" FromRole="bsodd" ToRole="damage" />
+          <NavigationProperty Name="damage" Relationship="Model.FK_damage_bsodd" FromRole="bsodd" ToRole="damage" />
         </EntityType>
         <EntityType Name="check">
           <Key>
@@ -965,9 +1141,9 @@
           <Property Name="zdpeople" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="czfs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="audit" Relationship="Self.FK_check_audit" FromRole="check" ToRole="audit" />
-          <NavigationProperty Name="checktype" Relationship="Self.FK_check_checktype" FromRole="check" ToRole="checktype" />
-          <NavigationProperty Name="pdodd" Relationship="Self.FK_check_pdodd" FromRole="check" ToRole="pdodd" />
+          <NavigationProperty Name="audit" Relationship="Model.FK_check_audit" FromRole="check" ToRole="audit" />
+          <NavigationProperty Name="checktype" Relationship="Model.FK_check_checktype" FromRole="check" ToRole="checktype" />
+          <NavigationProperty Name="pdodd" Relationship="Model.FK_check_pdodd" FromRole="check" ToRole="pdodd" />
         </EntityType>
         <EntityType Name="checktype">
           <Key>
@@ -975,7 +1151,7 @@
           </Key>
           <Property Name="checktypeid" Type="Int32" Nullable="false" />
           <Property Name="checktypename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="check" Relationship="Self.FK_check_checktype" FromRole="checktype" ToRole="check" />
+          <NavigationProperty Name="check" Relationship="Model.FK_check_checktype" FromRole="checktype" ToRole="check" />
         </EntityType>
         <EntityType Name="ckodd">
           <Key>
@@ -983,7 +1159,7 @@
           </Key>
           <Property Name="ckid" Type="Int32" Nullable="false" />
           <Property Name="ckname" Type="Int32" />
-          <NavigationProperty Name="Warehousemanagement" Relationship="Self.FK_Warehousemanagement_ckodd" FromRole="ckodd" ToRole="Warehousemanagement" />
+          <NavigationProperty Name="Warehousemanagement" Relationship="Model.FK_Warehousemanagement_ckodd" FromRole="ckodd" ToRole="Warehousemanagement" />
         </EntityType>
         <EntityType Name="cktype">
           <Key>
@@ -991,7 +1167,7 @@
           </Key>
           <Property Name="cktypeid" Type="Int32" Nullable="false" />
           <Property Name="ckname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Warehousemanagement" Relationship="Self.FK_Warehousemanagement_cktype" FromRole="cktype" ToRole="Warehousemanagement" />
+          <NavigationProperty Name="Warehousemanagement" Relationship="Model.FK_Warehousemanagement_cktype" FromRole="cktype" ToRole="Warehousemanagement" />
         </EntityType>
         <EntityType Name="clerk">
           <Key>
@@ -999,7 +1175,7 @@
           </Key>
           <Property Name="clerkid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="clerkname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="staff" Relationship="Self.FK_staff_staff" FromRole="clerk" ToRole="staff" />
+          <NavigationProperty Name="staff" Relationship="Model.FK_staff_staff" FromRole="clerk" ToRole="staff" />
         </EntityType>
         <EntityType Name="client">
           <Key>
@@ -1009,8 +1185,8 @@
           <Property Name="clientname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="addtime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="productmanagement" Relationship="Self.FK_productmanagement_client" FromRole="client" ToRole="productmanagement" />
-          <NavigationProperty Name="Warehousemanagement" Relationship="Self.FK_Warehousemanagement_client" FromRole="client" ToRole="Warehousemanagement" />
+          <NavigationProperty Name="productmanagement" Relationship="Model.FK_productmanagement_client" FromRole="client" ToRole="productmanagement" />
+          <NavigationProperty Name="Warehousemanagement" Relationship="Model.FK_Warehousemanagement_client" FromRole="client" ToRole="Warehousemanagement" />
         </EntityType>
         <EntityType Name="damage">
           <Key>
@@ -1023,9 +1199,9 @@
           <Property Name="stateid" Type="Int32" />
           <Property Name="addpeople" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="addtime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="audit" Relationship="Self.FK_damage_audit" FromRole="damage" ToRole="audit" />
-          <NavigationProperty Name="bsodd" Relationship="Self.FK_damage_bsodd" FromRole="damage" ToRole="bsodd" />
-          <NavigationProperty Name="damagetype" Relationship="Self.FK_damage_damagetype" FromRole="damage" ToRole="damagetype" />
+          <NavigationProperty Name="audit" Relationship="Model.FK_damage_audit" FromRole="damage" ToRole="audit" />
+          <NavigationProperty Name="bsodd" Relationship="Model.FK_damage_bsodd" FromRole="damage" ToRole="bsodd" />
+          <NavigationProperty Name="damagetype" Relationship="Model.FK_damage_damagetype" FromRole="damage" ToRole="damagetype" />
         </EntityType>
         <EntityType Name="damagetype">
           <Key>
@@ -1033,7 +1209,7 @@
           </Key>
           <Property Name="damagetypeid" Type="Int32" Nullable="false" />
           <Property Name="damagetypename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="damage" Relationship="Self.FK_damage_damagetype" FromRole="damagetype" ToRole="damage" />
+          <NavigationProperty Name="damage" Relationship="Model.FK_damage_damagetype" FromRole="damagetype" ToRole="damage" />
         </EntityType>
         <EntityType Name="department">
           <Key>
@@ -1042,21 +1218,21 @@
           <Property Name="departmentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="departmentname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="addtime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="staff" Relationship="Self.FK_staff_department" FromRole="department" ToRole="staff" />
+          <NavigationProperty Name="staff" Relationship="Model.FK_staff_department" FromRole="department" ToRole="staff" />
         </EntityType>
         <EntityType Name="kuwei">
           <Key>
             <PropertyRef Name="kuweiid" />
           </Key>
-          <Property Name="kuweiid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kuweiid" Type="Int32" Nullable="false" />
           <Property Name="kuweiname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="warehouseid" Type="Int32" />
           <Property Name="kuWeiTypeid" Type="Int32" />
           <Property Name="forbidden" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="defaults" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="kuweiwarehouse" Relationship="Self.FK_kuwei_kuwei" FromRole="kuwei" ToRole="kuweiwarehouse" />
-          <NavigationProperty Name="kuweitype" Relationship="Self.FK_kuwei_kuweitype" FromRole="kuwei" ToRole="kuweitype" />
+          <NavigationProperty Name="kuweiwarehouse" Relationship="Model.FK_kuwei_kuwei" FromRole="kuwei" ToRole="kuweiwarehouse" />
+          <NavigationProperty Name="kuweitype" Relationship="Model.FK_kuwei_kuweitype" FromRole="kuwei" ToRole="kuweitype" />
         </EntityType>
         <EntityType Name="kuweitype">
           <Key>
@@ -1064,7 +1240,7 @@
           </Key>
           <Property Name="kuWeiTypeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="kuWeiTypename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="kuwei" Relationship="Self.FK_kuwei_kuweitype" FromRole="kuweitype" ToRole="kuwei" />
+          <NavigationProperty Name="kuwei" Relationship="Model.FK_kuwei_kuweitype" FromRole="kuweitype" ToRole="kuwei" />
         </EntityType>
         <EntityType Name="kuweiwarehouse">
           <Key>
@@ -1072,14 +1248,14 @@
           </Key>
           <Property Name="warehouseid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="warehousename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="kuwei" Relationship="Self.FK_kuwei_kuwei" FromRole="kuweiwarehouse" ToRole="kuwei" />
-          <NavigationProperty Name="productmanagement" Relationship="Self.FK_productmanagement_kuweiwarehouse" FromRole="kuweiwarehouse" ToRole="productmanagement" />
+          <NavigationProperty Name="kuwei" Relationship="Model.FK_kuwei_kuwei" FromRole="kuweiwarehouse" ToRole="kuwei" />
+          <NavigationProperty Name="productmanagement" Relationship="Model.FK_productmanagement_kuweiwarehouse" FromRole="kuweiwarehouse" ToRole="productmanagement" />
         </EntityType>
         <EntityType Name="menu">
           <Key>
             <PropertyRef Name="menuid" />
           </Key>
-          <Property Name="menuid" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="menuid" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="menuname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="fathermenu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1099,9 +1275,9 @@
           <Property Name="moveperson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="stateid" Type="Int32" />
           <Property Name="addtime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="audit" Relationship="Self.FK_move_audit" FromRole="move" ToRole="audit" />
-          <NavigationProperty Name="movetype" Relationship="Self.FK_move_movetype" FromRole="move" ToRole="movetype" />
-          <NavigationProperty Name="ykodd" Relationship="Self.FK_move_ykodd" FromRole="move" ToRole="ykodd" />
+          <NavigationProperty Name="audit" Relationship="Model.FK_move_audit" FromRole="move" ToRole="audit" />
+          <NavigationProperty Name="movetype" Relationship="Model.FK_move_movetype" FromRole="move" ToRole="movetype" />
+          <NavigationProperty Name="ykodd" Relationship="Model.FK_move_ykodd" FromRole="move" ToRole="ykodd" />
         </EntityType>
         <EntityType Name="movetype">
           <Key>
@@ -1109,7 +1285,7 @@
           </Key>
           <Property Name="movetypeid" Type="Int32" Nullable="false" />
           <Property Name="movetypename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="move" Relationship="Self.FK_move_movetype" FromRole="movetype" ToRole="move" />
+          <NavigationProperty Name="move" Relationship="Model.FK_move_movetype" FromRole="movetype" ToRole="move" />
         </EntityType>
         <EntityType Name="pdodd">
           <Key>
@@ -1117,7 +1293,7 @@
           </Key>
           <Property Name="pdid" Type="Int32" Nullable="false" />
           <Property Name="pdname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="check" Relationship="Self.FK_check_pdodd" FromRole="pdodd" ToRole="check" />
+          <NavigationProperty Name="check" Relationship="Model.FK_check_pdodd" FromRole="pdodd" ToRole="check" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -1128,7 +1304,7 @@
           <Property Name="addpeople" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="addtime" Type="DateTime" Precision="3" />
           <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="productmanagement" Relationship="Self.FK_product_management_product" FromRole="product" ToRole="productmanagement" />
+          <NavigationProperty Name="productmanagement" Relationship="Model.FK_product_management_product" FromRole="product" ToRole="productmanagement" />
         </EntityType>
         <EntityType Name="productmanagement">
           <Key>
@@ -1144,15 +1320,15 @@
           <Property Name="metering" Type="Int32" Nullable="false" />
           <Property Name="warehouseid" Type="Int32" Nullable="false" />
           <Property Name="clientid" Type="Int32" Nullable="false" />
-          <Property Name="kuWeiTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="client" Relationship="Self.FK_productmanagement_client" FromRole="productmanagement" ToRole="client" />
-          <NavigationProperty Name="kuweiwarehouse" Relationship="Self.FK_productmanagement_kuweiwarehouse" FromRole="productmanagement" ToRole="kuweiwarehouse" />
-          <NavigationProperty Name="product" Relationship="Self.FK_product_management_product" FromRole="productmanagement" ToRole="product" />
-          <NavigationProperty Name="unit" Relationship="Self.FK_product_management_product_management" FromRole="productmanagement" ToRole="unit" />
-          <NavigationProperty Name="productmanagement1" Relationship="Self.FK_productmanagement_productmanagement" FromRole="productmanagement" ToRole="productmanagement1" />
-          <NavigationProperty Name="productmanagement2" Relationship="Self.FK_productmanagement_productmanagement" FromRole="productmanagement1" ToRole="productmanagement" />
-          <NavigationProperty Name="productmanagement11" Relationship="Self.FK_productmanagement_productmanagement1" FromRole="productmanagement" ToRole="productmanagement1" />
-          <NavigationProperty Name="productmanagement3" Relationship="Self.FK_productmanagement_productmanagement1" FromRole="productmanagement1" ToRole="productmanagement" />
+          <Property Name="kuWeiTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="client" Relationship="Model.FK_productmanagement_client" FromRole="productmanagement" ToRole="client" />
+          <NavigationProperty Name="kuweiwarehouse" Relationship="Model.FK_productmanagement_kuweiwarehouse" FromRole="productmanagement" ToRole="kuweiwarehouse" />
+          <NavigationProperty Name="product" Relationship="Model.FK_product_management_product" FromRole="productmanagement" ToRole="product" />
+          <NavigationProperty Name="unit" Relationship="Model.FK_product_management_product_management" FromRole="productmanagement" ToRole="unit" />
+          <NavigationProperty Name="productmanagement1" Relationship="Model.FK_productmanagement_productmanagement" FromRole="productmanagement" ToRole="productmanagement1" />
+          <NavigationProperty Name="productmanagement2" Relationship="Model.FK_productmanagement_productmanagement" FromRole="productmanagement1" ToRole="productmanagement" />
+          <NavigationProperty Name="productmanagement11" Relationship="Model.FK_productmanagement_productmanagement1" FromRole="productmanagement" ToRole="productmanagement1" />
+          <NavigationProperty Name="productmanagement3" Relationship="Model.FK_productmanagement_productmanagement1" FromRole="productmanagement1" ToRole="productmanagement" />
         </EntityType>
         <EntityType Name="register">
           <Key>
@@ -1163,8 +1339,8 @@
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="stateid" Type="Int32" />
           <Property Name="roleid" Type="Int32" />
-          <NavigationProperty Name="role" Relationship="Self.FK_register_role" FromRole="register" ToRole="role" />
-          <NavigationProperty Name="usermode" Relationship="Self.FK_register_usermode" FromRole="register" ToRole="usermode" />
+          <NavigationProperty Name="role" Relationship="Model.FK_register_role" FromRole="register" ToRole="role" />
+          <NavigationProperty Name="usermode" Relationship="Model.FK_register_usermode" FromRole="register" ToRole="usermode" />
         </EntityType>
         <EntityType Name="rkodd">
           <Key>
@@ -1172,7 +1348,7 @@
           </Key>
           <Property Name="rkid" Type="Int32" Nullable="false" />
           <Property Name="rkname" Type="Int32" />
-          <NavigationProperty Name="stockmanagement" Relationship="Self.FK_stockmanagement_rkodd" FromRole="rkodd" ToRole="stockmanagement" />
+          <NavigationProperty Name="stockmanagement" Relationship="Model.FK_stockmanagement_rkodd" FromRole="rkodd" ToRole="stockmanagement" />
         </EntityType>
         <EntityType Name="role">
           <Key>
@@ -1183,8 +1359,8 @@
           <Property Name="addtime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="staffid" Type="Int32" />
-          <NavigationProperty Name="register" Relationship="Self.FK_register_role" FromRole="role" ToRole="register" />
-          <NavigationProperty Name="staff" Relationship="Self.FK_staff_role" FromRole="role" ToRole="staff" />
+          <NavigationProperty Name="register" Relationship="Model.FK_register_role" FromRole="role" ToRole="register" />
+          <NavigationProperty Name="staff" Relationship="Model.FK_staff_role" FromRole="role" ToRole="staff" />
         </EntityType>
         <EntityType Name="salesreturn">
           <Key>
@@ -1198,9 +1374,9 @@
           <Property Name="zdpeople" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="czfs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="audit" Relationship="Self.FK_salesreturn_audit" FromRole="salesreturn" ToRole="audit" />
-          <NavigationProperty Name="salestype" Relationship="Self.FK_salesreturn_salestype" FromRole="salesreturn" ToRole="salestype" />
-          <NavigationProperty Name="thodd" Relationship="Self.FK_salesreturn_thodd" FromRole="salesreturn" ToRole="thodd" />
+          <NavigationProperty Name="audit" Relationship="Model.FK_salesreturn_audit" FromRole="salesreturn" ToRole="audit" />
+          <NavigationProperty Name="salestype" Relationship="Model.FK_salesreturn_salestype" FromRole="salesreturn" ToRole="salestype" />
+          <NavigationProperty Name="thodd" Relationship="Model.FK_salesreturn_thodd" FromRole="salesreturn" ToRole="thodd" />
         </EntityType>
         <EntityType Name="salestype">
           <Key>
@@ -1208,7 +1384,7 @@
           </Key>
           <Property Name="thtypeid" Type="Int32" Nullable="false" />
           <Property Name="thtypename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="salesreturn" Relationship="Self.FK_salesreturn_salestype" FromRole="salestype" ToRole="salesreturn" />
+          <NavigationProperty Name="salesreturn" Relationship="Model.FK_salesreturn_salestype" FromRole="salestype" ToRole="salesreturn" />
         </EntityType>
         <EntityType Name="staff">
           <Key>
@@ -1221,9 +1397,9 @@
           <Property Name="roleid" Type="Int32" />
           <Property Name="clerkid" Type="Int32" />
           <Property Name="logins" Type="Int32" />
-          <NavigationProperty Name="clerk" Relationship="Self.FK_staff_staff" FromRole="staff" ToRole="clerk" />
-          <NavigationProperty Name="department" Relationship="Self.FK_staff_department" FromRole="staff" ToRole="department" />
-          <NavigationProperty Name="role" Relationship="Self.FK_staff_role" FromRole="staff" ToRole="role" />
+          <NavigationProperty Name="clerk" Relationship="Model.FK_staff_staff" FromRole="staff" ToRole="clerk" />
+          <NavigationProperty Name="department" Relationship="Model.FK_staff_department" FromRole="staff" ToRole="department" />
+          <NavigationProperty Name="role" Relationship="Model.FK_staff_role" FromRole="staff" ToRole="role" />
         </EntityType>
         <EntityType Name="stockmanagement">
           <Key>
@@ -1239,12 +1415,12 @@
           <Property Name="zdpeople" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="czfs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="audit" Relationship="Self.FK_stockmanagement_audit" FromRole="stockmanagement" ToRole="audit" />
-          <NavigationProperty Name="rkodd" Relationship="Self.FK_stockmanagement_rkodd" FromRole="stockmanagement" ToRole="rkodd" />
-          <NavigationProperty Name="stockmanagement1" Relationship="Self.FK_stockmanagement_stockmanagement" FromRole="stockmanagement" ToRole="stockmanagement1" />
-          <NavigationProperty Name="stockmanagement2" Relationship="Self.FK_stockmanagement_stockmanagement" FromRole="stockmanagement1" ToRole="stockmanagement" />
-          <NavigationProperty Name="Storagetype" Relationship="Self.FK_stockmanagement_Storagetype" FromRole="stockmanagement" ToRole="Storagetype" />
-          <NavigationProperty Name="supplier" Relationship="Self.FK_stockmanagement_supplier" FromRole="stockmanagement" ToRole="supplier" />
+          <NavigationProperty Name="audit" Relationship="Model.FK_stockmanagement_audit" FromRole="stockmanagement" ToRole="audit" />
+          <NavigationProperty Name="rkodd" Relationship="Model.FK_stockmanagement_rkodd" FromRole="stockmanagement" ToRole="rkodd" />
+          <NavigationProperty Name="stockmanagement1" Relationship="Model.FK_stockmanagement_stockmanagement" FromRole="stockmanagement" ToRole="stockmanagement1" />
+          <NavigationProperty Name="stockmanagement2" Relationship="Model.FK_stockmanagement_stockmanagement" FromRole="stockmanagement1" ToRole="stockmanagement" />
+          <NavigationProperty Name="Storagetype" Relationship="Model.FK_stockmanagement_Storagetype" FromRole="stockmanagement" ToRole="Storagetype" />
+          <NavigationProperty Name="supplier" Relationship="Model.FK_stockmanagement_supplier" FromRole="stockmanagement" ToRole="supplier" />
         </EntityType>
         <EntityType Name="Storagetype">
           <Key>
@@ -1252,7 +1428,7 @@
           </Key>
           <Property Name="typeid" Type="Int32" Nullable="false" />
           <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="stockmanagement" Relationship="Self.FK_stockmanagement_Storagetype" FromRole="Storagetype" ToRole="stockmanagement" />
+          <NavigationProperty Name="stockmanagement" Relationship="Model.FK_stockmanagement_Storagetype" FromRole="Storagetype" ToRole="stockmanagement" />
         </EntityType>
         <EntityType Name="supplier">
           <Key>
@@ -1266,8 +1442,8 @@
           <Property Name="contacts" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="describe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="stockmanagement" Relationship="Self.FK_stockmanagement_supplier" FromRole="supplier" ToRole="stockmanagement" />
-          <NavigationProperty Name="supplierleixinBiao" Relationship="Self.FK_supplier_supplierleixinBiao" FromRole="supplier" ToRole="supplierleixinBiao" />
+          <NavigationProperty Name="stockmanagement" Relationship="Model.FK_stockmanagement_supplier" FromRole="supplier" ToRole="stockmanagement" />
+          <NavigationProperty Name="supplierleixinBiao" Relationship="Model.FK_supplier_supplierleixinBiao" FromRole="supplier" ToRole="supplierleixinBiao" />
         </EntityType>
         <EntityType Name="supplierleixinBiao">
           <Key>
@@ -1275,7 +1451,7 @@
           </Key>
           <Property Name="supplierType" Type="Int32" Nullable="false" />
           <Property Name="supplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="supplier" Relationship="Self.FK_supplier_supplierleixinBiao" FromRole="supplierleixinBiao" ToRole="supplier" />
+          <NavigationProperty Name="supplier" Relationship="Model.FK_supplier_supplierleixinBiao" FromRole="supplierleixinBiao" ToRole="supplier" />
         </EntityType>
         <EntityType Name="thodd">
           <Key>
@@ -1283,7 +1459,7 @@
           </Key>
           <Property Name="thid" Type="Int32" Nullable="false" />
           <Property Name="thname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="salesreturn" Relationship="Self.FK_salesreturn_thodd" FromRole="thodd" ToRole="salesreturn" />
+          <NavigationProperty Name="salesreturn" Relationship="Model.FK_salesreturn_thodd" FromRole="thodd" ToRole="salesreturn" />
         </EntityType>
         <EntityType Name="unit">
           <Key>
@@ -1292,7 +1468,7 @@
           <Property Name="metering" Type="Int32" Nullable="false" />
           <Property Name="meteringid" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="productmanagement" Relationship="Self.FK_product_management_product_management" FromRole="unit" ToRole="productmanagement" />
+          <NavigationProperty Name="productmanagement" Relationship="Model.FK_product_management_product_management" FromRole="unit" ToRole="productmanagement" />
         </EntityType>
         <EntityType Name="usermode">
           <Key>
@@ -1300,7 +1476,7 @@
           </Key>
           <Property Name="Stateid" Type="Int32" Nullable="false" />
           <Property Name="Loginname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="register" Relationship="Self.FK_register_usermode" FromRole="usermode" ToRole="register" />
+          <NavigationProperty Name="register" Relationship="Model.FK_register_usermode" FromRole="usermode" ToRole="register" />
         </EntityType>
         <EntityType Name="Warehousemanagement">
           <Key>
@@ -1316,10 +1492,10 @@
           <Property Name="czfs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="zdpeople" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="audit" Relationship="Self.FK_Warehousemanagement_audit" FromRole="Warehousemanagement" ToRole="audit" />
-          <NavigationProperty Name="ckodd" Relationship="Self.FK_Warehousemanagement_ckodd" FromRole="Warehousemanagement" ToRole="ckodd" />
-          <NavigationProperty Name="cktype" Relationship="Self.FK_Warehousemanagement_cktype" FromRole="Warehousemanagement" ToRole="cktype" />
-          <NavigationProperty Name="client" Relationship="Self.FK_Warehousemanagement_client" FromRole="Warehousemanagement" ToRole="client" />
+          <NavigationProperty Name="audit" Relationship="Model.FK_Warehousemanagement_audit" FromRole="Warehousemanagement" ToRole="audit" />
+          <NavigationProperty Name="ckodd" Relationship="Model.FK_Warehousemanagement_ckodd" FromRole="Warehousemanagement" ToRole="ckodd" />
+          <NavigationProperty Name="cktype" Relationship="Model.FK_Warehousemanagement_cktype" FromRole="Warehousemanagement" ToRole="cktype" />
+          <NavigationProperty Name="client" Relationship="Model.FK_Warehousemanagement_client" FromRole="Warehousemanagement" ToRole="client" />
         </EntityType>
         <EntityType Name="ykodd">
           <Key>
@@ -1327,11 +1503,11 @@
           </Key>
           <Property Name="ykid" Type="Int32" Nullable="false" />
           <Property Name="ykname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="move" Relationship="Self.FK_move_ykodd" FromRole="ykodd" ToRole="move" />
+          <NavigationProperty Name="move" Relationship="Model.FK_move_ykodd" FromRole="ykodd" ToRole="move" />
         </EntityType>
         <Association Name="FK_check_audit">
-          <End Role="audit" Type="Self.audit" Multiplicity="0..1" />
-          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <End Type="Model.audit" Role="audit" Multiplicity="0..1" />
+          <End Type="Model.check" Role="check" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="audit">
               <PropertyRef Name="auditid" />
@@ -1342,8 +1518,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_damage_audit">
-          <End Role="audit" Type="Self.audit" Multiplicity="0..1" />
-          <End Role="damage" Type="Self.damage" Multiplicity="*" />
+          <End Type="Model.audit" Role="audit" Multiplicity="0..1" />
+          <End Type="Model.damage" Role="damage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="audit">
               <PropertyRef Name="auditid" />
@@ -1354,8 +1530,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_move_audit">
-          <End Role="audit" Type="Self.audit" Multiplicity="0..1" />
-          <End Role="move" Type="Self.move" Multiplicity="*" />
+          <End Type="Model.audit" Role="audit" Multiplicity="0..1" />
+          <End Type="Model.move" Role="move" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="audit">
               <PropertyRef Name="auditid" />
@@ -1366,8 +1542,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_salesreturn_audit">
-          <End Role="audit" Type="Self.audit" Multiplicity="0..1" />
-          <End Role="salesreturn" Type="Self.salesreturn" Multiplicity="*" />
+          <End Type="Model.audit" Role="audit" Multiplicity="0..1" />
+          <End Type="Model.salesreturn" Role="salesreturn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="audit">
               <PropertyRef Name="auditid" />
@@ -1378,8 +1554,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_stockmanagement_audit">
-          <End Role="audit" Type="Self.audit" Multiplicity="0..1" />
-          <End Role="stockmanagement" Type="Self.stockmanagement" Multiplicity="*" />
+          <End Type="Model.audit" Role="audit" Multiplicity="0..1" />
+          <End Type="Model.stockmanagement" Role="stockmanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="audit">
               <PropertyRef Name="auditid" />
@@ -1390,8 +1566,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Warehousemanagement_audit">
-          <End Role="audit" Type="Self.audit" Multiplicity="0..1" />
-          <End Role="Warehousemanagement" Type="Self.Warehousemanagement" Multiplicity="*" />
+          <End Type="Model.audit" Role="audit" Multiplicity="0..1" />
+          <End Type="Model.Warehousemanagement" Role="Warehousemanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="audit">
               <PropertyRef Name="auditid" />
@@ -1402,8 +1578,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_damage_bsodd">
-          <End Role="bsodd" Type="Self.bsodd" Multiplicity="0..1" />
-          <End Role="damage" Type="Self.damage" Multiplicity="*" />
+          <End Type="Model.bsodd" Role="bsodd" Multiplicity="0..1" />
+          <End Type="Model.damage" Role="damage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="bsodd">
               <PropertyRef Name="correlationid" />
@@ -1414,8 +1590,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_check_checktype">
-          <End Role="checktype" Type="Self.checktype" Multiplicity="0..1" />
-          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <End Type="Model.checktype" Role="checktype" Multiplicity="0..1" />
+          <End Type="Model.check" Role="check" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="checktype">
               <PropertyRef Name="checktypeid" />
@@ -1426,8 +1602,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_check_pdodd">
-          <End Role="pdodd" Type="Self.pdodd" Multiplicity="0..1" />
-          <End Role="check" Type="Self.check" Multiplicity="*" />
+          <End Type="Model.pdodd" Role="pdodd" Multiplicity="0..1" />
+          <End Type="Model.check" Role="check" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="pdodd">
               <PropertyRef Name="pdid" />
@@ -1438,8 +1614,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Warehousemanagement_ckodd">
-          <End Role="ckodd" Type="Self.ckodd" Multiplicity="0..1" />
-          <End Role="Warehousemanagement" Type="Self.Warehousemanagement" Multiplicity="*" />
+          <End Type="Model.ckodd" Role="ckodd" Multiplicity="0..1" />
+          <End Type="Model.Warehousemanagement" Role="Warehousemanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ckodd">
               <PropertyRef Name="ckid" />
@@ -1450,8 +1626,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Warehousemanagement_cktype">
-          <End Role="cktype" Type="Self.cktype" Multiplicity="0..1" />
-          <End Role="Warehousemanagement" Type="Self.Warehousemanagement" Multiplicity="*" />
+          <End Type="Model.cktype" Role="cktype" Multiplicity="0..1" />
+          <End Type="Model.Warehousemanagement" Role="Warehousemanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cktype">
               <PropertyRef Name="cktypeid" />
@@ -1462,8 +1638,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_staff_staff">
-          <End Role="clerk" Type="Self.clerk" Multiplicity="0..1" />
-          <End Role="staff" Type="Self.staff" Multiplicity="*" />
+          <End Type="Model.clerk" Role="clerk" Multiplicity="0..1" />
+          <End Type="Model.staff" Role="staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="clerk">
               <PropertyRef Name="clerkid" />
@@ -1474,8 +1650,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_productmanagement_client">
-          <End Role="client" Type="Self.client" Multiplicity="1" />
-          <End Role="productmanagement" Type="Self.productmanagement" Multiplicity="*" />
+          <End Type="Model.client" Role="client" Multiplicity="1" />
+          <End Type="Model.productmanagement" Role="productmanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="client">
               <PropertyRef Name="clientid" />
@@ -1486,8 +1662,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Warehousemanagement_client">
-          <End Role="client" Type="Self.client" Multiplicity="0..1" />
-          <End Role="Warehousemanagement" Type="Self.Warehousemanagement" Multiplicity="*" />
+          <End Type="Model.client" Role="client" Multiplicity="0..1" />
+          <End Type="Model.Warehousemanagement" Role="Warehousemanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="client">
               <PropertyRef Name="clientid" />
@@ -1498,8 +1674,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_damage_damagetype">
-          <End Role="damagetype" Type="Self.damagetype" Multiplicity="0..1" />
-          <End Role="damage" Type="Self.damage" Multiplicity="*" />
+          <End Type="Model.damagetype" Role="damagetype" Multiplicity="0..1" />
+          <End Type="Model.damage" Role="damage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="damagetype">
               <PropertyRef Name="damagetypeid" />
@@ -1510,8 +1686,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_staff_department">
-          <End Role="department" Type="Self.department" Multiplicity="0..1" />
-          <End Role="staff" Type="Self.staff" Multiplicity="*" />
+          <End Type="Model.department" Role="department" Multiplicity="0..1" />
+          <End Type="Model.staff" Role="staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="department">
               <PropertyRef Name="departmentid" />
@@ -1522,8 +1698,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_kuwei_kuwei">
-          <End Role="kuweiwarehouse" Type="Self.kuweiwarehouse" Multiplicity="0..1" />
-          <End Role="kuwei" Type="Self.kuwei" Multiplicity="*" />
+          <End Type="Model.kuweiwarehouse" Role="kuweiwarehouse" Multiplicity="0..1" />
+          <End Type="Model.kuwei" Role="kuwei" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="kuweiwarehouse">
               <PropertyRef Name="warehouseid" />
@@ -1534,8 +1710,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_kuwei_kuweitype">
-          <End Role="kuweitype" Type="Self.kuweitype" Multiplicity="0..1" />
-          <End Role="kuwei" Type="Self.kuwei" Multiplicity="*" />
+          <End Type="Model.kuweitype" Role="kuweitype" Multiplicity="0..1" />
+          <End Type="Model.kuwei" Role="kuwei" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="kuweitype">
               <PropertyRef Name="kuWeiTypeid" />
@@ -1546,8 +1722,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_productmanagement_kuweiwarehouse">
-          <End Role="kuweiwarehouse" Type="Self.kuweiwarehouse" Multiplicity="1" />
-          <End Role="productmanagement" Type="Self.productmanagement" Multiplicity="*" />
+          <End Type="Model.kuweiwarehouse" Role="kuweiwarehouse" Multiplicity="1" />
+          <End Type="Model.productmanagement" Role="productmanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="kuweiwarehouse">
               <PropertyRef Name="warehouseid" />
@@ -1558,8 +1734,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_move_movetype">
-          <End Role="movetype" Type="Self.movetype" Multiplicity="0..1" />
-          <End Role="move" Type="Self.move" Multiplicity="*" />
+          <End Type="Model.movetype" Role="movetype" Multiplicity="0..1" />
+          <End Type="Model.move" Role="move" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="movetype">
               <PropertyRef Name="movetypeid" />
@@ -1570,8 +1746,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_move_ykodd">
-          <End Role="ykodd" Type="Self.ykodd" Multiplicity="0..1" />
-          <End Role="move" Type="Self.move" Multiplicity="*" />
+          <End Type="Model.ykodd" Role="ykodd" Multiplicity="0..1" />
+          <End Type="Model.move" Role="move" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ykodd">
               <PropertyRef Name="ykid" />
@@ -1582,8 +1758,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_product_management_product">
-          <End Role="product" Type="Self.product" Multiplicity="1" />
-          <End Role="productmanagement" Type="Self.productmanagement" Multiplicity="*" />
+          <End Type="Model.product" Role="product" Multiplicity="1" />
+          <End Type="Model.productmanagement" Role="productmanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="product">
               <PropertyRef Name="productid" />
@@ -1594,8 +1770,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_product_management_product_management">
-          <End Role="unit" Type="Self.unit" Multiplicity="1" />
-          <End Role="productmanagement" Type="Self.productmanagement" Multiplicity="*" />
+          <End Type="Model.unit" Role="unit" Multiplicity="1" />
+          <End Type="Model.productmanagement" Role="productmanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="unit">
               <PropertyRef Name="metering" />
@@ -1606,8 +1782,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_productmanagement_productmanagement">
-          <End Role="productmanagement" Type="Self.productmanagement" Multiplicity="1" />
-          <End Role="productmanagement1" Type="Self.productmanagement" Multiplicity="0..1" />
+          <End Type="Model.productmanagement" Role="productmanagement" Multiplicity="1" />
+          <End Type="Model.productmanagement" Role="productmanagement1" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="productmanagement">
               <PropertyRef Name="meteringid" />
@@ -1618,8 +1794,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_productmanagement_productmanagement1">
-          <End Role="productmanagement" Type="Self.productmanagement" Multiplicity="1" />
-          <End Role="productmanagement1" Type="Self.productmanagement" Multiplicity="0..1" />
+          <End Type="Model.productmanagement" Role="productmanagement" Multiplicity="1" />
+          <End Type="Model.productmanagement" Role="productmanagement1" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="productmanagement">
               <PropertyRef Name="meteringid" />
@@ -1630,8 +1806,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_register_role">
-          <End Role="role" Type="Self.role" Multiplicity="0..1" />
-          <End Role="register" Type="Self.register" Multiplicity="*" />
+          <End Type="Model.role" Role="role" Multiplicity="0..1" />
+          <End Type="Model.register" Role="register" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="role">
               <PropertyRef Name="roleid" />
@@ -1642,8 +1818,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_register_usermode">
-          <End Role="usermode" Type="Self.usermode" Multiplicity="0..1" />
-          <End Role="register" Type="Self.register" Multiplicity="*" />
+          <End Type="Model.usermode" Role="usermode" Multiplicity="0..1" />
+          <End Type="Model.register" Role="register" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="usermode">
               <PropertyRef Name="Stateid" />
@@ -1654,8 +1830,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_stockmanagement_rkodd">
-          <End Role="rkodd" Type="Self.rkodd" Multiplicity="0..1" />
-          <End Role="stockmanagement" Type="Self.stockmanagement" Multiplicity="*" />
+          <End Type="Model.rkodd" Role="rkodd" Multiplicity="0..1" />
+          <End Type="Model.stockmanagement" Role="stockmanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="rkodd">
               <PropertyRef Name="rkid" />
@@ -1666,8 +1842,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_staff_role">
-          <End Role="role" Type="Self.role" Multiplicity="0..1" />
-          <End Role="staff" Type="Self.staff" Multiplicity="*" />
+          <End Type="Model.role" Role="role" Multiplicity="0..1" />
+          <End Type="Model.staff" Role="staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="role">
               <PropertyRef Name="roleid" />
@@ -1678,8 +1854,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_salesreturn_salestype">
-          <End Role="salestype" Type="Self.salestype" Multiplicity="0..1" />
-          <End Role="salesreturn" Type="Self.salesreturn" Multiplicity="*" />
+          <End Type="Model.salestype" Role="salestype" Multiplicity="0..1" />
+          <End Type="Model.salesreturn" Role="salesreturn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="salestype">
               <PropertyRef Name="thtypeid" />
@@ -1690,8 +1866,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_salesreturn_thodd">
-          <End Role="thodd" Type="Self.thodd" Multiplicity="0..1" />
-          <End Role="salesreturn" Type="Self.salesreturn" Multiplicity="*" />
+          <End Type="Model.thodd" Role="thodd" Multiplicity="0..1" />
+          <End Type="Model.salesreturn" Role="salesreturn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="thodd">
               <PropertyRef Name="thid" />
@@ -1702,8 +1878,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_stockmanagement_stockmanagement">
-          <End Role="stockmanagement" Type="Self.stockmanagement" Multiplicity="1" />
-          <End Role="stockmanagement1" Type="Self.stockmanagement" Multiplicity="0..1" />
+          <End Type="Model.stockmanagement" Role="stockmanagement" Multiplicity="1" />
+          <End Type="Model.stockmanagement" Role="stockmanagement1" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="stockmanagement">
               <PropertyRef Name="Inid" />
@@ -1714,8 +1890,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_stockmanagement_Storagetype">
-          <End Role="Storagetype" Type="Self.Storagetype" Multiplicity="0..1" />
-          <End Role="stockmanagement" Type="Self.stockmanagement" Multiplicity="*" />
+          <End Type="Model.Storagetype" Role="Storagetype" Multiplicity="0..1" />
+          <End Type="Model.stockmanagement" Role="stockmanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Storagetype">
               <PropertyRef Name="typeid" />
@@ -1726,8 +1902,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_stockmanagement_supplier">
-          <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
-          <End Role="stockmanagement" Type="Self.stockmanagement" Multiplicity="*" />
+          <End Type="Model.supplier" Role="supplier" Multiplicity="0..1" />
+          <End Type="Model.stockmanagement" Role="stockmanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="supplier">
               <PropertyRef Name="supplierid" />
@@ -1738,8 +1914,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_supplier_supplierleixinBiao">
-          <End Role="supplierleixinBiao" Type="Self.supplierleixinBiao" Multiplicity="0..1" />
-          <End Role="supplier" Type="Self.supplier" Multiplicity="*" />
+          <End Type="Model.supplierleixinBiao" Role="supplierleixinBiao" Multiplicity="0..1" />
+          <End Type="Model.supplier" Role="supplier" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="supplierleixinBiao">
               <PropertyRef Name="supplierType" />
@@ -1749,184 +1925,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="warehousing_systemEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="audit" EntityType="Self.audit" />
-          <EntitySet Name="bsodd" EntityType="Self.bsodd" />
-          <EntitySet Name="check" EntityType="Self.check" />
-          <EntitySet Name="checktype" EntityType="Self.checktype" />
-          <EntitySet Name="ckodd" EntityType="Self.ckodd" />
-          <EntitySet Name="cktype" EntityType="Self.cktype" />
-          <EntitySet Name="clerk" EntityType="Self.clerk" />
-          <EntitySet Name="client" EntityType="Self.client" />
-          <EntitySet Name="damage" EntityType="Self.damage" />
-          <EntitySet Name="damagetype" EntityType="Self.damagetype" />
-          <EntitySet Name="department" EntityType="Self.department" />
-          <EntitySet Name="kuwei" EntityType="Self.kuwei" />
-          <EntitySet Name="kuweitype" EntityType="Self.kuweitype" />
-          <EntitySet Name="kuweiwarehouse" EntityType="Self.kuweiwarehouse" />
-          <EntitySet Name="menu" EntityType="Self.menu" />
-          <EntitySet Name="move" EntityType="Self.move" />
-          <EntitySet Name="movetype" EntityType="Self.movetype" />
-          <EntitySet Name="pdodd" EntityType="Self.pdodd" />
-          <EntitySet Name="product" EntityType="Self.product" />
-          <EntitySet Name="productmanagement" EntityType="Self.productmanagement" />
-          <EntitySet Name="register" EntityType="Self.register" />
-          <EntitySet Name="rkodd" EntityType="Self.rkodd" />
-          <EntitySet Name="role" EntityType="Self.role" />
-          <EntitySet Name="salesreturn" EntityType="Self.salesreturn" />
-          <EntitySet Name="salestype" EntityType="Self.salestype" />
-          <EntitySet Name="staff" EntityType="Self.staff" />
-          <EntitySet Name="stockmanagement" EntityType="Self.stockmanagement" />
-          <EntitySet Name="Storagetype" EntityType="Self.Storagetype" />
-          <EntitySet Name="supplier" EntityType="Self.supplier" />
-          <EntitySet Name="supplierleixinBiao" EntityType="Self.supplierleixinBiao" />
-          <EntitySet Name="thodd" EntityType="Self.thodd" />
-          <EntitySet Name="unit" EntityType="Self.unit" />
-          <EntitySet Name="usermode" EntityType="Self.usermode" />
-          <EntitySet Name="Warehousemanagement" EntityType="Self.Warehousemanagement" />
-          <EntitySet Name="ykodd" EntityType="Self.ykodd" />
-          <AssociationSet Name="FK_check_audit" Association="Self.FK_check_audit">
-            <End Role="audit" EntitySet="audit" />
-            <End Role="check" EntitySet="check" />
-          </AssociationSet>
-          <AssociationSet Name="FK_damage_audit" Association="Self.FK_damage_audit">
-            <End Role="audit" EntitySet="audit" />
-            <End Role="damage" EntitySet="damage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_move_audit" Association="Self.FK_move_audit">
-            <End Role="audit" EntitySet="audit" />
-            <End Role="move" EntitySet="move" />
-          </AssociationSet>
-          <AssociationSet Name="FK_salesreturn_audit" Association="Self.FK_salesreturn_audit">
-            <End Role="audit" EntitySet="audit" />
-            <End Role="salesreturn" EntitySet="salesreturn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_stockmanagement_audit" Association="Self.FK_stockmanagement_audit">
-            <End Role="audit" EntitySet="audit" />
-            <End Role="stockmanagement" EntitySet="stockmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Warehousemanagement_audit" Association="Self.FK_Warehousemanagement_audit">
-            <End Role="audit" EntitySet="audit" />
-            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_damage_bsodd" Association="Self.FK_damage_bsodd">
-            <End Role="bsodd" EntitySet="bsodd" />
-            <End Role="damage" EntitySet="damage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_check_checktype" Association="Self.FK_check_checktype">
-            <End Role="checktype" EntitySet="checktype" />
-            <End Role="check" EntitySet="check" />
-          </AssociationSet>
-          <AssociationSet Name="FK_check_pdodd" Association="Self.FK_check_pdodd">
-            <End Role="pdodd" EntitySet="pdodd" />
-            <End Role="check" EntitySet="check" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Warehousemanagement_ckodd" Association="Self.FK_Warehousemanagement_ckodd">
-            <End Role="ckodd" EntitySet="ckodd" />
-            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Warehousemanagement_cktype" Association="Self.FK_Warehousemanagement_cktype">
-            <End Role="cktype" EntitySet="cktype" />
-            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_staff_staff" Association="Self.FK_staff_staff">
-            <End Role="clerk" EntitySet="clerk" />
-            <End Role="staff" EntitySet="staff" />
-          </AssociationSet>
-          <AssociationSet Name="FK_productmanagement_client" Association="Self.FK_productmanagement_client">
-            <End Role="client" EntitySet="client" />
-            <End Role="productmanagement" EntitySet="productmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Warehousemanagement_client" Association="Self.FK_Warehousemanagement_client">
-            <End Role="client" EntitySet="client" />
-            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_damage_damagetype" Association="Self.FK_damage_damagetype">
-            <End Role="damagetype" EntitySet="damagetype" />
-            <End Role="damage" EntitySet="damage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_staff_department" Association="Self.FK_staff_department">
-            <End Role="department" EntitySet="department" />
-            <End Role="staff" EntitySet="staff" />
-          </AssociationSet>
-          <AssociationSet Name="FK_kuwei_kuwei" Association="Self.FK_kuwei_kuwei">
-            <End Role="kuweiwarehouse" EntitySet="kuweiwarehouse" />
-            <End Role="kuwei" EntitySet="kuwei" />
-          </AssociationSet>
-          <AssociationSet Name="FK_kuwei_kuweitype" Association="Self.FK_kuwei_kuweitype">
-            <End Role="kuweitype" EntitySet="kuweitype" />
-            <End Role="kuwei" EntitySet="kuwei" />
-          </AssociationSet>
-          <AssociationSet Name="FK_productmanagement_kuweiwarehouse" Association="Self.FK_productmanagement_kuweiwarehouse">
-            <End Role="kuweiwarehouse" EntitySet="kuweiwarehouse" />
-            <End Role="productmanagement" EntitySet="productmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_move_movetype" Association="Self.FK_move_movetype">
-            <End Role="movetype" EntitySet="movetype" />
-            <End Role="move" EntitySet="move" />
-          </AssociationSet>
-          <AssociationSet Name="FK_move_ykodd" Association="Self.FK_move_ykodd">
-            <End Role="ykodd" EntitySet="ykodd" />
-            <End Role="move" EntitySet="move" />
-          </AssociationSet>
-          <AssociationSet Name="FK_product_management_product" Association="Self.FK_product_management_product">
-            <End Role="product" EntitySet="product" />
-            <End Role="productmanagement" EntitySet="productmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_product_management_product_management" Association="Self.FK_product_management_product_management">
-            <End Role="unit" EntitySet="unit" />
-            <End Role="productmanagement" EntitySet="productmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_productmanagement_productmanagement" Association="Self.FK_productmanagement_productmanagement">
-            <End Role="productmanagement" EntitySet="productmanagement" />
-            <End Role="productmanagement1" EntitySet="productmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_productmanagement_productmanagement1" Association="Self.FK_productmanagement_productmanagement1">
-            <End Role="productmanagement" EntitySet="productmanagement" />
-            <End Role="productmanagement1" EntitySet="productmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_register_role" Association="Self.FK_register_role">
-            <End Role="role" EntitySet="role" />
-            <End Role="register" EntitySet="register" />
-          </AssociationSet>
-          <AssociationSet Name="FK_register_usermode" Association="Self.FK_register_usermode">
-            <End Role="usermode" EntitySet="usermode" />
-            <End Role="register" EntitySet="register" />
-          </AssociationSet>
-          <AssociationSet Name="FK_stockmanagement_rkodd" Association="Self.FK_stockmanagement_rkodd">
-            <End Role="rkodd" EntitySet="rkodd" />
-            <End Role="stockmanagement" EntitySet="stockmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_staff_role" Association="Self.FK_staff_role">
-            <End Role="role" EntitySet="role" />
-            <End Role="staff" EntitySet="staff" />
-          </AssociationSet>
-          <AssociationSet Name="FK_salesreturn_salestype" Association="Self.FK_salesreturn_salestype">
-            <End Role="salestype" EntitySet="salestype" />
-            <End Role="salesreturn" EntitySet="salesreturn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_salesreturn_thodd" Association="Self.FK_salesreturn_thodd">
-            <End Role="thodd" EntitySet="thodd" />
-            <End Role="salesreturn" EntitySet="salesreturn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_stockmanagement_stockmanagement" Association="Self.FK_stockmanagement_stockmanagement">
-            <End Role="stockmanagement" EntitySet="stockmanagement" />
-            <End Role="stockmanagement1" EntitySet="stockmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_stockmanagement_Storagetype" Association="Self.FK_stockmanagement_Storagetype">
-            <End Role="Storagetype" EntitySet="Storagetype" />
-            <End Role="stockmanagement" EntitySet="stockmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_stockmanagement_supplier" Association="Self.FK_stockmanagement_supplier">
-            <End Role="supplier" EntitySet="supplier" />
-            <End Role="stockmanagement" EntitySet="stockmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_supplier_supplierleixinBiao" Association="Self.FK_supplier_supplierleixinBiao">
-            <End Role="supplierleixinBiao" EntitySet="supplierleixinBiao" />
-            <End Role="supplier" EntitySet="supplier" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1935,361 +1934,361 @@
           <EntitySetMapping Name="audit">
             <EntityTypeMapping TypeName="Model.audit">
               <MappingFragment StoreEntitySet="audit">
-                <ScalarProperty Name="auditid" ColumnName="auditid" />
                 <ScalarProperty Name="auditname" ColumnName="auditname" />
+                <ScalarProperty Name="auditid" ColumnName="auditid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="bsodd">
             <EntityTypeMapping TypeName="Model.bsodd">
               <MappingFragment StoreEntitySet="bsodd">
-                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
                 <ScalarProperty Name="correlationname" ColumnName="correlationname" />
+                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="check">
             <EntityTypeMapping TypeName="Model.check">
               <MappingFragment StoreEntitySet="check">
-                <ScalarProperty Name="checkid" ColumnName="checkid" />
-                <ScalarProperty Name="checktypeid" ColumnName="checktypeid" />
-                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
-                <ScalarProperty Name="stateid" ColumnName="stateid" />
-                <ScalarProperty Name="zdpeople" ColumnName="zdpeople" />
-                <ScalarProperty Name="czfs" ColumnName="czfs" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="czfs" ColumnName="czfs" />
+                <ScalarProperty Name="zdpeople" ColumnName="zdpeople" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
+                <ScalarProperty Name="checktypeid" ColumnName="checktypeid" />
+                <ScalarProperty Name="checkid" ColumnName="checkid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="checktype">
             <EntityTypeMapping TypeName="Model.checktype">
               <MappingFragment StoreEntitySet="checktype">
-                <ScalarProperty Name="checktypeid" ColumnName="checktypeid" />
                 <ScalarProperty Name="checktypename" ColumnName="checktypename" />
+                <ScalarProperty Name="checktypeid" ColumnName="checktypeid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ckodd">
             <EntityTypeMapping TypeName="Model.ckodd">
               <MappingFragment StoreEntitySet="ckodd">
-                <ScalarProperty Name="ckid" ColumnName="ckid" />
                 <ScalarProperty Name="ckname" ColumnName="ckname" />
+                <ScalarProperty Name="ckid" ColumnName="ckid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cktype">
             <EntityTypeMapping TypeName="Model.cktype">
               <MappingFragment StoreEntitySet="cktype">
-                <ScalarProperty Name="cktypeid" ColumnName="cktypeid" />
                 <ScalarProperty Name="ckname" ColumnName="ckname" />
+                <ScalarProperty Name="cktypeid" ColumnName="cktypeid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="clerk">
             <EntityTypeMapping TypeName="Model.clerk">
               <MappingFragment StoreEntitySet="clerk">
-                <ScalarProperty Name="clerkid" ColumnName="clerkid" />
                 <ScalarProperty Name="clerkname" ColumnName="clerkname" />
+                <ScalarProperty Name="clerkid" ColumnName="clerkid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="client">
             <EntityTypeMapping TypeName="Model.client">
               <MappingFragment StoreEntitySet="client">
-                <ScalarProperty Name="clientid" ColumnName="clientid" />
-                <ScalarProperty Name="clientname" ColumnName="clientname" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="clientname" ColumnName="clientname" />
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="damage">
             <EntityTypeMapping TypeName="Model.damage">
               <MappingFragment StoreEntitySet="damage">
-                <ScalarProperty Name="bid" ColumnName="bid" />
-                <ScalarProperty Name="damagetypeid" ColumnName="damagetypeid" />
-                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
-                <ScalarProperty Name="quantity" ColumnName="quantity" />
-                <ScalarProperty Name="stateid" ColumnName="stateid" />
-                <ScalarProperty Name="addpeople" ColumnName="addpeople" />
                 <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="addpeople" ColumnName="addpeople" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
+                <ScalarProperty Name="damagetypeid" ColumnName="damagetypeid" />
+                <ScalarProperty Name="bid" ColumnName="bid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="damagetype">
             <EntityTypeMapping TypeName="Model.damagetype">
               <MappingFragment StoreEntitySet="damagetype">
-                <ScalarProperty Name="damagetypeid" ColumnName="damagetypeid" />
                 <ScalarProperty Name="damagetypename" ColumnName="damagetypename" />
+                <ScalarProperty Name="damagetypeid" ColumnName="damagetypeid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="department">
             <EntityTypeMapping TypeName="Model.department">
               <MappingFragment StoreEntitySet="department">
-                <ScalarProperty Name="departmentid" ColumnName="departmentid" />
-                <ScalarProperty Name="departmentname" ColumnName="departmentname" />
                 <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="departmentname" ColumnName="departmentname" />
+                <ScalarProperty Name="departmentid" ColumnName="departmentid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kuwei">
             <EntityTypeMapping TypeName="Model.kuwei">
               <MappingFragment StoreEntitySet="kuwei">
-                <ScalarProperty Name="kuweiid" ColumnName="kuweiid" />
-                <ScalarProperty Name="kuweiname" ColumnName="kuweiname" />
-                <ScalarProperty Name="warehouseid" ColumnName="warehouseid" />
-                <ScalarProperty Name="kuWeiTypeid" ColumnName="kuWeiTypeid" />
-                <ScalarProperty Name="forbidden" ColumnName="forbidden" />
-                <ScalarProperty Name="defaults" ColumnName="defaults" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="defaults" ColumnName="defaults" />
+                <ScalarProperty Name="forbidden" ColumnName="forbidden" />
+                <ScalarProperty Name="kuWeiTypeid" ColumnName="kuWeiTypeid" />
+                <ScalarProperty Name="warehouseid" ColumnName="warehouseid" />
+                <ScalarProperty Name="kuweiname" ColumnName="kuweiname" />
+                <ScalarProperty Name="kuweiid" ColumnName="kuweiid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kuweitype">
             <EntityTypeMapping TypeName="Model.kuweitype">
               <MappingFragment StoreEntitySet="kuweitype">
-                <ScalarProperty Name="kuWeiTypeid" ColumnName="kuWeiTypeid" />
                 <ScalarProperty Name="kuWeiTypename" ColumnName="kuWeiTypename" />
+                <ScalarProperty Name="kuWeiTypeid" ColumnName="kuWeiTypeid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kuweiwarehouse">
             <EntityTypeMapping TypeName="Model.kuweiwarehouse">
               <MappingFragment StoreEntitySet="kuweiwarehouse">
-                <ScalarProperty Name="warehouseid" ColumnName="warehouseid" />
                 <ScalarProperty Name="warehousename" ColumnName="warehousename" />
+                <ScalarProperty Name="warehouseid" ColumnName="warehouseid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="menu">
             <EntityTypeMapping TypeName="Model.menu">
               <MappingFragment StoreEntitySet="menu">
-                <ScalarProperty Name="menuid" ColumnName="menuid" />
-                <ScalarProperty Name="menuname" ColumnName="menuname" />
-                <ScalarProperty Name="fathermenu" ColumnName="fathermenu" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="style" ColumnName="style" />
-                <ScalarProperty Name="sort" ColumnName="sort" />
-                <ScalarProperty Name="path" ColumnName="path" />
                 <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="style" ColumnName="style" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="fathermenu" ColumnName="fathermenu" />
+                <ScalarProperty Name="menuname" ColumnName="menuname" />
+                <ScalarProperty Name="menuid" ColumnName="menuid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="move">
             <EntityTypeMapping TypeName="Model.move">
               <MappingFragment StoreEntitySet="move">
-                <ScalarProperty Name="mid" ColumnName="mid" />
-                <ScalarProperty Name="movetypeid" ColumnName="movetypeid" />
-                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
-                <ScalarProperty Name="count" ColumnName="count" />
-                <ScalarProperty Name="moveperson" ColumnName="moveperson" />
-                <ScalarProperty Name="stateid" ColumnName="stateid" />
                 <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="moveperson" ColumnName="moveperson" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
+                <ScalarProperty Name="movetypeid" ColumnName="movetypeid" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="movetype">
             <EntityTypeMapping TypeName="Model.movetype">
               <MappingFragment StoreEntitySet="movetype">
-                <ScalarProperty Name="movetypeid" ColumnName="movetypeid" />
                 <ScalarProperty Name="movetypename" ColumnName="movetypename" />
+                <ScalarProperty Name="movetypeid" ColumnName="movetypeid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pdodd">
             <EntityTypeMapping TypeName="Model.pdodd">
               <MappingFragment StoreEntitySet="pdodd">
-                <ScalarProperty Name="pdid" ColumnName="pdid" />
                 <ScalarProperty Name="pdname" ColumnName="pdname" />
+                <ScalarProperty Name="pdid" ColumnName="pdid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="product">
             <EntityTypeMapping TypeName="Model.product">
               <MappingFragment StoreEntitySet="product">
-                <ScalarProperty Name="productid" ColumnName="productid" />
-                <ScalarProperty Name="productname" ColumnName="productname" />
-                <ScalarProperty Name="addpeople" ColumnName="addpeople" />
-                <ScalarProperty Name="addtime" ColumnName="addtime" />
                 <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="addpeople" ColumnName="addpeople" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="productmanagement">
             <EntityTypeMapping TypeName="Model.productmanagement">
               <MappingFragment StoreEntitySet="productmanagement">
-                <ScalarProperty Name="meteringid" ColumnName="meteringid" />
-                <ScalarProperty Name="Cpid" ColumnName="Cpid" />
-                <ScalarProperty Name="commodityname" ColumnName="commodityname" />
-                <ScalarProperty Name="ceiling" ColumnName="ceiling" />
-                <ScalarProperty Name="floor" ColumnName="floor" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="productid" ColumnName="productid" />
-                <ScalarProperty Name="metering" ColumnName="metering" />
-                <ScalarProperty Name="warehouseid" ColumnName="warehouseid" />
-                <ScalarProperty Name="clientid" ColumnName="clientid" />
                 <ScalarProperty Name="kuWeiTypeName" ColumnName="kuWeiTypeName" />
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
+                <ScalarProperty Name="warehouseid" ColumnName="warehouseid" />
+                <ScalarProperty Name="metering" ColumnName="metering" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="floor" ColumnName="floor" />
+                <ScalarProperty Name="ceiling" ColumnName="ceiling" />
+                <ScalarProperty Name="commodityname" ColumnName="commodityname" />
+                <ScalarProperty Name="Cpid" ColumnName="Cpid" />
+                <ScalarProperty Name="meteringid" ColumnName="meteringid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="register">
             <EntityTypeMapping TypeName="Model.register">
               <MappingFragment StoreEntitySet="register">
-                <ScalarProperty Name="did" ColumnName="did" />
-                <ScalarProperty Name="login" ColumnName="login" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="stateid" ColumnName="stateid" />
                 <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="did" ColumnName="did" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="rkodd">
             <EntityTypeMapping TypeName="Model.rkodd">
               <MappingFragment StoreEntitySet="rkodd">
-                <ScalarProperty Name="rkid" ColumnName="rkid" />
                 <ScalarProperty Name="rkname" ColumnName="rkname" />
+                <ScalarProperty Name="rkid" ColumnName="rkid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="role">
             <EntityTypeMapping TypeName="Model.role">
               <MappingFragment StoreEntitySet="role">
-                <ScalarProperty Name="roleid" ColumnName="roleid" />
-                <ScalarProperty Name="rolename" ColumnName="rolename" />
-                <ScalarProperty Name="addtime" ColumnName="addtime" />
-                <ScalarProperty Name="remarks" ColumnName="remarks" />
                 <ScalarProperty Name="staffid" ColumnName="staffid" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="rolename" ColumnName="rolename" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="salesreturn">
             <EntityTypeMapping TypeName="Model.salesreturn">
               <MappingFragment StoreEntitySet="salesreturn">
-                <ScalarProperty Name="sid" ColumnName="sid" />
-                <ScalarProperty Name="thid" ColumnName="thid" />
-                <ScalarProperty Name="thnumber" ColumnName="thnumber" />
-                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
-                <ScalarProperty Name="stateid" ColumnName="stateid" />
-                <ScalarProperty Name="zdpeople" ColumnName="zdpeople" />
-                <ScalarProperty Name="czfs" ColumnName="czfs" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="czfs" ColumnName="czfs" />
+                <ScalarProperty Name="zdpeople" ColumnName="zdpeople" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
+                <ScalarProperty Name="thnumber" ColumnName="thnumber" />
+                <ScalarProperty Name="thid" ColumnName="thid" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="salestype">
             <EntityTypeMapping TypeName="Model.salestype">
               <MappingFragment StoreEntitySet="salestype">
-                <ScalarProperty Name="thtypeid" ColumnName="thtypeid" />
                 <ScalarProperty Name="thtypename" ColumnName="thtypename" />
+                <ScalarProperty Name="thtypeid" ColumnName="thtypeid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="staff">
             <EntityTypeMapping TypeName="Model.staff">
               <MappingFragment StoreEntitySet="staff">
-                <ScalarProperty Name="staffid" ColumnName="staffid" />
-                <ScalarProperty Name="staffName" ColumnName="staffName" />
-                <ScalarProperty Name="iphone" ColumnName="iphone" />
-                <ScalarProperty Name="departmentid" ColumnName="departmentid" />
-                <ScalarProperty Name="roleid" ColumnName="roleid" />
-                <ScalarProperty Name="clerkid" ColumnName="clerkid" />
                 <ScalarProperty Name="logins" ColumnName="logins" />
+                <ScalarProperty Name="clerkid" ColumnName="clerkid" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="departmentid" ColumnName="departmentid" />
+                <ScalarProperty Name="iphone" ColumnName="iphone" />
+                <ScalarProperty Name="staffName" ColumnName="staffName" />
+                <ScalarProperty Name="staffid" ColumnName="staffid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="stockmanagement">
             <EntityTypeMapping TypeName="Model.stockmanagement">
               <MappingFragment StoreEntitySet="stockmanagement">
-                <ScalarProperty Name="Inid" ColumnName="Inid" />
-                <ScalarProperty Name="typeid" ColumnName="typeid" />
-                <ScalarProperty Name="supplierid" ColumnName="supplierid" />
-                <ScalarProperty Name="Cpid" ColumnName="Cpid" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="money" ColumnName="money" />
-                <ScalarProperty Name="stateid" ColumnName="stateid" />
-                <ScalarProperty Name="zdpeople" ColumnName="zdpeople" />
-                <ScalarProperty Name="czfs" ColumnName="czfs" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="czfs" ColumnName="czfs" />
+                <ScalarProperty Name="zdpeople" ColumnName="zdpeople" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Cpid" ColumnName="Cpid" />
+                <ScalarProperty Name="supplierid" ColumnName="supplierid" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="Inid" ColumnName="Inid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Storagetype">
             <EntityTypeMapping TypeName="Model.Storagetype">
               <MappingFragment StoreEntitySet="Storagetype">
-                <ScalarProperty Name="typeid" ColumnName="typeid" />
                 <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="supplier">
             <EntityTypeMapping TypeName="Model.supplier">
               <MappingFragment StoreEntitySet="supplier">
-                <ScalarProperty Name="supplierid" ColumnName="supplierid" />
-                <ScalarProperty Name="supplierType" ColumnName="supplierType" />
-                <ScalarProperty Name="supplierName" ColumnName="supplierName" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="contacts" ColumnName="contacts" />
-                <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contacts" ColumnName="contacts" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="supplierName" ColumnName="supplierName" />
+                <ScalarProperty Name="supplierType" ColumnName="supplierType" />
+                <ScalarProperty Name="supplierid" ColumnName="supplierid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="supplierleixinBiao">
             <EntityTypeMapping TypeName="Model.supplierleixinBiao">
               <MappingFragment StoreEntitySet="supplierleixinBiao">
-                <ScalarProperty Name="supplierType" ColumnName="supplierType" />
                 <ScalarProperty Name="supplierName" ColumnName="supplierName" />
+                <ScalarProperty Name="supplierType" ColumnName="supplierType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="thodd">
             <EntityTypeMapping TypeName="Model.thodd">
               <MappingFragment StoreEntitySet="thodd">
-                <ScalarProperty Name="thid" ColumnName="thid" />
                 <ScalarProperty Name="thname" ColumnName="thname" />
+                <ScalarProperty Name="thid" ColumnName="thid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="unit">
             <EntityTypeMapping TypeName="Model.unit">
               <MappingFragment StoreEntitySet="unit">
-                <ScalarProperty Name="metering" ColumnName="metering" />
-                <ScalarProperty Name="meteringid" ColumnName="meteringid" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="meteringid" ColumnName="meteringid" />
+                <ScalarProperty Name="metering" ColumnName="metering" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="usermode">
             <EntityTypeMapping TypeName="Model.usermode">
               <MappingFragment StoreEntitySet="usermode">
-                <ScalarProperty Name="Stateid" ColumnName="Stateid" />
                 <ScalarProperty Name="Loginname" ColumnName="Loginname" />
+                <ScalarProperty Name="Stateid" ColumnName="Stateid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Warehousemanagement">
             <EntityTypeMapping TypeName="Model.Warehousemanagement">
               <MappingFragment StoreEntitySet="Warehousemanagement">
-                <ScalarProperty Name="ckid" ColumnName="ckid" />
-                <ScalarProperty Name="cktypeid" ColumnName="cktypeid" />
-                <ScalarProperty Name="clientid" ColumnName="clientid" />
-                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
-                <ScalarProperty Name="count" ColumnName="count" />
-                <ScalarProperty Name="money" ColumnName="money" />
-                <ScalarProperty Name="stateid" ColumnName="stateid" />
-                <ScalarProperty Name="czfs" ColumnName="czfs" />
-                <ScalarProperty Name="zdpeople" ColumnName="zdpeople" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="zdpeople" ColumnName="zdpeople" />
+                <ScalarProperty Name="czfs" ColumnName="czfs" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="correlationid" ColumnName="correlationid" />
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
+                <ScalarProperty Name="cktypeid" ColumnName="cktypeid" />
+                <ScalarProperty Name="ckid" ColumnName="ckid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ykodd">
             <EntityTypeMapping TypeName="Model.ykodd">
               <MappingFragment StoreEntitySet="ykodd">
-                <ScalarProperty Name="ykid" ColumnName="ykid" />
                 <ScalarProperty Name="ykname" ColumnName="ykname" />
+                <ScalarProperty Name="ykid" ColumnName="ykid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

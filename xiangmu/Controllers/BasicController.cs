@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using com.tdxm.model;
 using com.tdxm.services;
 using System.Linq.Expressions;
+using xiangmu.Models.RequestDto;
 
 namespace xiangmu.Controllers
 {
@@ -20,45 +21,40 @@ namespace xiangmu.Controllers
         {
             get { return 2; }
         }
-
         /// <summary>
         /// 库位管理
         /// </summary>
         /// <returns></returns>
-        public ActionResult StaffQuery()
+        public ActionResult KuweiQuery() 
         {
-            var service= new StaffService();
+            var service = new KuweiService();
             var list = service.GetAll();
-            ViewBag.Staff = list;
+            ViewBag.Kuwei = list;
             return View();
-
         }
 
-        public ActionResult GetStaff(int typeId, string name, int pageIndex)
+        public ActionResult GetKuweis(KuweiQueryRequestDto requestDto)
         {
-            var service = new StaffService();
+            var service = new KuweiService();
             //组合条件
-            Expression<Func<staff, bool>> where = item => true;
+            Expression<Func<kuwei, bool>> where = item => true;
 
-            //if (typeId != 0)
-            //{
-            //    //当类型不是全部选中项，则按照类型组合条件
-            //    where = where.And(item => item.TypeId.Equals(typeId));
-            //}
-            //if (!string.IsNullOrEmpty(name))
-            //{
-            //    //当文本框不为空值时，则加 名称作为条件
-            //    where = where.And(item => item.Name.IndexOf(name) != -1);
-            //}
+            if (!string.IsNullOrEmpty(requestDto.Name))
+            {
+                where = where.And(item => item.kuweiname.IndexOf(requestDto.Name) != -1);
+            }
+            where = where.And(item => item.AddTime >= requestDto.StartDate && item.AddTime <= requestDto.EndDate);
+
             var pageCount = 0;
             var count = 0;
-            var list = service.GetByWhereDesc(where, item => item.staffid, ref pageIndex, PageSize, ref pageCount, ref count);
+            var pageIndex = requestDto.PageIndex;
+            var list = service.GetByWhereAsc(where, item => item.AddTime, ref pageIndex, ref count, ref pageCount, PageSize);
             //var list = service.GetByWhere(where);
             //返回数据
             //Actionresult  常用响应类型  ViewResult ContentResult JsonResult
             // Json数据格式 { 名称:值 } 数组 [{},{}]
             // 格式转换
-            var newFormatList = list.Select(item => new { Id = item.staffid, Name = item.staffName, Iphone = item.iphone, Departmentid = item.departmentid, Roleid = item.roleid, Clerkid = item.clerkid, Logins = item.logins });
+            var newFormatList = list.Select(item => new { Id = item.kuweiid, Name = item.kuweiname, Warehouseid = item.warehouseid, KuWeiTypeid = item.kuWeiTypeid, Forbidden = item.forbidden, Defaults = item.defaults, AddTime = item.AddTime.ToString("yyyy-MM-dd HH:mm:ss") });
 
             //将数据构建打包给前台
             var result = new
@@ -66,29 +62,20 @@ namespace xiangmu.Controllers
                 PageIndex = pageIndex,
                 PageCount = pageCount,
                 Count = count,
-                StafflInfies = newFormatList
+                KuweilInfies = newFormatList
             };
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
-
-        public ActionResult StaffAdd()
+        /// <summary>
+        /// 库位添加
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult KuweiAdd()
         {
-            var service = new StaffService();
-            var listTypes = service.GetAll();
-
-            //构建下拉框绑定数据格式化数据
-            ViewBag.TypeId = new SelectList(listTypes, "Id", "Name");
-
             return View();
         }
 
-
-        //public ActionResult GetStaffAdd()
-        //{
-
-        //}
 
 
         /// <summary>
@@ -97,7 +84,8 @@ namespace xiangmu.Controllers
         /// <returns></returns>
         public ActionResult supplierQuery()
         {
-            //var = new 
+            var service= new supplierService();
+
             return View();
         }
         /// <summary>
