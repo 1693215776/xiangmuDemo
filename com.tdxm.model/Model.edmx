@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="audit">
           <Key>
             <PropertyRef Name="auditid" />
@@ -40,9 +40,9 @@
         </EntityType>
         <EntityType Name="ckodd">
           <Key>
-            <PropertyRef Name="ckid" />
+            <PropertyRef Name="ckoid" />
           </Key>
-          <Property Name="ckid" Type="int" Nullable="false" />
+          <Property Name="ckoid" Type="int" Nullable="false" />
           <Property Name="ckname" Type="int" />
         </EntityType>
         <EntityType Name="cktype">
@@ -194,7 +194,6 @@
           <Property Name="login" Type="nvarchar" MaxLength="50" />
           <Property Name="password" Type="nvarchar" MaxLength="50" />
           <Property Name="stateid" Type="int" />
-          <Property Name="roleid" Type="int" />
         </EntityType>
         <EntityType Name="rkodd">
           <Key>
@@ -249,7 +248,7 @@
           <Key>
             <PropertyRef Name="Inid" />
           </Key>
-          <Property Name="Inid" Type="int" Nullable="false" />
+          <Property Name="Inid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="typeid" Type="int" />
           <Property Name="supplierid" Type="int" />
           <Property Name="Cpid" Type="int" />
@@ -535,18 +534,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_register_role">
-          <End Role="role" Type="Self.role" Multiplicity="0..1" />
-          <End Role="register" Type="Self.register" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="role">
-              <PropertyRef Name="roleid" />
-            </Principal>
-            <Dependent Role="register">
-              <PropertyRef Name="roleid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_register_usermode">
           <End Role="usermode" Type="Self.usermode" Multiplicity="0..1" />
           <End Role="register" Type="Self.register" Multiplicity="*" />
@@ -720,7 +707,7 @@
           <End Role="Warehousemanagement" Type="Self.Warehousemanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ckodd">
-              <PropertyRef Name="ckid" />
+              <PropertyRef Name="ckoid" />
             </Principal>
             <Dependent Role="Warehousemanagement">
               <PropertyRef Name="correlationid" />
@@ -855,10 +842,6 @@
             <End Role="productmanagement" EntitySet="productmanagement" />
             <End Role="productmanagement1" EntitySet="productmanagement" />
           </AssociationSet>
-          <AssociationSet Name="FK_register_role" Association="Self.FK_register_role">
-            <End Role="role" EntitySet="role" />
-            <End Role="register" EntitySet="register" />
-          </AssociationSet>
           <AssociationSet Name="FK_register_usermode" Association="Self.FK_register_usermode">
             <End Role="usermode" EntitySet="usermode" />
             <End Role="register" EntitySet="register" />
@@ -979,9 +962,9 @@
         </EntityType>
         <EntityType Name="ckodd">
           <Key>
-            <PropertyRef Name="ckid" />
+            <PropertyRef Name="ckoid" />
           </Key>
-          <Property Name="ckid" Type="Int32" Nullable="false" />
+          <Property Name="ckoid" Type="Int32" Nullable="false" />
           <Property Name="ckname" Type="Int32" />
           <NavigationProperty Name="Warehousemanagement" Relationship="Self.FK_Warehousemanagement_ckodd" FromRole="ckodd" ToRole="Warehousemanagement" />
         </EntityType>
@@ -1162,8 +1145,6 @@
           <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="stateid" Type="Int32" />
-          <Property Name="roleid" Type="Int32" />
-          <NavigationProperty Name="role" Relationship="Self.FK_register_role" FromRole="register" ToRole="role" />
           <NavigationProperty Name="usermode" Relationship="Self.FK_register_usermode" FromRole="register" ToRole="usermode" />
         </EntityType>
         <EntityType Name="rkodd">
@@ -1183,7 +1164,6 @@
           <Property Name="addtime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="staffid" Type="Int32" />
-          <NavigationProperty Name="register" Relationship="Self.FK_register_role" FromRole="role" ToRole="register" />
           <NavigationProperty Name="staff" Relationship="Self.FK_staff_role" FromRole="role" ToRole="staff" />
         </EntityType>
         <EntityType Name="salesreturn">
@@ -1229,7 +1209,7 @@
           <Key>
             <PropertyRef Name="Inid" />
           </Key>
-          <Property Name="Inid" Type="Int32" Nullable="false" />
+          <Property Name="Inid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="typeid" Type="Int32" />
           <Property Name="supplierid" Type="Int32" />
           <Property Name="Cpid" Type="Int32" />
@@ -1442,7 +1422,7 @@
           <End Role="Warehousemanagement" Type="Self.Warehousemanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ckodd">
-              <PropertyRef Name="ckid" />
+              <PropertyRef Name="ckoid" />
             </Principal>
             <Dependent Role="Warehousemanagement">
               <PropertyRef Name="correlationid" />
@@ -1626,18 +1606,6 @@
             </Principal>
             <Dependent Role="productmanagement1">
               <PropertyRef Name="meteringid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_register_role">
-          <End Role="role" Type="Self.role" Multiplicity="0..1" />
-          <End Role="register" Type="Self.register" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="role">
-              <PropertyRef Name="roleid" />
-            </Principal>
-            <Dependent Role="register">
-              <PropertyRef Name="roleid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1885,10 +1853,6 @@
             <End Role="productmanagement" EntitySet="productmanagement" />
             <End Role="productmanagement1" EntitySet="productmanagement" />
           </AssociationSet>
-          <AssociationSet Name="FK_register_role" Association="Self.FK_register_role">
-            <End Role="role" EntitySet="role" />
-            <End Role="register" EntitySet="register" />
-          </AssociationSet>
           <AssociationSet Name="FK_register_usermode" Association="Self.FK_register_usermode">
             <End Role="usermode" EntitySet="usermode" />
             <End Role="register" EntitySet="register" />
@@ -1972,7 +1936,7 @@
           <EntitySetMapping Name="ckodd">
             <EntityTypeMapping TypeName="Model.ckodd">
               <MappingFragment StoreEntitySet="ckodd">
-                <ScalarProperty Name="ckid" ColumnName="ckid" />
+                <ScalarProperty Name="ckoid" ColumnName="ckoid" />
                 <ScalarProperty Name="ckname" ColumnName="ckname" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2140,7 +2104,6 @@
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="stateid" ColumnName="stateid" />
-                <ScalarProperty Name="roleid" ColumnName="roleid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

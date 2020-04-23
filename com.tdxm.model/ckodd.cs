@@ -20,7 +20,7 @@ namespace com.tdxm.model
             this.Warehousemanagement = new HashSet<Warehousemanagement>();
         }
     
-        public int ckid { get; set; }
+        public int ckoid { get; set; }
         public Nullable<int> ckname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

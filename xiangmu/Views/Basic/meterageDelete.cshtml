@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "meterageDelete";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+
+    <form>
+        <div>
+            序号  <input type="hidden" name="metering" value="@Model.metering" />
+        </div>
+
+        <div>
+            计量编号<input type="text" name="meteringid" value="@Model.meteringid" />
+        </div>
+        <div>
+            名称<input type="text" name="name" value="@Model.name" />
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 text-right">
+                <button type="button" class="btn btn-primary" style="margin-top:30px;">删除</button>
+                <button type="button" class="btn btn-primary" href="@*@Url.Action(" CarQuery")*@" style="margin-right:100px;margin-top:30px;">返回列表</button>
+            </div>
+        </div>
+    </form>

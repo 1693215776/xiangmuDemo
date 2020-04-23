@@ -49,37 +49,13 @@
   <ItemGroup>
     <Compile Include="cangguan.cs" />
     <Compile Include="CanGuanRepsitory.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="DlRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\com.tdxm.model.dll.config" />
-    <None Include="obj\Debug\com.tdxm.reping.csproj.CopyComplete" />
-    <None Include="obj\Debug\com.tdxm.reping.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\com.tdxm.reping.csprojAssemblyReference.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Release\com.tdxm.reping.csproj.CoreCompileInputs.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Release\" />
-    <Folder Include="obj\Debug\TempPE\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\com.tdxm.model.dll" />
-    <Content Include="bin\Debug\com.tdxm.model.pdb" />
-    <Content Include="bin\Debug\com.tdxm.reping.dll" />
-    <Content Include="bin\Debug\com.tdxm.reping.pdb" />
-    <Content Include="bin\Debug\EntityFramework.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\Debug\EntityFramework.xml" />
-    <Content Include="bin\Debug\zh-Hans\EntityFramework.resources.dll" />
-    <Content Include="obj\Debug\com.tdxm.reping.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\com.tdxm.reping.dll" />
-    <Content Include="obj\Debug\com.tdxm.reping.pdb" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="obj\Release\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.tdxm.model\com.tdxm.model.csproj">
