@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="audit">
           <Key>
             <PropertyRef Name="auditid" />
@@ -40,9 +40,9 @@
         </EntityType>
         <EntityType Name="ckodd">
           <Key>
-            <PropertyRef Name="ckid" />
+            <PropertyRef Name="ckoid" />
           </Key>
-          <Property Name="ckid" Type="int" Nullable="false" />
+          <Property Name="ckoid" Type="int" Nullable="false" />
           <Property Name="ckname" Type="int" />
         </EntityType>
         <EntityType Name="cktype">
@@ -194,7 +194,6 @@
           <Property Name="login" Type="nvarchar" MaxLength="50" />
           <Property Name="password" Type="nvarchar" MaxLength="50" />
           <Property Name="stateid" Type="int" />
-          <Property Name="roleid" Type="int" />
         </EntityType>
         <EntityType Name="rkodd">
           <Key>
@@ -249,7 +248,7 @@
           <Key>
             <PropertyRef Name="Inid" />
           </Key>
-          <Property Name="Inid" Type="int" Nullable="false" />
+          <Property Name="Inid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="typeid" Type="int" />
           <Property Name="supplierid" Type="int" />
           <Property Name="Cpid" Type="int" />
@@ -535,18 +534,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_register_role">
-          <End Role="role" Type="Self.role" Multiplicity="0..1" />
-          <End Role="register" Type="Self.register" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="role">
-              <PropertyRef Name="roleid" />
-            </Principal>
-            <Dependent Role="register">
-              <PropertyRef Name="roleid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_register_usermode">
           <End Role="usermode" Type="Self.usermode" Multiplicity="0..1" />
           <End Role="register" Type="Self.register" Multiplicity="*" />
@@ -720,7 +707,7 @@
           <End Role="Warehousemanagement" Type="Self.Warehousemanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ckodd">
-              <PropertyRef Name="ckid" />
+              <PropertyRef Name="ckoid" />
             </Principal>
             <Dependent Role="Warehousemanagement">
               <PropertyRef Name="correlationid" />
@@ -854,10 +841,6 @@
           <AssociationSet Name="FK_productmanagement_productmanagement1" Association="Self.FK_productmanagement_productmanagement1">
             <End Role="productmanagement" EntitySet="productmanagement" />
             <End Role="productmanagement1" EntitySet="productmanagement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_register_role" Association="Self.FK_register_role">
-            <End Role="role" EntitySet="role" />
-            <End Role="register" EntitySet="register" />
           </AssociationSet>
           <AssociationSet Name="FK_register_usermode" Association="Self.FK_register_usermode">
             <End Role="usermode" EntitySet="usermode" />
@@ -1155,9 +1138,9 @@
         </EntityType>
         <EntityType Name="ckodd">
           <Key>
-            <PropertyRef Name="ckid" />
+            <PropertyRef Name="ckoid" />
           </Key>
-          <Property Name="ckid" Type="Int32" Nullable="false" />
+          <Property Name="ckoid" Type="Int32" Nullable="false" />
           <Property Name="ckname" Type="Int32" />
           <NavigationProperty Name="Warehousemanagement" Relationship="Model.FK_Warehousemanagement_ckodd" FromRole="ckodd" ToRole="Warehousemanagement" />
         </EntityType>
@@ -1339,8 +1322,8 @@
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="stateid" Type="Int32" />
           <Property Name="roleid" Type="Int32" />
-          <NavigationProperty Name="role" Relationship="Model.FK_register_role" FromRole="register" ToRole="role" />
-          <NavigationProperty Name="usermode" Relationship="Model.FK_register_usermode" FromRole="register" ToRole="usermode" />
+          <NavigationProperty Name="role" Relationship="Self.FK_register_role" FromRole="register" ToRole="role" />
+          <NavigationProperty Name="usermode" Relationship="Self.FK_register_usermode" FromRole="register" ToRole="usermode" />
         </EntityType>
         <EntityType Name="rkodd">
           <Key>
@@ -1359,8 +1342,8 @@
           <Property Name="addtime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="staffid" Type="Int32" />
-          <NavigationProperty Name="register" Relationship="Model.FK_register_role" FromRole="role" ToRole="register" />
-          <NavigationProperty Name="staff" Relationship="Model.FK_staff_role" FromRole="role" ToRole="staff" />
+          <NavigationProperty Name="register" Relationship="Self.FK_register_role" FromRole="role" ToRole="register" />
+          <NavigationProperty Name="staff" Relationship="Self.FK_staff_role" FromRole="role" ToRole="staff" />
         </EntityType>
         <EntityType Name="salesreturn">
           <Key>
@@ -1405,7 +1388,7 @@
           <Key>
             <PropertyRef Name="Inid" />
           </Key>
-          <Property Name="Inid" Type="Int32" Nullable="false" />
+          <Property Name="Inid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="typeid" Type="Int32" />
           <Property Name="supplierid" Type="Int32" />
           <Property Name="Cpid" Type="Int32" />
@@ -1618,7 +1601,7 @@
           <End Type="Model.Warehousemanagement" Role="Warehousemanagement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ckodd">
-              <PropertyRef Name="ckid" />
+              <PropertyRef Name="ckoid" />
             </Principal>
             <Dependent Role="Warehousemanagement">
               <PropertyRef Name="correlationid" />
@@ -1806,8 +1789,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_register_role">
-          <End Type="Model.role" Role="role" Multiplicity="0..1" />
-          <End Type="Model.register" Role="register" Multiplicity="*" />
+          <End Role="role" Type="Self.role" Multiplicity="0..1" />
+          <End Role="register" Type="Self.register" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="role">
               <PropertyRef Name="roleid" />
@@ -1925,7 +1908,184 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="warehousing_systemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="audit" EntityType="Self.audit" />
+          <EntitySet Name="bsodd" EntityType="Self.bsodd" />
+          <EntitySet Name="check" EntityType="Self.check" />
+          <EntitySet Name="checktype" EntityType="Self.checktype" />
+          <EntitySet Name="ckodd" EntityType="Self.ckodd" />
+          <EntitySet Name="cktype" EntityType="Self.cktype" />
+          <EntitySet Name="clerk" EntityType="Self.clerk" />
+          <EntitySet Name="client" EntityType="Self.client" />
+          <EntitySet Name="damage" EntityType="Self.damage" />
+          <EntitySet Name="damagetype" EntityType="Self.damagetype" />
+          <EntitySet Name="department" EntityType="Self.department" />
+          <EntitySet Name="kuwei" EntityType="Self.kuwei" />
+          <EntitySet Name="kuweitype" EntityType="Self.kuweitype" />
+          <EntitySet Name="kuweiwarehouse" EntityType="Self.kuweiwarehouse" />
+          <EntitySet Name="menu" EntityType="Self.menu" />
+          <EntitySet Name="move" EntityType="Self.move" />
+          <EntitySet Name="movetype" EntityType="Self.movetype" />
+          <EntitySet Name="pdodd" EntityType="Self.pdodd" />
+          <EntitySet Name="product" EntityType="Self.product" />
+          <EntitySet Name="productmanagement" EntityType="Self.productmanagement" />
+          <EntitySet Name="register" EntityType="Self.register" />
+          <EntitySet Name="rkodd" EntityType="Self.rkodd" />
+          <EntitySet Name="role" EntityType="Self.role" />
+          <EntitySet Name="salesreturn" EntityType="Self.salesreturn" />
+          <EntitySet Name="salestype" EntityType="Self.salestype" />
+          <EntitySet Name="staff" EntityType="Self.staff" />
+          <EntitySet Name="stockmanagement" EntityType="Self.stockmanagement" />
+          <EntitySet Name="Storagetype" EntityType="Self.Storagetype" />
+          <EntitySet Name="supplier" EntityType="Self.supplier" />
+          <EntitySet Name="supplierleixinBiao" EntityType="Self.supplierleixinBiao" />
+          <EntitySet Name="thodd" EntityType="Self.thodd" />
+          <EntitySet Name="unit" EntityType="Self.unit" />
+          <EntitySet Name="usermode" EntityType="Self.usermode" />
+          <EntitySet Name="Warehousemanagement" EntityType="Self.Warehousemanagement" />
+          <EntitySet Name="ykodd" EntityType="Self.ykodd" />
+          <AssociationSet Name="FK_check_audit" Association="Self.FK_check_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_damage_audit" Association="Self.FK_damage_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="damage" EntitySet="damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_move_audit" Association="Self.FK_move_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="move" EntitySet="move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_salesreturn_audit" Association="Self.FK_salesreturn_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="salesreturn" EntitySet="salesreturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_audit" Association="Self.FK_stockmanagement_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehousemanagement_audit" Association="Self.FK_Warehousemanagement_audit">
+            <End Role="audit" EntitySet="audit" />
+            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_damage_bsodd" Association="Self.FK_damage_bsodd">
+            <End Role="bsodd" EntitySet="bsodd" />
+            <End Role="damage" EntitySet="damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_checktype" Association="Self.FK_check_checktype">
+            <End Role="checktype" EntitySet="checktype" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_check_pdodd" Association="Self.FK_check_pdodd">
+            <End Role="pdodd" EntitySet="pdodd" />
+            <End Role="check" EntitySet="check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehousemanagement_ckodd" Association="Self.FK_Warehousemanagement_ckodd">
+            <End Role="ckodd" EntitySet="ckodd" />
+            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehousemanagement_cktype" Association="Self.FK_Warehousemanagement_cktype">
+            <End Role="cktype" EntitySet="cktype" />
+            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_staff_staff" Association="Self.FK_staff_staff">
+            <End Role="clerk" EntitySet="clerk" />
+            <End Role="staff" EntitySet="staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productmanagement_client" Association="Self.FK_productmanagement_client">
+            <End Role="client" EntitySet="client" />
+            <End Role="productmanagement" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehousemanagement_client" Association="Self.FK_Warehousemanagement_client">
+            <End Role="client" EntitySet="client" />
+            <End Role="Warehousemanagement" EntitySet="Warehousemanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_damage_damagetype" Association="Self.FK_damage_damagetype">
+            <End Role="damagetype" EntitySet="damagetype" />
+            <End Role="damage" EntitySet="damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_staff_department" Association="Self.FK_staff_department">
+            <End Role="department" EntitySet="department" />
+            <End Role="staff" EntitySet="staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kuwei_kuwei" Association="Self.FK_kuwei_kuwei">
+            <End Role="kuweiwarehouse" EntitySet="kuweiwarehouse" />
+            <End Role="kuwei" EntitySet="kuwei" />
+          </AssociationSet>
+          <AssociationSet Name="FK_kuwei_kuweitype" Association="Self.FK_kuwei_kuweitype">
+            <End Role="kuweitype" EntitySet="kuweitype" />
+            <End Role="kuwei" EntitySet="kuwei" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productmanagement_kuweiwarehouse" Association="Self.FK_productmanagement_kuweiwarehouse">
+            <End Role="kuweiwarehouse" EntitySet="kuweiwarehouse" />
+            <End Role="productmanagement" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_move_movetype" Association="Self.FK_move_movetype">
+            <End Role="movetype" EntitySet="movetype" />
+            <End Role="move" EntitySet="move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_move_ykodd" Association="Self.FK_move_ykodd">
+            <End Role="ykodd" EntitySet="ykodd" />
+            <End Role="move" EntitySet="move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_management_product" Association="Self.FK_product_management_product">
+            <End Role="product" EntitySet="product" />
+            <End Role="productmanagement" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_management_product_management" Association="Self.FK_product_management_product_management">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="productmanagement" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productmanagement_productmanagement" Association="Self.FK_productmanagement_productmanagement">
+            <End Role="productmanagement" EntitySet="productmanagement" />
+            <End Role="productmanagement1" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productmanagement_productmanagement1" Association="Self.FK_productmanagement_productmanagement1">
+            <End Role="productmanagement" EntitySet="productmanagement" />
+            <End Role="productmanagement1" EntitySet="productmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_register_role" Association="Self.FK_register_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="register" EntitySet="register" />
+          </AssociationSet>
+          <AssociationSet Name="FK_register_usermode" Association="Self.FK_register_usermode">
+            <End Role="usermode" EntitySet="usermode" />
+            <End Role="register" EntitySet="register" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_rkodd" Association="Self.FK_stockmanagement_rkodd">
+            <End Role="rkodd" EntitySet="rkodd" />
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_staff_role" Association="Self.FK_staff_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="staff" EntitySet="staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_salesreturn_salestype" Association="Self.FK_salesreturn_salestype">
+            <End Role="salestype" EntitySet="salestype" />
+            <End Role="salesreturn" EntitySet="salesreturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_salesreturn_thodd" Association="Self.FK_salesreturn_thodd">
+            <End Role="thodd" EntitySet="thodd" />
+            <End Role="salesreturn" EntitySet="salesreturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_stockmanagement" Association="Self.FK_stockmanagement_stockmanagement">
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+            <End Role="stockmanagement1" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_Storagetype" Association="Self.FK_stockmanagement_Storagetype">
+            <End Role="Storagetype" EntitySet="Storagetype" />
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_stockmanagement_supplier" Association="Self.FK_stockmanagement_supplier">
+            <End Role="supplier" EntitySet="supplier" />
+            <End Role="stockmanagement" EntitySet="stockmanagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_supplier_supplierleixinBiao" Association="Self.FK_supplier_supplierleixinBiao">
+            <End Role="supplierleixinBiao" EntitySet="supplierleixinBiao" />
+            <End Role="supplier" EntitySet="supplier" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1971,8 +2131,8 @@
           <EntitySetMapping Name="ckodd">
             <EntityTypeMapping TypeName="Model.ckodd">
               <MappingFragment StoreEntitySet="ckodd">
-                <ScalarProperty Name="ckname" ColumnName="ckname" />
                 <ScalarProperty Name="ckid" ColumnName="ckid" />
+                <ScalarProperty Name="ckname" ColumnName="ckname" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2140,6 +2300,10 @@
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="did" ColumnName="did" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

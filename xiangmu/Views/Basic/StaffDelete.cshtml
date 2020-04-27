@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "StaffDelete";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+
+    <form>
+        <div>
+            库位编号  <input type="hidden" name="kuweiid" value="@Model.kuweiid" />
+        </div>
+        
+        <div>
+            库位名称<input type="text" name="kuweiname" value="@Model.kuweiname" />
+        </div>
+        <div>
+            所在仓库 @Html.DropDownList("warehouseid", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div>
+            库位类型 @Html.DropDownList("kuWeiTypeid", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+       
+        <div class="row">
+            <div class="col-md-8 text-right">
+                <button type="button" class="btn btn-primary" style="margin-top:30px;">删除</button>
+                <button type="button" class="btn btn-primary" href="@*@Url.Action(" CarQuery")*@" style="margin-right:100px;margin-top:30px;">返回列表</button>
+            </div>
+        </div>
+    </form>
+    
