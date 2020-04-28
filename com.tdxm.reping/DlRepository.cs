@@ -31,16 +31,24 @@ namespace com.tdxm.reping
             return entities.register.Where(where).OrderByDescending(orderBy).Skip(filterCount).Take(pageSize).ToList();
         }
 
-        public static register Login(string userName, string pwd)
+        public static int Login(string userName, string pwdd)
         {
             warehousing_systemEntities entity = new warehousing_systemEntities();
-            var obj = from p in entity.register where p.login == userName && p.password == pwd select p;
-            if (obj.Count() > 0)
+            //var obj = from p in entity.register where p.login == userName && p.password == pwd select p;
+            var obj = from p in entity.register
+                      where p.login == userName && p.password == pwdd
+                      select p;
+
+            if (obj != null)
             {
-                return obj.First();
+                return 1;
+            }
+            else {
+                return 0;
             }
 
-            return null;
+
+
 
 
 

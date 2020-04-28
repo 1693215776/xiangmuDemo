@@ -28,9 +28,9 @@ namespace com.tdxm.services
         }
 
 
-        public static register Login(string userName, string pwd)
+        public static int Login(string userName, string pwdd)
         {
-            return DlRepository.Login(userName, pwd);
+            return DlRepository.Login(userName, pwdd);
         }
         }
 }

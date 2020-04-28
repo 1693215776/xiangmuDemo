@@ -18,9 +18,7 @@ namespace com.tdxm.model
         public string login { get; set; }
         public string password { get; set; }
         public Nullable<int> stateid { get; set; }
-        public Nullable<int> roleid { get; set; }
     
-        public virtual role role { get; set; }
         public virtual usermode usermode { get; set; }
     }
 }

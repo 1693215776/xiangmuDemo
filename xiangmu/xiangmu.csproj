@@ -136,9 +136,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Models\RequestDto\DlRequestDto.cs" />
+    <Compile Include="Models\RequestDto\KuweiQueryRequestDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -339,6 +338,12 @@
     <Content Include="Models\cob_5_ElaAdmin\assets\fonts\icomoon\icomoon.woff" />
     <Content Include="Models\cob_5_ElaAdmin\assets\scss\style.css.map" />
     <Content Include="Models\cob_5_ElaAdmin\assets\scss\style.scss" />
+    <None Include="Scripts\jquery-3.4.1-vsdoc.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
     <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
     <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap.css" />
@@ -359,6 +364,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -416,6 +423,23 @@
     <Content Include="Views\CanGuan2\KuWeiInsert.cshtml" />
     <Content Include="Views\CanGuan2\LeiBie.cshtml" />
     <Content Include="Views\CanGuan2\LeiBieInsert.cshtml" />
+    <Content Include="Views\Flr\dl.cshtml" />
+    <Content Include="Views\Flr\sy.cshtml" />
+    <Content Include="Views\Flr\View.cshtml" />
+    <Content Include="Views\Basic\clientDelete.cshtml" />
+    <Content Include="Views\Basic\clientUpd.cshtml" />
+    <Content Include="Views\Basic\KuweiAdd.cshtml" />
+    <Content Include="Views\Basic\KuweiQuery.cshtml" />
+    <Content Include="Views\Basic\meterageDelete.cshtml" />
+    <Content Include="Views\Basic\meterageUpd.cshtml" />
+    <Content Include="Views\Basic\productDelete.cshtml" />
+    <Content Include="Views\Basic\ProductmanagementDelete.cshtml" />
+    <Content Include="Views\Basic\ProductmanagementUpd.cshtml" />
+    <Content Include="Views\Basic\productUpd.cshtml" />
+    <Content Include="Views\Basic\StaffDelete.cshtml" />
+    <Content Include="Views\Basic\StaffUpd.cshtml" />
+    <Content Include="Views\Basic\supplierDelete.cshtml" />
+    <Content Include="Views\Basic\supplierUpd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

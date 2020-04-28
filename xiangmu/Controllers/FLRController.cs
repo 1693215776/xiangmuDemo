@@ -29,16 +29,17 @@ namespace xiangmu.Controllers
         {
             return View();
         }
-        public ActionResult Login(string name, string pwd)
+        public ActionResult Login(string userName, string pwdd)
         {
-            var obj = DlService.Login(name, pwd);
-            if (obj != null)
-            {
-                //将对象保存到session
-                Session["user"] = obj;
-                return Json(1, JsonRequestBehavior.AllowGet);
-            }
-            return Json(0, JsonRequestBehavior.AllowGet);
+            return Json(DlService.Login(userName,pwdd),JsonRequestBehavior.AllowGet);
+            //var obj = DlService.Login(userName, pwd);
+            //if (obj != null)
+            //{
+            //    //将对象保存到session
+            //    Session["user"] = obj;
+            //    return Json(1, JsonRequestBehavior.AllowGet);
+            //}
+            //return Json(0, JsonRequestBehavior.AllowGet);
         }
 
     }
