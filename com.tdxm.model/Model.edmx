@@ -1908,7 +1908,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="warehousing_systemEntities" annotation:LazyLoadingEnabled="true">
+       <EntityContainer Name="warehousing_systemEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="audit" EntityType="Self.audit" />
           <EntitySet Name="bsodd" EntityType="Self.bsodd" />
           <EntitySet Name="check" EntityType="Self.check" />
