@@ -21,6 +21,17 @@ namespace com.tdxm.model
         public string moveperson { get; set; }
         public Nullable<int> stateid { get; set; }
         public System.DateTime addtime { get; set; }
+        public Nullable<int> shuliang { get; set; }
+        public string beizhu { get; set; }
+        public string bsr { get; set; }
+        public string ProductName { get; set; }
+        public string BarCode { get; set; }
+        public string meteringid { get; set; }
+        public string pici { get; set; }
+        public string kuwei { get; set; }
+        public string yirukuwei { get; set; }
+        public Nullable<int> IsDelete { get; set; }
+        public string czfs { get; set; }
     
         public virtual audit audit { get; set; }
         public virtual movetype movetype { get; set; }

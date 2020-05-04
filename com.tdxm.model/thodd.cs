@@ -14,16 +14,7 @@ namespace com.tdxm.model
     
     public partial class thodd
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public thodd()
-        {
-            this.salesreturn = new HashSet<salesreturn>();
-        }
-    
         public int thid { get; set; }
         public string thname { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<salesreturn> salesreturn { get; set; }
     }
 }

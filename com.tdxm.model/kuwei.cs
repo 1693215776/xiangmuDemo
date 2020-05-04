@@ -14,7 +14,7 @@ namespace com.tdxm.model
     
     public partial class kuwei
     {
-        public string kuweiid { get; set; }
+        public int kuweiid { get; set; }
         public string kuweiname { get; set; }
         public Nullable<int> warehouseid { get; set; }
         public Nullable<int> kuWeiTypeid { get; set; }

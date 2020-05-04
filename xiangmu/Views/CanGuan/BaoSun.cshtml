@@ -4,10 +4,76 @@
     Layout = "~/Views/mubanye/ym.cshtml";
 }
 
-    <head>
-        <link href="~/images/iconfont/iconfont.css" rel="stylesheet" />
-    </head>
-<body class="fixed-top" style="width:1200px;margin-left:290px">
+<head>
+    <link href="~/images/iconfont/iconfont.css" rel="stylesheet" />
+</head>
+<style>
+    .black_overlay {
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        opacity: .80;
+        filter: alpha(opacity=88);
+    }
+
+    .white_content {
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 32%;
+        width: 55%;
+        height: 55%;
+        padding: 20px;
+        background-color: white;
+        z-index: 1002;
+        overflow: auto;
+    }
+
+    tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
+
+    .inorder_tdTitle {
+        width: 11%;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        empty-cells: show;
+    }
+
+    .inorder_topline {
+        border-top: 1px solid black;
+    }
+
+    .inorder_tdContent {
+        width: 20%;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        text-align: left;
+        vertical-align: middle;
+        empty-cells: show;
+
+    }
+    .inorder_tab {
+    width: 100%;
+    border-width: 1px;
+    margin-left: 0px;
+    border-collapse: collapse;
+}
+</style>
+<div style=" width:1600px; margin-left:290px">
     <div id="header" class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
@@ -18,7 +84,7 @@
                     <span class="icon-bar"></span>
                     <span class="arrow"></span>
                 </a>
-             
+
             </div>
         </div>
     </div>
@@ -115,25 +181,25 @@
                                             <th>操作</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>
-                                                <a class="icon-edit" href="/Move/Product/Edit?orderNum=000001" id="bianji" title="编辑"><span class="iconfont">&#xe612;</span></a>&nbsp;&nbsp;&nbsp;
-                                                <a class="icon-remove" href="javascript:void(0)" title="删除"><span class="iconfont">&#xe686;</span></a>&nbsp;&nbsp;&nbsp;
-                                                <a class="icon-remove" href="javascript:void(0)" title="查看"><span class="iconfont">&#xe601;</span></a>&nbsp;&nbsp;&nbsp;
-                                                <a class="icon-remove" href="javascript:void(0)" title="审核"><span class="iconfont">&#xe676;</span></a>
-                                            </th>
-                                        </tr>
-                                    </tbody>
+
+                                    <tr>
+                                        <th>1</th>
+                                        <th>1</th>
+                                        <th>1</th>
+                                        <th>1</th>
+                                        <th>1</th>
+                                        <th>1</th>
+                                        <th>1</th>
+                                        <th>1</th>
+                                        <th>1</th>
+                                        <th>
+                                            <a class="icon-edit" href="/Move/Product/Edit?orderNum=000001" id="bianji" title="编辑"><span class="iconfont">&#xe612;</span></a>&nbsp;&nbsp;&nbsp;
+                                            <a class="icon-remove" href="javascript:void(0)" title="删除"><span class="iconfont">&#xe686;</span></a>&nbsp;&nbsp;&nbsp;
+                                            <a class="icon-remove" href="javascript:void(0)" title="查看" onclick="document.getElementById('light').style.display = 'block';document.getElementById('fade').style.display = 'block';"><span class="iconfont">&#xe601;</span></a>&nbsp;&nbsp;&nbsp;
+                                            <a class="icon-remove" href="javascript:void(0)" title="审核"><span class="iconfont">&#xe676;</span></a>
+                                        </th>
+                                    </tr>
+
                                 </table>
                                 <div class="row-fluid" id="mypager">
                                 </div>
@@ -144,23 +210,75 @@
             </div>
         </div>
     </div>
-    <div id="footer">
+</div>
+<div id="light" class="white_content" style="width:745px;">
+    <div style="width:725px;height:50px;">
+        <table class="dialogtab inorder_tab margin-top: 10px;" id="tabInfo">
+            <tbody>
+                <tr style="height:27px;">
+                    <td class="inorder_tdTitle inorder_topline"><strong>报损单编号</strong></td>
+                    <td class=" inorder_tdContent inorder_topline">0028</td>
+                    <td class="inorder_tdTitle inorder_topline">报损人</td>
+                    <td class=" inorder_tdContent inorder_topline">类型入库</td>
+                    <td class="inorder_tdTitle inorder_topline">创建时间</td>
+                    <td class=" inorder_tdContent inorder_topline">待审核</td>
+                </tr>
+                <tr>
+                    <td class="inorder_tdTitle "><strong>当前状态</strong></td>
+                    <td colspan="6" class=" inorder_tdContent ">等待审核</td>                    
+                </tr>
+                <tr>
+                    <td class="inorder_tdTitle "><strong>报损描述</strong></td>
+                    <td colspan="6" class=" inorder_tdContent ">11111</td>
+                </tr>              
+            </tbody>
+        </table>
+        <br />
+        <table class="table table-striped table-bordered table-hover  border-radius: 0px;" id="tabInfo">
+            <thead>
+                <tr>
 
-
-       
-        <div class="span pull-right">
-            <span class="go-top"><i class="icon-arrow-up"></i></span>
+                    <th class="hidden-480">产品名称</th>
+                    <th class="hidden-480">产品条码</th>
+                    <th class="hidden-480">产品编号</th>
+                    <th class="hidden-480">批次</th>
+                    <th class="hidden-480">单价</th>
+                    <th class="hidden-480">总价</th>
+                    <th class="hidden-480">规格</th>
+                    <th class="hidden-480">出库数</th>
+                    <th class="hidden-480">出库库位</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="">
+            <div style="margin-top:200px;margin-left:130px;">
+                <button type="button" class="btn btn-primary" id="qd" style="margin-top:10px;margin-left:130px;">确定</button>
+                <button type="button" class="btn btn-secondary" style="margin-top:10px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</button>
+            </div>
         </div>
     </div>
-    </body>
-    <script type="text/javascript" src="/Theme/plugins/jquery-1.8.3.min.js?t=a23fb331-cf14-42c4-a277-ac129f1c1e8b"></script>
-    <script type="text/javascript" src="/Theme/plugins/bootstrap/js/bootstrap.min.js?t=2c18f915-6306-49b2-8c9c-b5e74f388bb3"></script>
-    <script type="text/javascript" src="/Theme/plugins/jbox-v2.3/jBox/jquery.jBox-2.3.min.js?t=ab92c89b-37f5-4dfc-97d8-a276437bc82f"></script>
-    <script type="text/javascript" src="/Common/Js?t=4d9b5272-254f-4e47-b8cb-413452198abb"></script>
-    <script type="text/javascript" src="/Theme/plugins/My97DatePicker/WdatePicker.js?t=dc2b6c51-5d50-4478-b727-f7d28322b20b"></script>
-    <script type="text/javascript" src="/Theme/plugins/jquery-autocomplete3.2.2/jquery.autocomplete.js?t=b6dfbea3-bb29-4460-9f82-238fe109d1f8"></script>
-    <script type="text/javascript" src="/Theme/customer/Git.Framework.Common.js?t=0629c7de-96e2-4470-ad9c-5bc60b1e67a8"></script>
-    <script type="text/javascript" src="/Theme/customer/Git.Framework.UICommon.js?t=bb81b01f-49e9-45d4-8deb-68a8a4d0bb1e"></script>
-    <script type="text/javascript" src="/Theme/customer/Bad/Git.Storage.ProductBadOrder.js?t=3122d2f2-bef1-45c9-88db-cabb734c9bf2"></script>
+</div>
+<div id="footer">
+
+
+
+    <div class="span pull-right">
+        <span class="go-top"><i class="icon-arrow-up"></i></span>
+    </div>
+</div>
+<div id="fade" class="black_overlay"></div>
 
 

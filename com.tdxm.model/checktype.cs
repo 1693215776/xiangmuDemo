@@ -14,16 +14,7 @@ namespace com.tdxm.model
     
     public partial class checktype
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public checktype()
-        {
-            this.check = new HashSet<check>();
-        }
-    
         public int checktypeid { get; set; }
         public string checktypename { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<check> check { get; set; }
     }
 }

@@ -47,7 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cangguan.cs" />
+    <Compile Include="lzybaosun.cs" />
+    <Compile Include="lzychukuchaxun.cs" />
+    <Compile Include="lzykuweichaxun.cs" />
+    <Compile Include="lzykuweixiala.cs" />
+    <Compile Include="lzyleibieinsert.cs" />
+    <Compile Include="lzypandian.cs" />
+    <Compile Include="lzyrukucha.cs" />
+    <Compile Include="lzyrukudaninsert.cs" />
+    <Compile Include="lzyrukudanxiala.cs" />
+    <Compile Include="lzyrukugys.cs" />
+    <Compile Include="lzyrukuinsert.cs" />
+    <Compile Include="lzytuihuo.cs" />
+    <Compile Include="lzyyiku.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />

@@ -45,19 +45,19 @@
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationCustom02">关联单号</label>
-            <input type="text" class="form-control" id="validationCustom02" required>
+            <input type="text" class="form-control" id="glddh" required>
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationCustom02">制单时间</label>
-            <input type="date" class="form-control" id="validationCustom02">
+            <input type="date" class="form-control" id="sj">
         </div>
         <div class="col-md-6 mb-3">
             <label for="validationCustom02">制单人</label>
-            <input type="text" class="form-control" id="validationCustom02">
+            <input type="text" class="form-control" id="zdr">
         </div>
         <div class="col-md-6 mb-3">
             <label for="validationCustom02">备注</label>
-            <input type="text" class="form-control" id="validationCustom02">
+            <input type="text" class="form-control" id="beizhu">
         </div>
     </div>
 </form>
@@ -65,31 +65,25 @@
     <table class="table table-striped table-bordered table-hover" id="tabInfo">
         <thead>
             <tr class="widget-title">
-                <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
+
                 <th class="hidden-480">产品编号</th>
                 <th class="hidden-480">产品名称</th>
                 <th class="hidden-480">产品条码</th>
                 <th class="hidden-480">规格</th>
-                <th class="hidden-480">类别</th>          
-               
+                <th class="hidden-480">类别</th>
+                <th class="hidden-480">操作</th>
+
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
-                <th>1</th>
-                <th>1</th>              
-                <th>1</th>
-                <th>1</th>
-                <th>1</th>                
-            </tr>
+            
         </tbody>
     </table>
 </div>
 <div class="row">
     <div class="col-md-8 text-right">
-        <button type="button" class="btn btn-primary" style="margin-top:30px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">新增产品</button>
-        <button type="button" class="btn btn-primary" style="margin-top:30px;">添加</button>
+        <button type="button" class="btn btn-primary" style="margin-top:30px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display = 'block'; document.getElementById('fade').style.display = 'block'; chanping();">新增产品</button>
+        <button type="button" class="btn btn-primary" id="tj2" style="margin-top:30px;">添加</button>
         <button type="button" class="btn btn-secondary" href="@Url.Action("CarQuery")" style="margin-right:100px;margin-top:30px;">返回列表</button>
     </div>
 </div>
@@ -97,57 +91,46 @@
     <div>
         <form class="form-inline">
             <div class="form-group mb-3">
-                <label>产品编号</label>
+                <label>类别编号/名称</label>
             </div>
             <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control" id="inputPassword2">
+                <input type="text" class="form-control" id="name">
             </div>
             <div class="form-group mb-3">
                 <label>类别</label>
             </div>
             <div class="form-group  mx-sm-3 mb-2">
-                <select id="inputState" class="form-control">
-                    <option selected>死的</option>
-                    <option>...</option>
+                <select id="danhao" class="form-control">
+                    @foreach (var item in ViewBag.danwen)
+                    {
+                        <option value="@item.metering" >@item.name</option>
+                    }
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">搜索</button>&nbsp;&nbsp;
+            <button type="button" id="sousuo" class="btn btn-primary mb-2">搜索</button>&nbsp;&nbsp;
             <span>提示：输入搜索产品关键字查询产品信息!</span>
         </form>
         <hr />
         <hr />
-        <div style="width:1000px;">
+        <div style="width:1000px;height:50px;">
             <table class="table table-striped table-bordered table-hover" id="tabInfo">
                 <thead>
                     <tr class="widget-title">
                         <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
-                        <th class="hidden-480">产品编号</th>
                         <th class="hidden-480">产品名称</th>
+                        <th class="hidden-480">产品编号</th>
                         <th class="hidden-480">类别</th>
                         <th class="hidden-480">单位</th>
                         <th class="hidden-480">单价</th>
-                        <th class="hidden-400">规格</th>
-                        <th class="hidden-400">描述</th>
-                        <th class="hidden-400">备注</th>
+                        <th class="hidden-400">规格</th>                      
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
-                    </tr>
                 </tbody>
             </table>
             <div style="">
                 <div style="margin-top:240px;margin-left:730px;">
-                    <button type="button" class="btn btn-primary" style="margin-top:10px;margin-left:130px;">确定</button>
+                    <button type="button" class="btn btn-primary"id="qd" style="margin-top:10px;margin-left:130px;">确定</button>
                     <button type="button" class="btn btn-secondary" style="margin-top:10px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</button>
                 </div>
             </div>
@@ -158,3 +141,110 @@
 
 
 <div id="fade" class="black_overlay"></div>
+<script type="text/javascript">
+
+    $(function () {
+       $("#sousuo").click(function () { //产品查询
+             chanping()
+       });
+           $("#qd").click(function () { //产品绑定
+               getCheckBoxValueThree2()
+              document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'
+           })
+          $("#tj2").click(function () { //盘点新增
+            pandianxinzeng()
+        })
+    });
+    
+    
+ function chanping() {      //货物查询
+   
+     var dan = $("#name").val();
+     var jiage = $("#danhao").val();
+    //货物查询
+        $.ajax({
+            url: "@Url.Action("pandianchanping")",
+            data: {  commodityname:dan, metering: jiage },
+            dataType: "json",
+            type: "get",
+            success: function (result) {
+
+                $("#light tr:gt(0)").remove();
+
+                $.each(result.re,  function (inde, value) {
+                    var str = "<tr  class='widget-title'>";
+                    str += "<th><input type='checkbox' style='width: 30px;margin-left:0px;' class='group-checkable' name='check' value='"+value.Cpid+"'/></th>"
+                    str += "<th style='width:235px;'>" + value.commodityname + "</th>";
+                    str += "<th style='width:210px;'>" + value.Cpid + "</th>";
+                    str += "<th style='width:135px;'>" + value.productid + "</th>";
+                    str += "<th style='width:135px;'>" + value.metering + "</th>";
+                    str += "<th style='width:130px;'>" + value.price + "</th>";
+                    str += "<th style='width:115px;'>" + value.BatchNum + "</th>";                    
+                    str += "</tr>";
+                    $("#light").append(str);
+
+                });
+           }
+        });
+    }
+
+
+ function getCheckBoxValueThree2() {  //商品
+        var data = $('input:checkbox[name="check"]:checked').map(function () {        
+            var qq = $("input[name='check']:checked").val();   //得到单选框的值，把他作为查询条件
+         
+            $.ajax({
+
+            url: "@Url.Action("chanping2")",
+            data: {  cpid: qq  },
+            dataType: "json",
+            type: "get",
+            success: function (result) {
+
+                $.each(result.re,  function (inde, value) {
+                    var str = "<tr>";                 
+                    str += "<th id='q1'>" + value.meteringid + "</th>";
+                    str += "<th id='q2'>" + value.commodityname + "</th>";
+                    str += "<th id='q3'>" + value.Cpid + "</th>";
+                    str += "<th id='q4'>" + value.BatchNum + "</th>";
+                    str += "<th id='q5'>" + value.productid + "</th>";                             
+                    str += "<th>"
+                    str += "<a class='icon-remove' href='javascript:void(0)'onclick='$(this).parent().parent().remove();' title='删除'><span class='iconfont'>&#xe686;</span></a>&nbsp;&nbsp;&nbsp;</th> ";
+                    str += "</tr>";
+                   $("#tabInfo ").append(str);
+
+                });
+           }
+        });
+            return $(this).val();
+        }).get().join(",");
+    }
+
+    function pandianxinzeng() {
+        var meteringid = $("#q1").text();//产品编号
+        var BarCode = $("#q2").text();//产品名称
+        var ProductName = $("#q3").text();//产品条码
+        var pici = $("#q4").text();//规格就是批次             
+        var kuwei = $("#q5").text();//类别
+       
+
+     
+         var correlationid = $("#glddh").val();//关联订单号
+         var addtime = $("#sj").val();//时间
+         var zdpeople = $("#zdr").val();//制单人
+         var beizhu = $("#beizhu").val();//备注
+
+       
+         
+
+         $.ajax({
+            url: "@Url.Action("pandianxinzeng")",
+            data: { meteringid: meteringid, BarCode: BarCode, ProductName: ProductName, pici: pici,  kuwei: kuwei,correlationid:correlationid,addtime:addtime,zdpeople:zdpeople,beizhu:beizhu },
+            dataType: "json",
+            type: "get",
+            success: function (result) {
+                alert(result.M);
+              }
+        })
+    }
+</script>
