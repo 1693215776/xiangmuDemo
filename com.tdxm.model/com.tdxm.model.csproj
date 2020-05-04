@@ -68,7 +68,6 @@
     <Compile Include="cktype.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="clerk.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

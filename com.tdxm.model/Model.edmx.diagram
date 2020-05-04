@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="68db410bb06e4438b7a31645dd62801d" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.audit" Width="1.5" PointX="3.75" PointY="10.125" />
+        <EntityTypeShape EntityType="Model.bsodd" Width="1.5" PointX="6.75" PointY="1.5" />
+        <EntityTypeShape EntityType="Model.check" Width="1.5" PointX="6" PointY="14" />
+        <EntityTypeShape EntityType="Model.checktype" Width="1.5" PointX="3.75" PointY="21.5" />
+        <EntityTypeShape EntityType="Model.ckodd" Width="1.5" PointX="3.75" PointY="13.375" />
+        <EntityTypeShape EntityType="Model.cktype" Width="1.5" PointX="3.75" PointY="0.875" />
+        <EntityTypeShape EntityType="Model.clerk" Width="1.5" PointX="14.75" PointY="7.25" />
+        <EntityTypeShape EntityType="Model.client" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="Model.damage" Width="1.5" PointX="9" PointY="5" />
+        <EntityTypeShape EntityType="Model.damagetype" Width="1.5" PointX="6.75" PointY="17.75" />
+        <EntityTypeShape EntityType="Model.department" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.kuwei" Width="1.5" PointX="9" PointY="1.25" />
+        <EntityTypeShape EntityType="Model.kuweitype" Width="1.5" PointX="6.75" PointY="35.75" />
+        <EntityTypeShape EntityType="Model.kuweiwarehouse" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.menu" Width="1.5" PointX="11.75" PointY="7.5" />
+        <EntityTypeShape EntityType="Model.move" Width="1.5" PointX="9" PointY="15" />
+        <EntityTypeShape EntityType="Model.movetype" Width="1.5" PointX="6.75" PointY="30.5" />
+        <EntityTypeShape EntityType="Model.pdodd" Width="1.5" PointX="3.75" PointY="23.75" />
+        <EntityTypeShape EntityType="Model.product" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="Model.productmanagement" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="Model.register" Width="1.5" PointX="14" PointY="3.625" />
+        <EntityTypeShape EntityType="Model.rkodd" Width="1.5" PointX="6.75" PointY="20.625" />
+        <EntityTypeShape EntityType="Model.role" Width="1.5" PointX="11.75" PointY="3.625" />
+        <EntityTypeShape EntityType="Model.salesreturn" Width="1.5" PointX="6" PointY="9.875" />
+        <EntityTypeShape EntityType="Model.salestype" Width="1.5" PointX="3.75" PointY="18.75" />
+        <EntityTypeShape EntityType="Model.staff" Width="1.5" PointX="17" PointY="3.375" />
+        <EntityTypeShape EntityType="Model.stockmanagement" Width="1.5" PointX="9" PointY="9.375" />
+        <EntityTypeShape EntityType="Model.Storagetype" Width="1.5" PointX="6.75" PointY="23" />
+        <EntityTypeShape EntityType="Model.supplier" Width="1.5" PointX="6.75" PointY="26.25" />
+        <EntityTypeShape EntityType="Model.supplierleixinBiao" Width="1.5" PointX="4.5" PointY="26.875" />
+        <EntityTypeShape EntityType="Model.thodd" Width="1.5" PointX="3.75" PointY="16.5" />
+        <EntityTypeShape EntityType="Model.unit" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="Model.usermode" Width="1.5" PointX="11.75" PointY="1" />
+        <EntityTypeShape EntityType="Model.Warehousemanagement" Width="1.5" PointX="6" PointY="4.625" />
+        <EntityTypeShape EntityType="Model.ykodd" Width="1.5" PointX="6.75" PointY="32.75" />
+        <AssociationConnector Association="Model.FK_check_audit" />
+        <AssociationConnector Association="Model.FK_damage_audit" />
+        <AssociationConnector Association="Model.FK_move_audit" />
+        <AssociationConnector Association="Model.FK_salesreturn_audit" />
+        <AssociationConnector Association="Model.FK_stockmanagement_audit" />
+        <AssociationConnector Association="Model.FK_Warehousemanagement_audit" />
+        <AssociationConnector Association="Model.FK_damage_bsodd" />
+        <AssociationConnector Association="Model.FK_check_checktype" />
+        <AssociationConnector Association="Model.FK_check_pdodd" />
+        <AssociationConnector Association="Model.FK_Warehousemanagement_ckodd" />
+        <AssociationConnector Association="Model.FK_Warehousemanagement_cktype" />
+        <AssociationConnector Association="Model.FK_staff_staff" />
+        <AssociationConnector Association="Model.FK_productmanagement_client" />
+        <AssociationConnector Association="Model.FK_Warehousemanagement_client" />
+        <AssociationConnector Association="Model.FK_damage_damagetype" />
+        <AssociationConnector Association="Model.FK_staff_department" />
+        <AssociationConnector Association="Model.FK_kuwei_kuwei" />
+        <AssociationConnector Association="Model.FK_kuwei_kuweitype" />
+        <AssociationConnector Association="Model.FK_productmanagement_kuweiwarehouse" />
+        <AssociationConnector Association="Model.FK_move_movetype" />
+        <AssociationConnector Association="Model.FK_move_ykodd" />
+        <AssociationConnector Association="Model.FK_product_management_product" />
+        <AssociationConnector Association="Model.FK_product_management_product_management" />
+        <AssociationConnector Association="Model.FK_productmanagement_productmanagement" />
+        <AssociationConnector Association="Model.FK_productmanagement_productmanagement1" />
+        <AssociationConnector Association="Model.FK_register_role" />
+        <AssociationConnector Association="Model.FK_register_usermode" />
+        <AssociationConnector Association="Model.FK_stockmanagement_rkodd" />
+        <AssociationConnector Association="Model.FK_staff_role" />
+        <AssociationConnector Association="Model.FK_salesreturn_salestype" />
+        <AssociationConnector Association="Model.FK_salesreturn_thodd" />
+        <AssociationConnector Association="Model.FK_stockmanagement_stockmanagement" />
+        <AssociationConnector Association="Model.FK_stockmanagement_Storagetype" />
+        <AssociationConnector Association="Model.FK_stockmanagement_supplier" />
+        <AssociationConnector Association="Model.FK_supplier_supplierleixinBiao" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

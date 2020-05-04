@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "supplierDelete";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+
+    <form>
+        <div>
+            供应商编号  <input type="hidden" name="supplierid" value="@Model.supplierid" />
+        </div>
+        <div>
+            供应商类型 @Html.DropDownList("supplierType", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div>
+            供应商名称<input type="text" name="supplierName" value="@Model.supplierName" />
+        </div>
+        <div>
+            电话<input type="text" name="phone" value="@Model.phone" />
+        </div>
+        <div>
+            邮箱<input type="text" name="email" value="@Model.email" />
+        </div>
+        <div>
+            联系人<input type="text" name="contacts" value="@Model.contacts" />
+        </div>
+        <div>
+            地址<input type="text" name="address" value="@Model.address" />
+        </div>
+        <div>
+            描述<input type="text" name="describe" value="@Model.describe" />
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-8 text-right">
+                <button type="button" class="btn btn-primary" style="margin-top:30px;">删除</button>
+                <button type="button" class="btn btn-primary" href="@*@Url.Action(" CarQuery")*@" style="margin-right:100px;margin-top:30px;">返回列表</button>
+            </div>
+        </div>
+    </form>
+

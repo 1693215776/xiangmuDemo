@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "ProductmanagementDelete";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+
+    <form>
+        <div>
+            序号  <input type="hidden" name="meteringid" value="@Model.meteringid" />
+        </div>
+
+        <div>
+            编号条码<input type="text" name="Cpid" value="@Model.Cpid" />
+        </div>
+        <div>
+            显示名<input type="text" name="commodityname" value="@Model.commodityname" />
+        </div>
+        
+        <div>
+            价格<input type="text" name="price" value="@Model.price" />
+        </div>
+        <div>
+            类别 @Html.DropDownList("clientid", null, htmlAttributes: new { @class = "form-control" })
+        </div> 
+        <div>
+            单位 @Html.DropDownList("metering", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 text-right">
+                <button type="button" class="btn btn-primary" style="margin-top:30px;">删除</button>
+                <button type="button" class="btn btn-primary" href="@*@Url.Action(" CarQuery")*@" style="margin-right:100px;margin-top:30px;">返回列表</button>
+            </div>
+        </div>
+    </form>

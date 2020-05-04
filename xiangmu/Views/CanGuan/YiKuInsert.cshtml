@@ -40,40 +40,44 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">移库单编号</label>
-            <input type="email" class="form-control" id="inputEmail4">
+            <input type="email" class="form-control" id="inputEmail4"  value="可不填,自动生成" readonly>
         </div>
         <div class="form-group col-md-6">
             <label for="inputState">移库类型</label>
-            <select id="inputState" class="form-control">
-                <option selected>死的</option>
-                <option>...</option>
+            <select id="danhao" class="form-control">
+                <option selected>请选择</option>
+                @foreach (var item in ViewBag.yiku)
+                {
+                    <option value="@item.movetypeid"  >@item.movetypename</option>
+                }
             </select>
+
+            
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputCity">关联订单号</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input type="text" class="form-control" id="glddh">
         </div>
         <div class="form-group col-md-3">
             <label for="inputZip">制单时间</label>
-            <input type="date" class="form-control" id="inputZip">
+            <input type="date" class="form-control" id="sj">
         </div>
         <div class="form-group col-md-3">
             <label for="inputZip">制单人</label>
-            <input type="text" class="form-control" id="inputZip">
+            <input type="text" class="form-control" id="zdr">
         </div>
         <div class="col-sm-12">
             <label for="inputCity">备注</label>
-            <input type="text" class="form-control" id="inputPassword3">
+            <input type="text" class="form-control" id="beizhu">
         </div>
     </div>
 </form>
 <div style="width:1625px; margin-left:290px; margin-top:20px;">
     <table class="table table-striped table-bordered table-hover" id="tabInfo">
         <thead>
-            <tr class="widget-title">
-                <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
+            <tr class="widget-title">             
                 <th class="hidden-480">产品编号</th>
                 <th class="hidden-480">产品条码</th>
                 <th class="hidden-480">产品名称</th>
@@ -85,26 +89,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
-                <th>1</th>
-                <th>1</th>
-                <th>1</th>             
-                <th>1</th>
-                <th>1</th>
-                <th>1</th>
-                <th>1</th>
-                <th>
-                    <a class="icon-remove" href="javascript:void(0)" title="删除"><span class="iconfont">&#xe686;</span></a>&nbsp;&nbsp;&nbsp;
-                </th>
-            </tr>
+            
         </tbody>
     </table>
 </div>
 <div class="row">
     <div class="col-md-8 text-right">
-        <button type="button" class="btn btn-primary" style="margin-top:30px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">新增产品</button>
-        <button type="button" class="btn btn-primary" style="margin-top:30px;">添加</button>
+        <button type="button" class="btn btn-primary" style="margin-top:30px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display = 'block'; document.getElementById('fade').style.display = 'block'; chanping();">新增产品</button>
+        <button type="button" class="btn btn-primary" id="tianjia" style="margin-top:30px;">添加</button>
         <button type="button" class="btn btn-secondary" href="@Url.Action("CarQuery")" style="margin-right:100px;margin-top:30px;">返回列表</button>
     </div>
 </div>
@@ -115,14 +107,14 @@
                 <label>产品编号</label>
             </div>
             <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control" id="inputPassword2">
+                <input type="text" class="form-control" id="mz3">
             </div>
-            <button type="submit" class="btn btn-primary mb-2">搜索</button>&nbsp;&nbsp;
+            <button type="button" id="sousuo" class="btn btn-primary mb-2">搜索</button>&nbsp;&nbsp;
             <span>提示：输入搜索产品关键字查询产品信息!</span>
         </form>
         <hr />
         <hr />
-        <div style="width:1000px;">
+        <div style="width:1000px;height:50px;">
             <table class="table table-striped table-bordered table-hover" id="tabInfo">
                 <thead>
                     <tr class="widget-title">
@@ -138,23 +130,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>
-                        <th>1</th>                      
-                        <th> <input type="text" class="form-control" id="inputPassword2" style="width:120px;height:30px;"></th>
-                        <th> <input type="text" class="form-control" id="inputPassword2" style="width:120px;height:30px;"></th>
-
-                    </tr>
+                
                 </tbody>
             </table>
             <div style="">
                 <div style="margin-top:240px;margin-left:730px;">
-                    <button type="button" class="btn btn-primary" style="margin-top:10px;margin-left:130px;">确定</button>
+                    <button type="button" class="btn btn-primary" id="qd" style="margin-top:10px;margin-left:130px;">确定</button>
                     <button type="button" class="btn btn-secondary" style="margin-top:10px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</button>
                 </div>
             </div>
@@ -166,3 +147,117 @@
 
 <div id="fade" class="black_overlay"></div>
 
+<script type="text/javascript">
+
+    $(function () {
+        $("#sousuo").click(function () { //产品查询
+            chanping()
+        })
+        $("#qd").click(function () { //产品绑定
+            getCheckBoxValueThree2()
+           document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'
+        })
+        $("#tianjia").click(function () { //新增
+            yikuinsert()
+        })
+    })
+    
+    function chanping() {      //货物查询
+         var names = $("#mz3").val();
+    //货物查询
+        $.ajax({
+            url: "@Url.Action("chanping")",
+            data: { cpid: names },
+            dataType: "json",
+            type: "get",
+            success: function (result) {
+
+                $("#light tr:gt(0)").remove();
+
+                $.each(result.re,  function (inde, value) {
+                    var str = "<tr  class='widget-title'>";
+                    str += "<th><input type='checkbox' style='width: 30px;margin-left:0px;' class='group-checkable' name='check' value='"+value.Cpid+"'/></th>"
+                    str += "<th style='width:195px;'>" + value.commodityname + "</th>";
+                    str += "<th style='width:80px;'>" + value.Cpid + "</th>";
+                    str += "<th style='width:110px;'>" + value.meteringid + "</th>";                   
+                    str += "<th style='width:85px;'>" + value.pici + "</th>";
+                    str += "<th style='width:130px;'>" + value.kuWeiTypeName + "</th>";
+                    str += "<th style='width:115px;'>" + value.kucui + "</th>";
+                    //报损数量
+                    str += "<th style='width:127px;'> <input type='text' class='form-control' id='ff' style='width:100px;height:30px;'></th>"
+                    str+=  "<th> <input type='text' class='form-control' id='ff2' style='width:120px;height:30px;'></th>"
+                    str += "</tr>";
+                    $("#light").append(str);
+
+                });
+           }
+        });
+    }
+
+      function getCheckBoxValueThree2() {  //商品
+        var data = $('input:checkbox[name="check"]:checked').map(function () {
+
+            //console.log($(this).parent().next("th").next("th").next("th").next("th").next("th").next("th").val("10"));//出库数
+            //货物查询
+
+            var qq = $("input[name='check']:checked").val();   //得到单选框的值，把他作为查询条件
+            var va = $("input[name='check']:checked").parent().next("th").next("th").next("th").next("th").next("th").next("th").next("th").next("th").find("input").val();//移入库位
+            var va2=  $("input[name='check']:checked").parent().next("th").next("th").next("th").next("th").next("th").next("th").next("th").find("input").val();//移库数量
+            $.ajax({
+
+            url: "@Url.Action("chanping2")",
+            data: {  cpid: qq  },
+            dataType: "json",
+            type: "get",
+            success: function (result) {
+
+                $.each(result.re,  function (inde, value) {
+                    var str = "<tr>";                 
+                    str += "<th id='q1'>" + value.meteringid + "</th>";
+                    str += "<th id='q2'>" + value.Cpid + "</th>";
+                    str += "<th id='q3'>" + value.commodityname + "</th>";
+                    str += "<th id='q4'>" + value.pici + "</th>";
+                    str += "<th id='q6'>" + va2 + "</th>";//移库数量
+                    str += "<th id='q5'>" + value.kuWeiTypeName + "</th>";                                    
+                    str += "<th id='q8'>" + va + "</th>";//移入库位                
+                    str += "<th>"
+                    str += "<a class='icon-remove' href='javascript:void(0)'onclick='$(this).parent().parent().remove();' title='删除'><span class='iconfont'>&#xe686;</span></a>&nbsp;&nbsp;&nbsp;</th> ";
+                    str += "</tr>";
+                   $("#tabInfo ").append(str);
+
+                });
+           }
+        });
+            return $(this).val();
+        }).get().join(",");
+    }
+
+     function yikuinsert() {//移库新增
+        var meteringid = $("#q1").text();//产品编号
+        var BarCode = $("#q2").text();//产品条码
+        var ProductName = $("#q3").text();//产品名称
+        var pici = $("#q4").text();//批次      
+        var count = $("#q6").text();//移库数量
+        var kuwei = $("#q5").text();//当前库位
+         var yirukuwei = $("#q8").text();//移入库位
+
+        var movetypeid = $("#danhao").val();//移库类型
+         var correlationid = $("#glddh").val();//关联订单号
+         var addtime = $("#sj").val();//时间
+         var moveperson = $("#zdr").val();//制单人
+         var beizhu = $("#beizhu").val();//备注
+
+       
+         
+
+         $.ajax({
+            url: "@Url.Action("yiku1")",
+            data: { meteringid: meteringid, BarCode: BarCode, ProductName: ProductName, pici: pici, count: count, kuwei: kuwei,yirukuwei:yirukuwei,movetypeid:movetypeid,correlationid:correlationid,addtime:addtime,moveperson:moveperson,beizhu:beizhu },
+            dataType: "json",
+            type: "get",
+            success: function (result) {
+                alert(result.M);
+              }
+        })
+    }
+</script>
