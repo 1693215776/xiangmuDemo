@@ -20,19 +20,19 @@ namespace com.tdxm.model
         public Nullable<int> ceiling { get; set; }
         public Nullable<int> floor { get; set; }
         public string price { get; set; }
-        public int productid { get; set; }
-        public int metering { get; set; }
-        public int warehouseid { get; set; }
-        public int clientid { get; set; }
+        public Nullable<int> productid { get; set; }
+        public Nullable<int> metering { get; set; }
+        public Nullable<int> warehouseid { get; set; }
+        public Nullable<int> clientid { get; set; }
         public string kuWeiTypeName { get; set; }
+        public Nullable<int> kucui { get; set; }
+        public Nullable<int> ordernum { get; set; }
+        public string BatchNum { get; set; }
+        public Nullable<int> inprice { get; set; }
+        public Nullable<double> amount { get; set; }
+        public string pici { get; set; }
     
-        public virtual client client { get; set; }
-        public virtual kuweiwarehouse kuweiwarehouse { get; set; }
         public virtual product product { get; set; }
         public virtual unit unit { get; set; }
-        public virtual productmanagement productmanagement1 { get; set; }
-        public virtual productmanagement productmanagement2 { get; set; }
-        public virtual productmanagement productmanagement11 { get; set; }
-        public virtual productmanagement productmanagement3 { get; set; }
     }
 }

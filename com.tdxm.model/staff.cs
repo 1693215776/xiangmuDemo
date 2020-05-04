@@ -22,8 +22,8 @@ namespace com.tdxm.model
         public Nullable<int> clerkid { get; set; }
         public Nullable<int> logins { get; set; }
     
-        public virtual clerk clerk { get; set; }
         public virtual department department { get; set; }
         public virtual role role { get; set; }
+        public virtual clerk clerk { get; set; }
     }
 }

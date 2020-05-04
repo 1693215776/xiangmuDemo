@@ -27,28 +27,19 @@ namespace com.tdxm.model
     
         public virtual DbSet<audit> audit { get; set; }
         public virtual DbSet<bsodd> bsodd { get; set; }
-        public virtual DbSet<check> check { get; set; }
         public virtual DbSet<checktype> checktype { get; set; }
         public virtual DbSet<ckodd> ckodd { get; set; }
         public virtual DbSet<cktype> cktype { get; set; }
-        public virtual DbSet<clerk> clerk { get; set; }
         public virtual DbSet<client> client { get; set; }
-        public virtual DbSet<damage> damage { get; set; }
         public virtual DbSet<damagetype> damagetype { get; set; }
         public virtual DbSet<department> department { get; set; }
-        public virtual DbSet<kuwei> kuwei { get; set; }
         public virtual DbSet<kuweitype> kuweitype { get; set; }
-        public virtual DbSet<kuweiwarehouse> kuweiwarehouse { get; set; }
         public virtual DbSet<menu> menu { get; set; }
         public virtual DbSet<move> move { get; set; }
         public virtual DbSet<movetype> movetype { get; set; }
         public virtual DbSet<pdodd> pdodd { get; set; }
-        public virtual DbSet<product> product { get; set; }
-        public virtual DbSet<productmanagement> productmanagement { get; set; }
         public virtual DbSet<register> register { get; set; }
         public virtual DbSet<rkodd> rkodd { get; set; }
-        public virtual DbSet<role> role { get; set; }
-        public virtual DbSet<salesreturn> salesreturn { get; set; }
         public virtual DbSet<salestype> salestype { get; set; }
         public virtual DbSet<staff> staff { get; set; }
         public virtual DbSet<stockmanagement> stockmanagement { get; set; }
@@ -58,7 +49,19 @@ namespace com.tdxm.model
         public virtual DbSet<thodd> thodd { get; set; }
         public virtual DbSet<unit> unit { get; set; }
         public virtual DbSet<usermode> usermode { get; set; }
-        public virtual DbSet<Warehousemanagement> Warehousemanagement { get; set; }
         public virtual DbSet<ykodd> ykodd { get; set; }
+        public virtual DbSet<OutStorage> OutStorage { get; set; }
+        public virtual DbSet<productbiao> productbiao { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<kuweiwarehouse> kuweiwarehouse { get; set; }
+        public virtual DbSet<product> product { get; set; }
+        public virtual DbSet<role> role { get; set; }
+        public virtual DbSet<productmanagement> productmanagement { get; set; }
+        public virtual DbSet<Warehousemanagement> Warehousemanagement { get; set; }
+        public virtual DbSet<clerk> clerk { get; set; }
+        public virtual DbSet<kuwei> kuwei { get; set; }
+        public virtual DbSet<salesreturn> salesreturn { get; set; }
+        public virtual DbSet<check> check { get; set; }
+        public virtual DbSet<damage> damage { get; set; }
     }
 }

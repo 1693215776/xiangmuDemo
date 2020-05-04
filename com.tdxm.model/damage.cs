@@ -16,14 +16,20 @@ namespace com.tdxm.model
     {
         public int bid { get; set; }
         public Nullable<int> damagetypeid { get; set; }
-        public Nullable<int> correlationid { get; set; }
+        public string correlationid { get; set; }
         public Nullable<int> quantity { get; set; }
         public Nullable<int> stateid { get; set; }
         public string addpeople { get; set; }
         public System.DateTime addtime { get; set; }
-    
-        public virtual audit audit { get; set; }
-        public virtual bsodd bsodd { get; set; }
-        public virtual damagetype damagetype { get; set; }
+        public string bsr { get; set; }
+        public string ms { get; set; }
+        public string ProductName { get; set; }
+        public string BarCode { get; set; }
+        public Nullable<int> meteringid { get; set; }
+        public string pici { get; set; }
+        public string kuwei { get; set; }
+        public Nullable<int> shuliang { get; set; }
+        public Nullable<int> IsDelete { get; set; }
+        public string czfs { get; set; }
     }
 }

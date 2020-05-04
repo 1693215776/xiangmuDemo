@@ -14,16 +14,7 @@ namespace com.tdxm.model
     
     public partial class bsodd
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public bsodd()
-        {
-            this.damage = new HashSet<damage>();
-        }
-    
         public int correlationid { get; set; }
         public string correlationname { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<damage> damage { get; set; }
     }
 }

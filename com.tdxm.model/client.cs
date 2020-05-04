@@ -14,21 +14,12 @@ namespace com.tdxm.model
     
     public partial class client
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public client()
-        {
-            this.productmanagement = new HashSet<productmanagement>();
-            this.Warehousemanagement = new HashSet<Warehousemanagement>();
-        }
-    
         public int clientid { get; set; }
         public string clientname { get; set; }
         public string phone { get; set; }
         public System.DateTime addtime { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<productmanagement> productmanagement { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Warehousemanagement> Warehousemanagement { get; set; }
+        public string email { get; set; }
+        public string address { get; set; }
+        public string beizhu { get; set; }
     }
 }

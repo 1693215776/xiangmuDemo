@@ -49,7 +49,7 @@ namespace com.tdxm.services
         /// </summary>
         /// <param name="where"></param>
         /// <returns></returns>
-        public List<T> GetByWhereAsc<orderByT>(Expression<Func<T, bool>> where, Expression<Func<T, orderByT>> orderBy, ref int pageIndex, ref int count, ref int pageCount, int pageSize)
+        public List<T> GetByWhereAsc<orderByT>(Expression<Func<T, bool>> where, Expression<Func<T, orderByT>> orderBy, ref int pageIndex, ref int pageCount, ref int count, int pageSize)
         {
             return MyRepository.GetByWhereAsc(where, orderBy, ref pageIndex, ref count, ref pageCount, pageSize);
         }

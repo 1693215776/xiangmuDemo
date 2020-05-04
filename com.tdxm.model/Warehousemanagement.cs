@@ -16,7 +16,7 @@ namespace com.tdxm.model
     {
         public int ckid { get; set; }
         public Nullable<int> cktypeid { get; set; }
-        public Nullable<int> clientid { get; set; }
+        public string supplierid { get; set; }
         public Nullable<int> correlationid { get; set; }
         public Nullable<int> count { get; set; }
         public Nullable<int> money { get; set; }
@@ -24,10 +24,20 @@ namespace com.tdxm.model
         public string czfs { get; set; }
         public string zdpeople { get; set; }
         public System.DateTime AddTime { get; set; }
-    
-        public virtual audit audit { get; set; }
-        public virtual ckodd ckodd { get; set; }
-        public virtual cktype cktype { get; set; }
-        public virtual client client { get; set; }
+        public string ProductName { get; set; }
+        public string BarCode { get; set; }
+        public string LocalNum { get; set; }
+        public Nullable<double> OutPrice { get; set; }
+        public Nullable<double> Amount { get; set; }
+        public string BatchNum { get; set; }
+        public Nullable<int> meteringid { get; set; }
+        public string pici { get; set; }
+        public Nullable<int> IsDelete { get; set; }
+        public string khname { get; set; }
+        public string address { get; set; }
+        public string phone { get; set; }
+        public string lxr { get; set; }
+        public string beizhu { get; set; }
+        public string guige { get; set; }
     }
 }

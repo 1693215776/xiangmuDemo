@@ -14,16 +14,7 @@ namespace com.tdxm.model
     
     public partial class salestype
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public salestype()
-        {
-            this.salesreturn = new HashSet<salesreturn>();
-        }
-    
         public int thtypeid { get; set; }
         public string thtypename { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<salesreturn> salesreturn { get; set; }
     }
 }

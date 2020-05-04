@@ -6,9 +6,36 @@
     <head>
         <link href="~/images/iconfont/iconfont.css" rel="stylesheet" />
     </head>
+    <style>
+        .black_overlay {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 150%;
+            background-color: black;
+            z-index: 1001;
+            opacity: .80;
+            filter: alpha(opacity=88);
+        }
 
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 25%;
+            left: 15%;
+            width: 60%;
+            height: 75%;
+            padding: 20px;
+            background-color: white;
+            z-index: 1002;
+            overflow: auto;
+        }
+    </style>
 
     <body class="fixed-top" style="width:1600px; margin-left:290px">
+
         <div id="header" class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
@@ -19,11 +46,136 @@
                         <span class="icon-bar"></span>
                         <span class="arrow"></span>
                     </a>
-                  
+
                 </div>
             </div>
         </div>
+        @*///弹出框*@
+        <div>
+            @*style="margin-top:240px;margin-left:730px;"*@
+            <button type="button" class="btn btn-primary" style="margin-top:30px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                确定
+            </button>
+        </div>
+        <div id="light" class="white_content">
+            <div>
+                <form class="form-inline">
+                    <div class="form-group mb-3">
+                        <label>出库单号</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>类型</label>
+                    </div>
 
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>状态</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>客户编号</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>客户名称</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>联系人</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>关联单号</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>创建人</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>创建时间</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>电话</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>地址</label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="inputPassword2">
+                    </div>
+                    @*<button type="submit" class="btn btn-primary mb-2">
+                        搜索
+                    </button>*@
+                    &nbsp;&nbsp;
+
+                </form>
+                <hr />
+                <hr />
+                <div style="width:1000px;">
+                    <table class="table table-striped table-bordered table-hover" id="tabInfo">
+                        <thead>
+                            <tr class="widget-title">
+                                <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
+                                <th class="hidden-480">产品名称</th>
+                                <th class="hidden-480">产品条码</th>
+                                <th class="hidden-480">产品编号</th>
+                                <th class="hidden-480">批次</th>
+                                <th class="hidden-480">当前库位</th>
+                                <th class="hidden-480">现有库存</th>
+                                <th class="hidden-400">移库数量</th>
+                                <th class="hidden-400">移入库位</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
+                                <th>1</th>
+                                <th>1</th>
+                                <th>1</th>
+                                <th>1</th>
+                                <th>1</th>
+                                <th>1</th>
+                                <th> <input type="text" class="form-control" id="inputPassword2" style="width:120px;height:30px;"></th>
+                                <th> <input type="text" class="form-control" id="inputPassword2" style="width:120px;height:30px;"></th>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="">
+                        <button type="button" class="btn btn-secondary" style="margin-top:10px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">审核通过</button>
+                        <button type="button" class="btn btn-secondary" style="margin-top:10px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">审核不通过</button>
+                        <button type="button" class="btn btn-secondary" style="margin-top:10px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fade" class="black_overlay"></div>
+        @*///弹出框*@
         <div id="container" class="row-fluid ">
 
             <div id="sidebar" class="nav-collapse collapse">
@@ -89,18 +241,20 @@
                                     <div class="row-fluid">
                                         <form class="form-horizontal" action="javascript:void(0)">
                                             <div class="control-group">
-                                                <div class="controls controls-cus">
-                                                    <input id="txtOrderNum" name="txtOrderNum" type="text" class="input-medium" placeholder="请输入报损单号" />&nbsp;&nbsp;
-                                                    时间&nbsp;<input id="txtBeginTime" name="txtBeginTime" type="text" class="input-medium" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
-                                                    -<input id="txtEndTime" name="txtEndTime" type="text" class="input-medium" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />&nbsp;&nbsp;
-                                                    <a id="gritter-remove-all" class="btn btn-info" href="javascript:void(0)" onclick="ReturnManager.PageClick(1,10)"><i class="icon-search"></i>&nbsp;搜索</a>
+                                                <div class="controls controls-cus" style="margin-top:20px;">
+                                                    <div class="row">
+                                                        <input id="txtOrderNum" name="txtOrderNum" type="text" class="input-medium" placeholder="请输入报损单号" style="margin-left:0px;" />&nbsp;&nbsp;
 
+                                                        时间
+                                                        <input id="Stratdate" value="@DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")" style="width:300px" type="date" name="Stratdate" class="form-control" />到<input id="Enddate" value="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" type="date" style="width:300px" name="Enddate" class="form-control" />
+                                                        <button id="btncx" class="col-md-1 btn btn-primary" style="margin-top:0px;margin-left:80px; width:60px;" type="submit">查询</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
 
-                                    <table class="table table-striped table-bordered table-hover" id="tabInfo">
+                                    <table class="table table-striped table-bordered table-hover" id="tabInfo" style="margin-top:20px;">
                                         <thead>
                                             <tr class="widget-title">
                                                 <th style="width: 8px;"><input type="checkbox" id="chbSelectAll" class="group-checkable" onclick="ReturnManager.SelectAll(this)" /></th>
@@ -135,6 +289,16 @@
                                             </tr>
                                         </tbody>
                                     </table>
+
+                                    <div class="form-inline form-group">
+                                        <button id="btnsy" class="btn btn-info form-group">首页</button>
+                                        <button id="btsyy" class="btn btn-info form-group">上一页</button>
+                                        <input type="text" id="txtpageIndex" class="form-control" style="width:110px;" />
+                                        <button id="btGo" class="btn btn-info form-group">Go</button>
+                                        <button id="btnxyy" class="btn btn-info form-group">下一页</button>
+                                        <button id="btnwy" class="btn btn-info form-group">尾页</button>
+                                        <label id="txtLabel" style="font-size:16px;margin:0px auto;"></label>
+                                    </div>v
                                     <div class="row-fluid" id="mypager">
                                     </div>
                                 </div>
@@ -152,7 +316,7 @@
                 <span class="go-top"><i class="icon-arrow-up"></i></span>
             </div>
         </div>
-        </body>
+    </body>
         <script type="text/javascript" src="/Theme/plugins/jquery-1.8.3.min.js?t=4eb3e010-a2cc-4147-b1bf-a2daf6384899"></script>
         <script type="text/javascript" src="/Theme/plugins/bootstrap/js/bootstrap.min.js?t=aee18872-146d-4ff7-ba7a-41d2ca2b8d0b"></script>
         <script type="text/javascript" src="/Theme/plugins/jbox-v2.3/jBox/jquery.jBox-2.3.min.js?t=abaa5017-a2f5-4fa6-bbec-59338ba7f1b8"></script>

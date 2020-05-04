@@ -124,6 +124,11 @@
     <Compile Include="Controllers\CanGuanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\mubanyeController.cs" />
+    <Compile Include="FuZhu\PanDianFuZhu.cs" />
+    <Compile Include="FuZhu\YiKUFuZhu.cs" />
+    <Compile Include="FuZhu\BaoSunFuZhu.cs" />
+    <Compile Include="FuZhu\FuZhu.cs" />
+    <Compile Include="FuZhu\RuKuFuZhu.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -136,7 +141,11 @@
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\com.tdxm.model.dll" />
+    <Content Include="bin\com.tdxm.model.pdb" />
+    <Content Include="bin\com.tdxm.reping.dll" />
+    <Content Include="bin\com.tdxm.reping.pdb" />
     <Content Include="bin\com.tdxm.services.dll" />
+    <Content Include="bin\com.tdxm.services.pdb" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
@@ -387,6 +396,11 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\xiangmu.dll.config" />
+    <Content Include="bin\com.tdxm.model.dll.config" />
+    <Content Include=".vs\ProjectSettings.json" />
+    <Content Include=".vs\slnx.sqlite" />
+    <Content Include=".vs\VSWorkspaceState.json" />
+    <Content Include="obj\Release\xiangmu.csprojAssemblyReference.cache" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -450,8 +464,23 @@
     <Content Include="Views\CanGuan2\KuWeiInsert.cshtml" />
     <Content Include="Views\CanGuan2\LeiBie.cshtml" />
     <Content Include="Views\CanGuan2\LeiBieInsert.cshtml" />
+    <Content Include="Views\CanGuan\RuKuDelete.cshtml" />
+    <Content Include="Views\CanGuan\Update.cshtml" />
+    <Content Include="Views\CanGuan\ChuKuUpdate.cshtml" />
+    <Content Include="Views\CanGuan\BSupdateCha.cshtml" />
+    <Content Include="Views\CanGuan\YKupdateCha.cshtml" />
+    <Content Include="Views\CanGuan\PDupdateCha.cshtml" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap.css.map" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\css\bootstrap.min.css.map" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="yangshi\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include=".vs\xiangmu\v16\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\cob_5_ElaAdmin\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
@@ -473,6 +502,10 @@
     <ProjectReference Include="..\com.tdxm.model\com.tdxm.model.csproj">
       <Project>{a317dbbb-ba62-4bc0-986e-1ec0289bb083}</Project>
       <Name>com.tdxm.model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.tdxm.reping\com.tdxm.reping.csproj">
+      <Project>{a25e1454-bb9d-4161-a65b-a69862531987}</Project>
+      <Name>com.tdxm.reping</Name>
     </ProjectReference>
     <ProjectReference Include="..\com.tdxm.services\com.tdxm.services.csproj">
       <Project>{e02e40a7-6181-4841-b986-fb0759754466}</Project>
