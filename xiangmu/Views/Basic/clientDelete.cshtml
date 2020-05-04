@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "clientDelete";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+
+<form>
+    <div>
+        客户编号  <input type="hidden" name="clientid" value="@Model.clientid" />
+    </div>
+    
+    <div>
+        客户名称<input type="text" name="clientname" value="@Model.clientname" />
+    </div>
+    <div>
+        客户电话<input type="text" name="phone" value="@Model.phone" />
+    </div>
+    
+
+
+    <div class="row">
+        <div class="col-md-8 text-right">
+            <button type="button" class="btn btn-primary" style="margin-top:30px;">删除</button>
+            <button type="button" class="btn btn-primary" href="@*@Url.Action(" CarQuery")*@" style="margin-right:100px;margin-top:30px;">返回列表</button>
+        </div>
+    </div>
+</form>

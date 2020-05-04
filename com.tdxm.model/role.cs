@@ -17,7 +17,6 @@ namespace com.tdxm.model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public role()
         {
-            this.register = new HashSet<register>();
             this.staff = new HashSet<staff>();
         }
     
@@ -27,8 +26,6 @@ namespace com.tdxm.model
         public string remarks { get; set; }
         public Nullable<int> staffid { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<register> register { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<staff> staff { get; set; }
     }
