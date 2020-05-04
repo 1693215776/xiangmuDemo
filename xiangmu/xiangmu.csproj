@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\CanGuanController.cs" />
+    <Compile Include="Controllers\FLRController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\mubanyeController.cs" />
     <Compile Include="FuZhu\PanDianFuZhu.cs" />
