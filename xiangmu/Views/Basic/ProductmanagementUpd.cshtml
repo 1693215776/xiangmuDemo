@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "ProductmanagementUpd";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+
+<form>
+    <div class="row show-grid" style="width:1600px;margin-left:290px">
+        <div class=" col-md-3">
+            <label for="validationDefault01">编号</label>
+            <input type="text" class="form-control" id="validationDefault02" value="可不填,自动生成" readonly>
+        </div>
+        <div class="form-group col-md-3 ">
+            <label for="inputState">类别</label>
+            <select id="inputState" class="form-control">
+                <option selected>1</option>
+                <option>2</option>
+            </select>
+        </div>
+        <div class="col-md-3 ">
+            <label for="validationDefault01">显示名</label>
+            <input type="text" class="form-control" id="validationDefault02" y>
+        </div>
+        @*<div class="col-md-3">
+                <label for="validationDefault02">创建时间</label>
+                <input type="date" class="form-control" id="validationDefault02" required>
+            </div>*@
+        <div class="col-md-3 ">
+            <label for="validationDefault01">上限</label>
+            <input type="text" class="form-control" id="validationDefault02" value="输入关键字搜索" readonly>
+        </div>
+        <div class="col-md-3 ">
+            <label for="validationDefault01">下限</label>
+            <input type="text" class="form-control" id="validationDefault02" readonly>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault01">价格</label>
+            <input type="text" class="form-control" id="validationDefault02" readonly>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault01">规格</label>
+            <input type="text" class="form-control" id="validationDefault02" readonly>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault01">单位</label>
+            <input type="text" class="form-control" id="validationDefault02" readonly>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault01">备注</label>
+            <input type="text" class="form-control" id="validationDefault02" readonly>
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-md-8 text-right">
+        <button type="button" class="btn btn-primary" style="margin-top:30px;">修改</button>
+        <button type="button" class="btn btn-primary" href="@*@Url.Action(" CarQuery")*@" style="margin-right:100px;margin-top:30px;">返回列表</button>
+    </div>
+</div>
+

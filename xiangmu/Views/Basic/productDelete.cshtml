@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "productDelete";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+
+    <form>
+        <div>
+            类别编号  <input type="hidden" name="productid" value="@Model.productid" />
+        </div>
+
+        <div>
+            类别名称<input type="text" name="productname" value="@Model.productname" />
+        </div>
+        <div>
+            创建人<input type="text" name="addpeople" value="@Model.addpeople" />
+        </div>
+        <div>
+            备注<input type="text" name="remarks" value="@Model.remarks" />
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 text-right">
+                <button type="button" class="btn btn-primary" style="margin-top:30px;">删除</button>
+                <button type="button" class="btn btn-primary" href="@*@Url.Action(" CarQuery")*@" style="margin-right:100px;margin-top:30px;">返回列表</button>
+            </div>
+        </div>
+    </form>
+

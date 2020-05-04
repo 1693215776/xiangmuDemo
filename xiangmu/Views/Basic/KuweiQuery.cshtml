@@ -1,9 +1,12 @@
-﻿@{
-    ViewBag.Title = "StaffQuery";
+﻿@using com.tdxm.model;
+@{
+    ViewBag.Title = "KuweiQuery";
     Layout = "~/Views/mubanye/ym.cshtml";
 }
 
-
+@{
+    var list = ViewBag.Kuwei as List<kuwei>;
+}
 
 
 <!DOCTYPE html>
@@ -110,24 +113,20 @@
                                 <div class="row-fluid">
                                     <form class="form-horizontal" action="javascript:void(0)">
                                         <div class="control-group">
-                                            <div class="controls controls-cus">
-                                                仓库
-                                                <select id="ddlStorageName" name="ddlStorageName" class="input-medium">
-                                                    <option value=''>请选择仓库</option>
-                                                    <option value='DSP_0000'>产品仓库</option>
-                                                </select>
-                                                类型
-                                                <select id="ddlLocalType" name="ddlLocalType" class="input-medium">
-                                                    <option value="">请选择</option>
-                                                    <option value="1">正式库区</option>
-                                                    <option value="2">待入库区</option>
-                                                    <option value="3">待检库区</option>
-                                                    <option value="4">待出库区</option>
-                                                    <option value="5">报损库区</option>
-                                                </select>
-                                                库位<input id="txtLocalName" name="txtLocalName" type="text" class="input-medium" />
-                                                <a id="gritter-remove-all" class="btn btn-info" href="javascript:void(0)" onclick="Location.PageClick(1,10)"><i class="icon-search"></i>&nbsp;搜索</a>
+                                            <div class="row" style="margin-top:20px;margin-bottom:20px;">
+                                                <div class="col-md-8 form-inline">
+                                                    <label class="control-label">订单时间</label>
+                                                    <input name="StartDate" value="@DateTime.Now.AddDays(-14).ToString("yyyy-MM-dd")" type="date" class="form-control" />
+                                                    <label class="control-label">到</label>
+                                                    <input name="EndDate" value="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" type="date" class="form-control" />
+                                                </div>
                                             </div>
+                                            <div class="controls controls-cus">
+                                                <input id="txtName" name="name" type="text" class="input-xlarge" placeholder="请输入库位名称" />
+                                                <button id="btnSearch" type="button" class="btn-primary">查询</button>
+
+                                            </div>
+
                                         </div>
                                     </form>
                                 </div>
@@ -138,7 +137,6 @@
                                             <th style="width: 8px;">
                                                 <input type="checkbox" class="group-checkable" onclick="Location.SelectAll(this)" />
                                             </th>
-                                            <th class="hidden-480">序号</th>
                                             <th class="hidden-480">库位编号</th>
                                             <th class="hidden-480">库位名</th>
                                             <th class="hidden-480">所在仓库</th>
@@ -149,10 +147,15 @@
                                             <th>操作</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                    </tbody>
                                 </table>
-                                <div class="row-fluid" id="mypager">
+                                <div class="row form-group form-inline">
+                                    <button id="btnFrist" type="button" class="btn btn-primary">首页</button>
+                                    <button id="btnUp" type="button" class="btn btn-primary">上一页</button>
+                                    <input type="text" id="txtPageIndex" class="form-control" style="width:80px" value="1" />
+                                    <button id="btnGo" type="button" class="btn btn-primary">Go</button>
+                                    <button id="btnNext" type="button" class="btn btn-primary">下一页</button>
+                                    <button id="btnLast" type="button" class="btn btn-primary">尾页</button>
+                                    <label id="lbMsg" class="control-label"></label>
                                 </div>
                             </div>
                         </div>
@@ -161,24 +164,86 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript" src="/Theme/plugins/jquery-1.8.3.min.js?t=1d012eb4-6972-49a2-ab27-dc0757bf2d8a"></script>
-    <script type="text/javascript" src="/Theme/plugins/bootstrap/js/bootstrap.min.js?t=86302778-1d73-406d-b706-615a484a8020"></script>
-    <script type="text/javascript" src="/Theme/plugins/jbox-v2.3/jBox/jquery.jBox-2.3.min.js?t=d220ee2d-72b1-4025-a125-67c1758e5b11"></script>
-    <script type="text/javascript" src="/Common/Js?t=1f9b7f25-246b-45dd-bc6a-981884f07e7b"></script>
-    <script type="text/javascript" src="/Theme/customer/Git.Framework.Common.js?t=128ebc16-181e-4a8f-96f8-e2e2cbcffd6b"></script>
-    <script type="text/javascript" src="/Theme/customer/Git.Framework.UICommon.js?t=fa013d7a-a88b-4850-8ca5-eecd87d5f3c4"></script>
-    <script type="text/javascript" src="/Theme/customer/Storage/Git.Storage.Location.js?t=3da5d8e7-f2ab-4889-8380-d629541acd54"></script>
-
-
-
     <script type="text/javascript">
-        $(document).ready(function () {
-            Location.PageClick(1, 10);
+       $(function () {
+            $("#btnFrist").click(function () {
+                //将pageIndex = 1
+                bindData(1);
+            });
+
+            $("#btnUp").click(function () {
+                //当前页 = 当前页 -1
+                var pageIndex = parseInt($("#txtPageIndex").val()) - 1;
+                bindData(pageIndex);
+            });
+
+            $("#btnNext").click(function () {
+                //当前页 = 当前页 + 1
+                var pageIndex = parseInt($("#txtPageIndex").val()) + 1;
+                bindData(pageIndex);
+            });
+
+            $("#btnLast").click(function () {
+                bindData(9999999);
+            });
+
+            $("#btnGo").click(function () {
+                //获取当前文本框中的页
+                var pageIndex = parseInt($("#txtPageIndex").val());
+                bindData(pageIndex);
+            });
+            //绑定查询按钮事件
+            $("#btnSearch").click(function () {
+                bindData(1);
+            });
+            bindData(1);
         });
+        function bindData(pageIndexValue) {
+
+        var startDate = $("[name=StartDate]").val();
+        var endDate = $("[name=EndDate]").val();
+        var names = $("#txtName").val();
+        //获取数据
+        $.ajax({
+           url: "@Url.Action("GetKuweis")",
+            data: {name:names,pageIndex:pageIndexValue,StartDate: startDate, EndDate: endDate},/*赋值*/
+            dataType: "json",
+            type: "get",
+            success: function (result) {
+                //设置文本框中显示的当前页
+                $("#lbMsg").html("当前第"+result.PageIndex+"页"+"    共计"+result.PageCount+"页    共有"+result.Count+"条");
+                $("#txtPageIndex").val(result.PageIndex);
+
+                //清空所有表格（数据行）行
+                $("table tr:gt(0)").remove();
+                //循环遍历所有数据并显示到控件
+                $.each(result.KuweilInfies, function (index, value) {
+                    var str = "<tr>";
+                     str += "<td>" + "1" + "</td>";    
+                    str += "<td>" + value.Id + "</td>";
+                    str += "<td>" + value.Name + "</td>";
+                    str += "<td>" + value.Warehouseid + "</td>";
+                    str += "<td>" + value.KuWeiTypeid + "</td>";
+                    str += "<td>" + value.Forbidden + "</td>";
+                    str += "<td>" + value.Defaults + "</td>";
+                    str += "<td>" + value.AddTime + "</td>";
+                    str += "<td>";
+                    str += "<a href='/Basic/KuweiQuery/" + value.kuweiid + "'>修改</a> | <a href='#'>删除</a>"
+                    str+="</td>";
+                    str += "</tr>";
+                    $("table").append(str);
+                });
+            }
+        });
+        }
+        // Id = item.kuweiid, Name = item.kuweiname, Warehouseid = item.warehouseid, KuWeiTypeid = item.kuWeiTypeid, Forbidden = item.forbidden, Defaults = item.defaults, AddTime = item.AddTime.ToString("yyyy-MM-dd HH:mm:ss")
+        //$(document).ready(function () {
+        //    Location.PageClick(1, 10);
+        //});
     </script>
 </body>
 
 </html>
+
 
 
