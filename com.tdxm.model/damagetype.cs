@@ -14,16 +14,7 @@ namespace com.tdxm.model
     
     public partial class damagetype
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public damagetype()
-        {
-            this.damage = new HashSet<damage>();
-        }
-    
         public int damagetypeid { get; set; }
         public string damagetypename { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<damage> damage { get; set; }
     }
 }

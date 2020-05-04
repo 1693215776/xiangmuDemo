@@ -14,16 +14,7 @@ namespace com.tdxm.model
     
     public partial class pdodd
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public pdodd()
-        {
-            this.check = new HashSet<check>();
-        }
-    
         public int pdid { get; set; }
         public string pdname { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<check> check { get; set; }
     }
 }

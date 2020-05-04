@@ -15,15 +15,21 @@ namespace com.tdxm.model
     public partial class check
     {
         public int checkid { get; set; }
-        public Nullable<int> checktypeid { get; set; }
+        public string checktypeid { get; set; }
         public Nullable<int> correlationid { get; set; }
         public Nullable<int> stateid { get; set; }
         public string zdpeople { get; set; }
         public string czfs { get; set; }
         public System.DateTime AddTime { get; set; }
-    
-        public virtual audit audit { get; set; }
-        public virtual checktype checktype { get; set; }
-        public virtual pdodd pdodd { get; set; }
+        public string beizhu { get; set; }
+        public string bsr { get; set; }
+        public string ProductName { get; set; }
+        public string BarCode { get; set; }
+        public Nullable<int> meteringid { get; set; }
+        public string guige { get; set; }
+        public string leibie { get; set; }
+        public string pici { get; set; }
+        public string kuwei { get; set; }
+        public Nullable<int> IsDelete { get; set; }
     }
 }

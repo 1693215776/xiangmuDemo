@@ -7,7 +7,66 @@
 <head>
     <link href="~/images/iconfont/iconfont.css" rel="stylesheet" />
 </head>
-<body class="fixed-top" style="width:1600px;margin-left:290px">
+<style>
+    .black_overlay {
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        opacity: .80;
+        filter: alpha(opacity=88);
+    }
+
+    .white_content {
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 32%;
+        width: 55%;
+        height: 55%;
+        padding: 20px;
+        background-color: white;
+        z-index: 1002;
+        overflow: auto;
+    }
+
+    tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
+
+    .inorder_tdTitle {
+        width: 11%;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        empty-cells: show;
+    }
+
+    .inorder_topline {
+        border-top: 1px solid black;
+    }
+
+    .inorder_tdContent {
+        width: 20%;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        text-align: left;
+        vertical-align: middle;
+        empty-cells: show;
+    }
+</style>
+<div style=" width:1600px; margin-left:290px">
     <div id="header" class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
@@ -129,7 +188,7 @@
                                             <th>
                                                 <a class="icon-edit" href="/Move/Product/Edit?orderNum=000001" id="bianji" title="编辑"><span class="iconfont">&#xe612;</span></a>&nbsp;&nbsp;&nbsp;
                                                 <a class="icon-remove" href="javascript:void(0)" title="删除"><span class="iconfont">&#xe686;</span></a>&nbsp;&nbsp;&nbsp;
-                                                <a class="icon-remove" href="javascript:void(0)" title="查看"><span class="iconfont">&#xe601;</span></a>&nbsp;&nbsp;&nbsp;
+                                                <a class="icon-remove" href="javascript:void(0)" title="查看" onclick="document.getElementById('light').style.display = 'block';document.getElementById('fade').style.display = 'block';"><span class="iconfont">&#xe601;</span></a>&nbsp;&nbsp;&nbsp;
                                                 <a class="icon-remove" href="javascript:void(0)" title="审核"><span class="iconfont">&#xe676;</span></a>
                                             </th>
                                         </tr>
@@ -144,22 +203,82 @@
             </div>
         </div>
     </div>
-    <div id="footer">
+</div>
+<div id="light" class="white_content" style="width:745px;">
+    <div style="width:725px;height:50px;">
+        <table class="dialogtab inorder_tab" id="tabInfo">
+            <tbody>
+                <tr style="height:27px;">
+                    <td class="inorder_tdTitle inorder_topline"><strong>盘点单据号</strong></td>
+                    <td class=" inorder_tdContent inorder_topline">0028</td>
+                    <td class="inorder_tdTitle inorder_topline">盘点类型</td>
+                    <td class=" inorder_tdContent inorder_topline">类型入库</td>
+                    <td class="inorder_tdTitle inorder_topline">产品类型</td>
+                    <td class=" inorder_tdContent inorder_topline">产品</td>
+                </tr>
+                <tr>
+                    <td class="inorder_tdTitle inorder_topline"><strong>关联单号</strong></td>
+                    <td class=" inorder_tdContent inorder_topline">0028</td>
+                    <td class="inorder_tdTitle inorder_topline">制单人</td>
+                    <td class=" inorder_tdContent inorder_topline">小米代练游戏管理</td>
+                    <td class="inorder_tdTitle inorder_topline">状态</td>
+                    <td class=" inorder_tdContent inorder_topline">等待审核</td>
+                </tr>
+                <tr>
+                    <td class="inorder_tdTitle inorder_topline"><strong>备注</strong></td>
+                    <td colspan="5" class=" inorder_tdContent inorder_topline">3438</td>
+                 
+                </tr>
+              
 
+            </tbody>
+        </table>
+        <br />
+        <table class="table table-striped table-bordered table-hover  border-radius: 0px;" id="tabInfo">
+            <thead>
+                <tr>
 
-        技术支持:15800466429&nbsp;&nbsp;QQ:821865130&nbsp;&nbsp;QQ群:142050808&nbsp;&nbsp;88718955&nbsp;&nbsp;版权声明: 不得用于任何商业用途,违法必究
-        <div class="span pull-right">
-            <span class="go-top"><i class="icon-arrow-up"></i></span>
+                    <th class="hidden-480">库位名称</th>
+                    <th class="hidden-480">产品条码</th>
+                    <th class="hidden-480">产品编号</th>
+                    <th class="hidden-480">批次</th>
+                    <th class="hidden-480">单价</th>
+                    <th class="hidden-480">总价</th>
+                    <th class="hidden-480">规格</th>
+                    <th class="hidden-480">出库数</th>
+                    <th class="hidden-480">出库库位</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="">
+            <div style="margin-top:200px;margin-left:130px;">
+            
+                <button type="button" class="btn btn-secondary" style="margin-top:10px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</button>
+            </div>
         </div>
     </div>
-</body>
-<script type="text/javascript" src="/Theme/plugins/jquery-1.8.3.min.js?t=ee1644aa-f02a-45f3-8e70-a306a41d6b52"></script>
-<script type="text/javascript" src="/Theme/plugins/bootstrap/js/bootstrap.min.js?t=2c7c0b61-8db2-4c98-b8b0-6bbd042a0262"></script>
-<script type="text/javascript" src="/Theme/plugins/jbox-v2.3/jBox/jquery.jBox-2.3.min.js?t=bbd86feb-dbd5-4c10-8aba-a0a3cb084809"></script>
-<script type="text/javascript" src="/Theme/customer/jquery.jUploader-1.01.min.js?t=ff45c14e-e24a-4584-9764-3f1cc80b4d35"></script>
-<script type="text/javascript" src="/Common/Js?t=67c219b4-0d63-477d-95de-93c541f3e4e2"></script>
-<script type="text/javascript" src="/Theme/plugins/My97DatePicker/WdatePicker.js?t=53cbfa34-cc91-474f-a899-f0bef7df086f"></script>
-<script type="text/javascript" src="/Theme/plugins/jquery-autocomplete3.2.2/jquery.autocomplete.js?t=847df2e0-58d9-470a-b4d0-df1e22e4d1af"></script>
-<script type="text/javascript" src="/Theme/customer/Git.Framework.Common.js?t=af9961d7-93f1-427b-9ca7-e4ab0e226c46"></script>
-<script type="text/javascript" src="/Theme/customer/Git.Framework.UICommon.js?t=5989b90b-f8ec-4746-9195-2e36b3552bed"></script>
-<script type="text/javascript" src="/Theme/customer/Check/Git.Storage.CheckOrder.js?t=f7f8b363-790a-42c9-8bed-29e72d064e5d"></script>
+</div>
+<div id="footer">
+
+
+
+    <div class="span pull-right">
+        <span class="go-top"><i class="icon-arrow-up"></i></span>
+    </div>
+</div>
+<div id="fade" class="black_overlay"></div>
+
+

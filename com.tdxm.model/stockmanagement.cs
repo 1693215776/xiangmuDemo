@@ -24,6 +24,19 @@ namespace com.tdxm.model
         public string zdpeople { get; set; }
         public string czfs { get; set; }
         public System.DateTime AddTime { get; set; }
+        public string supname { get; set; }
+        public string ContactName { get; set; }
+        public string phone { get; set; }
+        public string Address { get; set; }
+        public Nullable<int> IsDelete { get; set; }
+        public Nullable<int> num { get; set; }
+        public string beizhu { get; set; }
+        public string BatchNum { get; set; }
+        public string pici { get; set; }
+        public string kuwei { get; set; }
+        public string cpname { get; set; }
+        public Nullable<int> rkshuliang { get; set; }
+        public string BarCode { get; set; }
     
         public virtual audit audit { get; set; }
         public virtual rkodd rkodd { get; set; }
