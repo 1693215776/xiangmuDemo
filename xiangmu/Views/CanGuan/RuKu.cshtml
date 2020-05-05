@@ -9,24 +9,80 @@
 @{
     ViewBag.Title = "RuKu";
 }
+<style>
+    .black_overlay {
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        opacity: .80;
+        filter: alpha(opacity=88);
+    }
 
-    <head>
-        <link href="~/images/iconfont/iconfont.css" rel="stylesheet" />
-        <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <title>仓储管理系统</title>
-        <meta name="keywords" content="仓储管理系统" />
-        <meta name="description" content="仓储管理系统" />
+    .white_content {
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 32%;
+        width: 55%;
+        height: 55%;
+        padding: 20px;
+        background-color: white;
+        z-index: 1002;
+        overflow: auto;
+    }
 
-        <link href="/Theme/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <link href="/Theme/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-        <link href="/Theme/css/style.css" rel="stylesheet" type="text/css" />
-        <link href="/Theme/css/style-responsive.css" rel="stylesheet" type="text/css" />
-        <link href="/Theme/css/themes/default.css" rel="stylesheet" type="text/css" />
-        <link href="/Theme/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
-        <link href="/Theme/plugins/jquery-autocomplete3.2.2/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
-    </head>
-<body class="fixed-top" style=" width:1600px; margin-left:290px" >
+    tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+  
+
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
+
+    .inorder_tdTitle {
+        width: 11%;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        empty-cells: show;
+    }
+
+    .inorder_topline {
+        border-top: 1px solid black;
+    }
+
+    .inorder_tdContent {
+        width: 20%;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        text-align: left;
+        vertical-align: middle;
+        empty-cells: show;
+    }
+</style>
+<head>
+
+    <link href="~/images/iconfont/iconfont.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>仓储管理系统</title>
+    <meta name="keywords" content="仓储管理系统" />
+    <meta name="description" content="仓储管理系统" />
+
+    
+</head>
+
+
+<div id="fuji" style="width:1600px;height:555px;margin-left:290px;">
     <div id="header" class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
@@ -38,23 +94,23 @@
                     <span class="arrow"></span>
                 </a>
                 @*<div class="top-nav">
-                    <ul class="nav pull-right" id="top_menu">
-                        <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                        <ul class="nav pull-right" id="top_menu">
+                            <li class="divider-vertical hidden-phone hidden-tablet"></li>
 
-                        <li class="divider-vertical hidden-phone hidden-tablet"></li>
-                        <li class="dropdown">
-                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-user"></i>&nbsp;当前登录
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0)" onclick="AccountSetting.Add();"><i class="icon-user"></i>&nbsp;&nbsp;administrator</a></li>
-                                <li><a href="javascript:void(0)" onclick="AccountSetting.Edit();"><i class="icon-wrench"></i>&nbsp;&nbsp;修改密码</a></li>
-                                <li><a href="/Home/LoginOut"><i class="icon-key"></i>退出系统</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>*@
+                            <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="icon-user"></i>&nbsp;当前登录
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)" onclick="AccountSetting.Add();"><i class="icon-user"></i>&nbsp;&nbsp;administrator</a></li>
+                                    <li><a href="javascript:void(0)" onclick="AccountSetting.Edit();"><i class="icon-wrench"></i>&nbsp;&nbsp;修改密码</a></li>
+                                    <li><a href="/Home/LoginOut"><i class="icon-key"></i>退出系统</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>*@
             </div>
         </div>
     </div>
@@ -145,44 +201,44 @@
                                             <form class="horizontal-form" action="javascript:void(0)">
                                                 @*<div class="row-fluid">
 
-            <div class="span2">
-                <div class="control-group">
+                                                        <div class="span2">
+                                                            <div class="control-group">
 
-                    <div class="controls">
-                        <label for="firstName" class="control-label">供应商</label>
-                        <input id="txtSupplier" name="txtSupplier" type="text" class="input-medium" />
-                        <span class="help-block"></span>
-                    </div>
-                </div>
-            </div>
+                                                                <div class="controls">
+                                                                    <label for="firstName" class="control-label">供应商</label>
+                                                                    <input id="txtSupplier" name="txtSupplier" type="text" class="input-medium" />
+                                                                    <span class="help-block"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
-            <div class="span2">
-                <div class="control-group">
+                                                        <div class="span2">
+                                                            <div class="control-group">
 
-                    <div class="controls">
-                        <label for="firstName" class="control-label">单据类型</label>
-                        <select id="ddlInType" name="ddlInType" class="input-medium"><option value="">请选择入库单类型</option><option value="1">采购收货入库</option><option value="2">销售退货入库</option><option value="3">生产产品入库</option><option value="4">领用退还入库</option><option value="5">借货入库</option><option value="6">借出还入</option></select>
-                        <span class="help-block"></span>
-                    </div>
-                </div>
-           </div>
-            <div class="span2">
-                <div class="control-group">
+                                                                <div class="controls">
+                                                                    <label for="firstName" class="control-label">单据类型</label>
+                                                                    <select id="ddlInType" name="ddlInType" class="input-medium"><option value="">请选择入库单类型</option><option value="1">采购收货入库</option><option value="2">销售退货入库</option><option value="3">生产产品入库</option><option value="4">领用退还入库</option><option value="5">借货入库</option><option value="6">借出还入</option></select>
+                                                                    <span class="help-block"></span>
+                                                                </div>
+                                                            </div>
+                                                       </div>
+                                                        <div class="span2">
+                                                            <div class="control-group">
 
-                    <div class="controls">
-                        <label for="firstName" class="control-label">关联单号</label>
-                        <input id="txtPlanNum" name="txtPlanNum" type="text" class="input-medium" />
-                        <span class="help-block"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="span2">
-                <div class="control-group">
-                    <label for="firstName" class="control-label">&nbsp;&nbsp;</label>
-                    <a class="btn btn-info" href="javascript:void(0)" onclick="InStorageManager.PageClick(1,10)"><i class="icon-search"></i>&nbsp;搜索</a>
-                </div>
-            </div>
-        </div>*@
+                                                                <div class="controls">
+                                                                    <label for="firstName" class="control-label">关联单号</label>
+                                                                    <input id="txtPlanNum" name="txtPlanNum" type="text" class="input-medium" />
+                                                                    <span class="help-block"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="span2">
+                                                            <div class="control-group">
+                                                                <label for="firstName" class="control-label">&nbsp;&nbsp;</label>
+                                                                <a class="btn btn-info" href="javascript:void(0)" onclick="InStorageManager.PageClick(1,10)"><i class="icon-search"></i>&nbsp;搜索</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>*@
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>报损单编号</label>
@@ -198,10 +254,10 @@
                                                     </div>
 
                                                     <div class="col-md-3">
-                                                        
-                                                            <label for="firstName" class="control-label">&nbsp;&nbsp;</label>
-                                                            <a class="btn btn-info" href="javascript:void(0)" onclick="InStorageManager.PageClick(1,10)"><i class="icon-search"></i>&nbsp;搜索</a>
-                                                    
+
+                                                        <label for="firstName" class="control-label">&nbsp;&nbsp;</label>
+                                                        <a class="btn btn-info" href="javascript:void(0)" onclick="InStorageManager.PageClick(1,10)"><i class="icon-search"></i>&nbsp;搜索</a>
+
                                                     </div>
 
 
@@ -215,7 +271,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="tabInfo">
                                     <thead>
                                         <tr class="widget-title">
-                                           <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
+                                            
                                             <th class="hidden-480">入库单号</th>
                                             <th class="hidden-480">入库类型</th>
                                             <th class="hidden-480">供应商</th>
@@ -230,30 +286,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>1</th>
-                                            <th>
-                                                <a class="icon-edit" href="/Move/Product/Edit?orderNum=000001" id="bianji" title="编辑"><span class="iconfont">&#xe612;</span></a>&nbsp;&nbsp;&nbsp;
-                                                <a class="icon-remove" href="javascript:void(0)" title="删除"><span class="iconfont">&#xe686;</span></a>&nbsp;&nbsp;&nbsp;
-                                                <a class="icon-remove" href="javascript:void(0)" title="查看"><span class="iconfont">&#xe601;</span></a>&nbsp;&nbsp;&nbsp;
-                                                <a class="icon-remove" href="javascript:void(0)" title="审核"><span class="iconfont">&#xe676;</span></a>
-                                            </th>
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
 
-                                <div class="row-fluid" id="mypager">
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -261,23 +298,173 @@
             </div>
         </div>
     </div>
-    <div id="footer">
+</div>
 
+<div id="light" class="white_content" style="width:745px;">
+    <div style="width:725px;height:50px;">
+        <table class="dialogtab inorder_tab" id="tabInfo1">
+            <tbody>
+                <tr style="height:27px;">
+                    <td class="inorder_tdTitle inorder_topline"><strong>入库单号</strong></td>
+                    <td class=" inorder_tdContent inorder_topline" id="ruk"></td>
+                    <td class="inorder_tdTitle inorder_topline">类型</td>
+                    <td class=" inorder_tdContent inorder_topline" id="lx"></td>
+                    <td class="inorder_tdTitle inorder_topline">状态</td>
+                    <td class=" inorder_tdContent inorder_topline" id="zt"></td>
+                </tr>
+                <tr>
+                    <td class="inorder_tdTitle inorder_topline"><strong>供应商编号</strong></td>
+                    <td class=" inorder_tdContent inorder_topline" id="gysbh"></td>
+                    <td class="inorder_tdTitle inorder_topline">供应商名称</td>
+                    <td class=" inorder_tdContent inorder_topline" id="gysmc"></td>
+                    <td class="inorder_tdTitle inorder_topline">联系人</td>
+                    <td class=" inorder_tdContent inorder_topline" id="lxr"></td>
+                </tr>
+                <tr>
+                    <td class="inorder_tdTitle inorder_topline"><strong>关联订单号</strong></td>
+                    <td class=" inorder_tdContent inorder_topline" id="Cpid"></td>
+                    <td class="inorder_tdTitle inorder_topline">创建人</td>
+                    <td class=" inorder_tdContent inorder_topline" id="zdpeople"></td>
+                    <td class="inorder_tdTitle inorder_topline">创建时间</td>
+                    <td class=" inorder_tdContent inorder_topline" id="AddTime"></td>
+                </tr>
+                <tr>
+                    <td class="inorder_tdTitle inorder_topline"><strong>电话</strong></td>
+                    <td class=" inorder_tdContent inorder_topline" id="phone"></td>
+                    <td class="inorder_tdTitle inorder_topline">备注</td>
+                    <td colspan="3" class=" inorder_tdContent inorder_topline" id="beizhu"></td>
 
-        技术支持:15800466429&nbsp;&nbsp;QQ:821865130&nbsp;&nbsp;QQ群:142050808&nbsp;&nbsp;88718955&nbsp;&nbsp;版权声明: 不得用于任何商业用途,违法必究
-        <div class="span pull-right">
-            <span class="go-top"><i class="icon-arrow-up"></i></span>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <table class="table table-striped table-bordered table-hover  border-radius: 0px;" width="1200px" id="tabInfo2">
+            <thead>
+                <tr>
+
+                    <th class="hidden-280">产品名称</th>
+                    <th class="hidden-480">产品条码</th>
+                    <th class="hidden-480">规格</th>
+                    <th class="hidden-480">批次</th>
+                    <th class="hidden-480">单价</th>
+                    <th class="hidden-480">入库数</th>
+                    <th class="hidden-480">总价</th>
+                    <th class="hidden-480">库位</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="cpmc"></td>
+                    <td id="cptm"></td>
+                    <td id="gg"></td>
+                    <td id="pc"></td>
+                    <td id="dj"></td>
+                    <td id="rks"></td>
+                    <td id="zj"></td>
+                    <td id="kw"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="">
+            <div style="margin-top:200px;margin-left:130px;">
+                <button type="button" class="btn btn-primary" id="qd" style="margin-top:10px;margin-left:130px;">确定</button>
+                <button type="button" class="btn btn-secondary" style="margin-top:10px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</button>
+            </div>
         </div>
     </div>
+</div>
 
-    <script type="text/javascript" src="/Theme/plugins/jquery-1.8.3.min.js?t=d3f1534d-8412-4031-999a-5a505055f34b"></script>
-    <script type="text/javascript" src="/Theme/plugins/bootstrap/js/bootstrap.min.js?t=25773eda-9a3a-4b6a-acb1-77d160dc3af4"></script>
-    <script type="text/javascript" src="/Theme/plugins/jbox-v2.3/jBox/jquery.jBox-2.3.min.js?t=de8ce5d1-351c-4550-b889-c775c813aa17"></script>
-    <script type="text/javascript" src="/Common/Js?t=3192e1b1-e2f6-446d-984e-8644409a12cf"></script>
-    <script type="text/javascript" src="/Theme/plugins/My97DatePicker/WdatePicker.js?t=2cff84d0-a1cd-46bf-b950-c6afc5b54439"></script>
-    <script type="text/javascript" src="/Theme/plugins/jquery-autocomplete3.2.2/jquery.autocomplete.js?t=4359fb65-9dca-4048-9791-d35040a47ac1"></script>
-    <script type="text/javascript" src="/Theme/customer/Git.Framework.Common.js?t=8cf63086-2e57-4cea-bf51-6a42d430d45b"></script>
-    <script type="text/javascript" src="/Theme/customer/Git.Framework.UICommon.js?t=48829e00-fd5f-4d6b-8a04-5dcfe16cef8b"></script>
-    <script type="text/javascript" src="/Theme/customer/InStorage/Git.Storage.ProductInOrder.js?t=dcdc1c5d-3324-4356-a015-1a08682d51cb"></script>
+<div id="footer">
+    <div class="span pull-right">
+        <span class="go-top"><i class="icon-arrow-up"></i></span>
+    </div>
+</div>
 
-    </body>
+
+<script type="text/javascript">
+     $(function () {
+         kuweichaxun()
+     });
+     function ss(id) {
+         document.getElementById('light').style.display = 'block'; document.getElementById('fade').style.display = 'block';
+
+         $.ajax({
+             url: "@Url.Action("chaxun")",
+             data: { inid: id },
+              dataType:"json",
+             type: "get",
+             success: function (result) {
+                
+                 
+                 $.each(result.qq, function (inde, value) {                  
+                     $("#ruk").text(value.Inid);
+                     $("#lx").text(value.supplierid);
+                     $("#zt").text(value.stateid);
+                     $("#gysbh").text(value.typeid); 
+                     $("#gysmc").text(value.supname);
+                     $("#lxr").text(value.ContactName);
+                     $("#Cpid").text(value.Cpid);
+                     $("#zdpeople").text(value.zdpeople);
+                     $("#AddTime").text(value.AddTime);
+                     $("#phone").text(value.phone);
+                     $("#beizhu").text(value.beizhu);
+                     $("#cpmc").text(value.cpname);
+                     $("#cptm").text(value.BarCode);
+                     $("#gg").text(value.BatchNum);
+                     $("#pc").text(value.pici);
+                     $("#dj").text(value.num);
+                     $("#rks").text(value.rkshuliang);
+                     $("#zj").text(value.money);
+                     $("#kw").text(value.kuwei);
+
+
+                
+                 })
+             }
+             }) 
+              }
+     
+    
+      function kuweichaxun() {
+
+         //库位查询
+        $.ajax({
+            url: "@Url.Action("lzycha")",
+            data: {},
+            dataType: "json",
+            type: "get",
+            success: function (result) {
+
+                $("#tabInfo tr:gt(0)").remove();
+
+                $.each(result.qq, function (inde, value) {
+
+                    var str = "<tr class='widget-title'>";
+                    str += "<th><input type='checkbox' style='width: 30px;margin-left:0px;' class='group-checkable' name='check2' value='"+value.Inid+"'/></th>"
+                    str += "<th style='width:195px;margin-left:5px;'>" + value.Inid + "</th>";
+                    str += "<th style='width:195px;'>" + value.typeid + "</th>";
+                    str += "<th style='width:195px;'>" + value.supplierid + "</th>";
+                    str += "<th style='width:195px;'>" + value.stateid + "</th>";
+                    str += "<th style='width:195px;'>" + value.supname + "</th>";
+                    str += "<th>"
+                    str += "<a class='icon-remove' href='javascript:void(0)'onclick='ss("+value.Inid+")'><span class='iconfont'>&#xe686;</span></a>&nbsp;&nbsp;&nbsp;</th> ";
+
+                    str += "</tr>";
+                    $("#tabInfo").append(str);
+
+                });
+
+
+            }
+        });
+    }//库位查询
+   
+
+</script>
+
+<div id="fade" class="black_overlay"></div>
+
+
+
+
+

@@ -1,0 +1,191 @@
+﻿@using com.tdxm.model;
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+@{ 
+    var list = ViewBag.cha as  List<productbiao>;
+}
+@*<style>
+        .black_overlay {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 150%;
+            background-color: black;
+            z-index: 1001;
+            opacity: .80;
+            filter: alpha(opacity=88);
+        }
+
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 25%;
+            left: 15%;
+            width: 60%;
+            height: 75%;
+            padding: 20px;
+            background-color: white;
+            z-index: 1002;
+            overflow: auto;
+        }
+    </style>*@
+@*///弹出框*@
+<div>
+    @*style="margin-top:240px;margin-left:730px;"*@
+    <button type="button" class="btn btn-primary" style="margin-top:30px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+        确定
+    </button>
+</div>
+<div id="light" class="white_content" style="margin-left:300px;">
+    <div>
+        <form class="form-inline ">
+            <div class="form-group mb-3">
+                <label>入库单号</label>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="Inid" value="@Model.Inid">
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <div class="form-group mb-3">
+                <label>入库单类型</label>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="typeid" value="@Model.typeid">
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+            <div class="form-group mb-3">
+
+                <label>关联订单</label>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="Cpid" value="@Model.Cpid">
+            </div>
+
+
+         
+            <div class="form-group mb-3">
+                <label>供应商编号</label>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="supplierid" value="@Model.supplierid">
+            </div>
+
+            <div class="form-group mb-3">
+                <label>供应商名称</label>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="supname" value="@Model.supname">
+            </div>
+            <div class="form-group mb-3">
+                <label>总金额</label>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="money" value="@Model.money">
+            </div>
+            <div class="form-group mb-3">
+                <label>联系电话</label>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="phone" value="@Model.phone">
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group mb-3">
+                <label>制单人</label>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="zdpeople" value="@Model.zdpeople">
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group mb-3">
+                <label>操作方式</label>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="czfs" value="@Model.czfs">
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group mb-3">
+                <label>时间</label>
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" name="AddTime" value="@Model.AddTime">
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </form>
+        <hr />
+        <hr />
+        <div style="width:1600px;">
+            <table class="table table-striped table-bordered table-hover" id="tabInfo">
+                <thead>
+                    <tr class="widget-title">
+                        <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
+                        <th class="hidden-480">产品名称</th>
+                        <th class="hidden-480">产品条码</th>
+                        <th class="hidden-480">规格</th>
+                        <th class="hidden-480">批次</th>
+                        <th class="hidden-480">单价</th>
+                        <th class="hidden-480">入库数</th>
+                        <th class="hidden-400">总价</th>
+                        <th class="hidden-400">库位</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="widget-title">
+                        <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="InStorageManager.SelectAll(this)" /></th>
+                        <th class="hidden-480">@Model.cpname</th>
+                        <th class="hidden-480">@Model.BarCode</th>
+                        <th class="hidden-480">@Model.BatchNum</th>
+                        <th class="hidden-480">@Model.pici</th>
+                        <th class="hidden-480">@Model.num</th>
+                        <th class="hidden-480">@Model.rkshuliang</th>
+                        <th class="hidden-400">@Model.money</th>
+                        <th class="hidden-400">@Model.kuwei</th>
+                    </tr>
+                </tbody>
+                  
+                </table>
+
+            <div style="">
+                <button id="btnUpdate" class="btn btn-primary" type="button">修改</button>
+                <button type="button" class="btn btn-secondary" style="margin-top:10px;" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+                    保存
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="fade" class="black_overlay"></div>
+@*///弹出框*@
+<div id="container" class="row-fluid "></div>
+
+
+
+
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#btnUpdate").click(BingUpdate);
+        })
+
+        function BingUpdate () {
+            var formvalue = $("form").serializeArray();
+            var objjson = {};
+            $.each(formvalue, function(index,value) {
+                objjson[value.name] = value.value;
+            })
+            $.ajax({
+                url: "@Url.Action("RuKuUpdate")",
+                data: objjson,
+                dataType: "json",
+                type: "get",
+                success: function (UpdateResult) {
+                    alert(UpdateResult.Msg);
+                }
+            })
+        }
+
+</script>

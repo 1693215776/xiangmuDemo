@@ -51,7 +51,7 @@ namespace com.tdxm.reping
         /// <param name="where"></param>
         /// <returns></returns>
         public List<T> GetByWhereAsc<orderByT>
-       (Expression<Func<T, bool>> where, Expression<Func<T, orderByT>> orderBy, ref int pageIndex, ref int count, ref int pageCount, int pageSize)
+       (Expression<Func<T, bool>> where, Expression<Func<T, orderByT>> orderBy, ref int pageIndex, ref int pageCount, ref int count, int pageSize)
         {
             count = MyDbContext.Set<T>().Where(where).Count(); //总条数
             pageCount = count % pageSize == 0 ? count / pageSize : count / pageSize + 1; //总页数

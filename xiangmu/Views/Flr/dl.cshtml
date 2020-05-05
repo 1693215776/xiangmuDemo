@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>dl</title>
+</head>
+<body>
+    <div>
+        <div class="container">
+            <div id="home">
+                <div class="wrapper">
+                        <fieldset>
+                            <legend></legend>
+                            <div class="item user">
+                                <input type="text" id="Login" name="Login" value="123456" placeholder="用户名" />
+                            </div>
+                            <div class="item password">
+                                <input type="password" id="Password" name="Password" value="123456" placeholder="密码" />
+                            </div>
+                            <div class="item">
+                                <input id="login-btn" class="btn btn-primary" type="button" onclick="Dengl();" value="登录" />
+                                @*<button  class="btn btn-primary" onclick="Dengl()" id="btndl">登录</button>*@
+                            </div>
+                        </fieldset>
+
+                </div>
+                <div class="footer"></div>
+            </div>
+        </div>
+        </div>
+    
+</body>
+</html>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+        function Dengl() {
+            $.ajax({
+
+                type: "post",
+                url: "@Url.Action("Login")",
+                data: "{userName:'" + $("#Login").val() + "',pwd:'" + $("#Password").val() + "'}",
+                dataType: "json",
+                contentType: "application/json",
+                success: function (result) {
+                    $("#shixan").html("");
+                    if (result > 0) {
+                        alert("登录成功！");
+                        location.href = '/Flr/sy';
+                    }
+                    else {
+                        alert("登录失败！");
+                    }
+
+
+                }
+
+            });
+        }
+</script>

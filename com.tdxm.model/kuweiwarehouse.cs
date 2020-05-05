@@ -18,7 +18,6 @@ namespace com.tdxm.model
         public kuweiwarehouse()
         {
             this.kuwei = new HashSet<kuwei>();
-            this.productmanagement = new HashSet<productmanagement>();
         }
     
         public int warehouseid { get; set; }
@@ -26,7 +25,5 @@ namespace com.tdxm.model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<kuwei> kuwei { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<productmanagement> productmanagement { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace com.tdxm.model
         public unit()
         {
             this.productmanagement = new HashSet<productmanagement>();
+            this.productmanagement1 = new HashSet<productmanagement>();
         }
     
         public int metering { get; set; }
@@ -26,5 +27,7 @@ namespace com.tdxm.model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<productmanagement> productmanagement { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<productmanagement> productmanagement1 { get; set; }
     }
 }

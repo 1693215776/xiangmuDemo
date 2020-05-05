@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "RuKuDelete";
+    Layout = "~/Views/mubanye/ym.cshtml";
+}
+
+<form>
+    <div class="container">
+        <div class="row">
+            <input type="hidden" name="Inid" value="@Model.Inid" />
+            <div class="col-md-4 form-group">
+                小区名称<input type="text" name="typeid" value="@Model.typeid" class="form-control" />
+            </div>
+            <div class="col-md-4 form-group">
+                面积<input type="text" name="supplierid" value="@Model.supplierid" class="form-control" />
+            </div>
+        </div>
+      
+            <div class="col-md-4 form-group">
+                房屋朝向<input type="text" name="Cpid" value="@Model.Cpid" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                楼层<input type="text" name="Count" value="@Model.Count" class="form-control" />
+            </div>
+            <div class="col-md-4 form-group">
+                电梯<input type="text" name="money" value="@Model.money" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                月租金<input type="text" name="stateid" value="@Model.stateid" class="form-control" />
+            </div>
+            <div class="col-md-4 form-group">
+                物业费<input type="text" name="czfs" value="@Model.czfs" class="form-control" />
+            </div>
+            <div class="col-md-4 form-group">
+                物业费<input type="text" name="zdpeople" value="@Model.zdpeople" class="form-control" />
+            </div>
+            <div class="col-md-4 form-group">
+                物业费<input type="text" name="AddTime" value="@Model.AddTime" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-inline">
+                <button id="btnDelete" class="btn btn-primary" type="button">删除</button>
+                <button class="btn btn-primary" type="reset">清除</button>
+            </div>
+        </div>
+    </div>
+
+  
+</form>
+
+
