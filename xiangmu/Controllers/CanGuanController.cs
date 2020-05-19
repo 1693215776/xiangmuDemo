@@ -145,13 +145,33 @@ namespace xiangmu.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
 
         }
-
+        /// <summary>
+        /// 退货查看
+        /// </summary>
+        /// <param name="mid"></param>
+        /// <returns></returns>
         /// <summary>
         /// 产品表
         /// </summary>
         /// <param name="productbiao"></param>
         /// <returns></returns>
+        public ActionResult thchaxun(int sid)
+        {
+            var tt = new lzyrukuchas();
+            Expression<Func< salesreturn, bool>> where = item => true;
+            if (sid != 0)
+            {
+                where = where.And(item => item.sid == sid);
+            }
+            var list = tt.GetByWhere6(where);
+            var newform = list.Select(item => new { sid = item.sid, thid = item.salestype.thtypename, stateid = item.audit.auditname, khid = item.khid, Khname = item.Khname, lxr = item.lxr, correlationid = item.correlationid, bsr = item.bsr, AddTime = item.AddTime, phone = item.phone, beizhu = item.beizhu, ProductName = item.ProductName, BarCode = item.BarCode, meteringid = item.meteringid, pici = item.pici, guige = item.guige, Chukushuliang = item.Chukushuliang, kuwei = item.kuwei,  });
+            var result = new
+            {
+                qq = newform
+            };
+            return Json(result, JsonRequestBehavior.AllowGet);
 
+        }
         public ActionResult rukuinserts(stockmanagement stockmanagement)
         {
             var xz = new lzyrukudaninserts();
