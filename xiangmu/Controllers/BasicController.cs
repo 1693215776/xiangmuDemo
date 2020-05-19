@@ -13,7 +13,7 @@ namespace xiangmu.Controllers
     public class BasicController : Controller
     {
         // GET: Basic
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             return View();
         }
