@@ -86,6 +86,7 @@
     <None Include="obj\Debug\com.tdxm.reping.csprojAssemblyReference.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Release\com.tdxm.reping.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Release\com.tdxm.reping.csprojAssemblyReference.cache" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
