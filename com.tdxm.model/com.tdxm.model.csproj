@@ -209,8 +209,6 @@
   <ItemGroup>
     <Content Include="bin\Debug\com.tdxm.model.dll" />
     <Content Include="bin\Debug\com.tdxm.model.pdb" />
-    <Content Include="bin\Debug\EntityFramework.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
     <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
     <Content Include="bin\Debug\EntityFramework.xml" />
     <Content Include="bin\Debug\zh-Hans\EntityFramework.resources.dll" />
